@@ -199,7 +199,7 @@ function SetUpRotation (centerPos : Vector3, headPos : Vector3)
 	var yRotation = Quaternion.LookRotation(Vector3(offsetToCenter.x, 0, offsetToCenter.z));
 
 	var relativeOffset = Vector3.forward * distance + Vector3.down * height;
-	cameraTransform.rotation = yRotation * Quaternion.LookRotation(relativeOffset);
+	cameraTransform.rotation = Quaternion.LookRotation(relativeOffset);
 
 	// Calculate the projected center position and top position in world space
 	var centerRay = cameraTransform.camera.ViewportPointToRay(Vector3(.5, 0.5, 1));

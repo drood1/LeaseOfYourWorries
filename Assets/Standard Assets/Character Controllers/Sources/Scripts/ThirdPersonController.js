@@ -137,7 +137,6 @@ function UpdateSmoothedMovementDirection ()
 	// Right vector relative to the camera
 	// Always orthogonal to the forward vector
 	var right = Vector3(forward.z, 0, -forward.x);
-
 	var v = Input.GetAxisRaw("Vertical");
 	var h = Input.GetAxisRaw("Horizontal");
 
@@ -353,21 +352,7 @@ function Update() {
 	// ANIMATION sector
 	
 	// Set rotation to the move direction
-	if (IsGrounded())
-	{
-		
-		transform.rotation = Quaternion.LookRotation(moveDirection);
-			
-	}	
-	else
-	{
-		var xzMove = movement;
-		xzMove.y = 0;
-		if (xzMove.sqrMagnitude > 0.001)
-		{
-			transform.rotation = Quaternion.LookRotation(xzMove);
-		}
-	}	
+	
 	
 	// We are in jump mode but just became grounded
 	if (IsGrounded())

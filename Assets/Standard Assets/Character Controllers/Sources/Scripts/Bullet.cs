@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour {
 	public float bulletlife = .5f;
 	float dis = 500f;
 	float bspeed = 0;
-	float starttime = Time.time;
+	float starttime = 0f;
 	void Start()
 	{
 		starttime = Time.time;
@@ -16,7 +16,7 @@ public class Bullet : MonoBehaviour {
 		GameObject.Destroy (gameObject);
 	}
 	void Update () {
-		Debug.Log((Time.time-starttime)*bspeed);
+		//Debug.Log((Time.time-starttime)*bspeed);
 		bulletlife -= Time.deltaTime;
 		if(bulletlife <= 0){
 			GameObject.Destroy (gameObject);

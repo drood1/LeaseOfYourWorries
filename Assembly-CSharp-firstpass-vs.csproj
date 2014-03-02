@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\Bullet.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\Grabbing.cs" />
+     <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\ItemWarp.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\LookAtMouse.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\MouseLook.cs" />
      <Compile Include="Assets\Standard Assets\Character Controllers\Sources\Scripts\Shooting.cs" />

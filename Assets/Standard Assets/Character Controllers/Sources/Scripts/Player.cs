@@ -2,10 +2,16 @@
 using System.Collections;
 
 public class Player : MonoBehaviour {
-	public int health = 10;
+	public int health = 5;
 	public bool invincible = false;
 	public float timer;
 	public int damage_time = 5;
+	public Texture health1;
+	public Texture health2;
+	public Texture health3;
+	public Texture health4;
+	public Texture health5;
+	public Texture health6;
 
 	//public GameObject dmg_skin = null;
 
@@ -78,6 +84,24 @@ public class Player : MonoBehaviour {
 	}
 
 	void OnGUI() {
-		GUI.Label ( new Rect (10,Screen.height - 50,100,50), "Health: " + health);
+		//GUI.Label ( new Rect (10,Screen.height - 50,100,50), "Health: " + health);
+		if (health == 5){
+			GUI.DrawTexture(new Rect(10,0,Screen.width/4,50),health1);
+		}
+		if (health == 4){
+			GUI.DrawTexture(new Rect(10,0,Screen.width/4,50),health2);
+		}
+		if (health == 3){
+			GUI.DrawTexture(new Rect(10,0,Screen.width/4,50),health3);
+		}
+		if (health == 2){
+			GUI.DrawTexture(new Rect(10,0,Screen.width/4,50),health4);
+		}
+		if (health == 1){
+			GUI.DrawTexture(new Rect(10,0,Screen.width/4,50),health5);
+		}
+		if (health <= 0){
+			GUI.DrawTexture(new Rect(10,0,Screen.width/4,50),health6);
+		}
 	}
 }

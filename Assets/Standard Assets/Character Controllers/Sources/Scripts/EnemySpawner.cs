@@ -13,7 +13,7 @@ public class EnemySpawner : MonoBehaviour {
 	void Start () {
 		start_time = Time.time;
 		spawn_speed = 10f;
-		player = GameObject.Find("3rd Person Controller");
+		player = GameObject.Find("playerChar");
 	}
 	
 	// Update is called once per frame

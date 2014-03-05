@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		player = GameObject.Find ("3rd Person Controller");
+		player = GameObject.Find ("playerChar");
 		gameObject.tag = "enemy";
 
 		mesh_rend = GetComponent<MeshRenderer>();

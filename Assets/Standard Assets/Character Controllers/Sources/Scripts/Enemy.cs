@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour {
 
 		mesh_rend = GetComponent<MeshRenderer>();
 		damaged = new Material(Shader.Find("Diffuse"));
-		damaged.color = new Color(mesh_rend.material.color.r,mesh_rend.material.color.g,mesh_rend.material.color.b, .1f);
+		damaged.color = new Color(1,0,0,.1f);
 	}
 
 	private void OnCollisionEnter(Collision c) 

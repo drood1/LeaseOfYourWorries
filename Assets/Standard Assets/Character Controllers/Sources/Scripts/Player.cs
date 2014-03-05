@@ -45,15 +45,23 @@ public class Player : MonoBehaviour {
 	}
 
 	private void flash(float temp) {
-		if(temp < 1)
+		if(temp < .5)
 			norm_skin.material = dmg_mat;
-		else if(temp > 1 && temp < 2)
+		else if(temp > .5 && temp < 1)
 			norm_skin.material = norm_mat;
-		else if(temp > 2 && temp < 3)
+		else if(temp > 1 && temp < 1.5)
 			norm_skin.material = dmg_mat;
-		else if(temp > 3 && temp < 4)
+		else if(temp > 1.5 && temp < 2)
 			norm_skin.material = norm_mat;
-		else if(temp > 4)
+		else if(temp > 2 && temp < 2.5)
+			norm_skin.material = dmg_mat;
+		else if(temp > 2.5 && temp < 3)
+			norm_skin.material = norm_mat;
+		else if(temp > 3 && temp < 3.5)
+			norm_skin.material = dmg_mat;
+		else if(temp > 3.5 && temp < 4)
+			norm_skin.material = norm_mat;
+		else if(temp > 4 && temp < 4.5)
 			norm_skin.material = dmg_mat;
 	}
 

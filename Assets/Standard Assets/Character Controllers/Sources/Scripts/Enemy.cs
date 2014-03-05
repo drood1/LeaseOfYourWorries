@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour {
 	private void OnCollisionEnter(Collision c) 
 	{
 		if(c.gameObject.tag == "bullet") {
-			//Debug.Log("Enemy Killed");
+			Debug.Log("Enemy Hit");
 			GUIDamage = Instantiate(GUIPrefab,Camera.main.WorldToViewportPoint(gameObject.transform.position), Quaternion.identity) as GameObject;
 			GUIDamage.guiText.text = "5";
 			health -= 5;
@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour {
 		Move();
 
 		if(health <= 0f) {
+			Debug.Log("Enemy Killed");
 			int chance = Random.Range(0,100);
 			if(chance < drop_chance) {
 				candy = standard_candy;

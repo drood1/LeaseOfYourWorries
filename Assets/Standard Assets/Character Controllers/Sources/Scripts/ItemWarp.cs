@@ -6,7 +6,12 @@ public class ItemWarp : MonoBehaviour {
 	GameObject hand;
 	GameObject wep;
 	public int wepnum = 0;
-
+	public int wepdmg = 0;
+	public int wepbul = 0;
+	public float wepcd = 0f;
+	public float weprange = 0f;
+	public bool melee = false;
+	public int[] arraystats;
 	Grabbing whatdo;
 	// Use this for initialization
 	void Start () {
@@ -18,6 +23,10 @@ public class ItemWarp : MonoBehaviour {
 			wep = GameObject.Find("jnt_bucket");
 		}
 		collider.isTrigger = true;
+		arraystats = new int[2];
+		arraystats[0] = wepdmg;
+		arraystats[1] = wepbul;
+
 	}
 	
 	// Update is called once per frame
@@ -31,6 +40,7 @@ public class ItemWarp : MonoBehaviour {
 		if(Input.GetMouseButtonDown(1)){
 				
 			player.SendMessage("Equip",wepnum);
+			player.GetComponent<Shooting>().stat(arraystats,wepcd,weprange,melee);
 				//wep.collider.enabled = false;
 				//player.gameObject.GetComponent<Grabbing>().holding(true);
 			//gameObject.transform.parent = player.transform.Find("Bip001/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 R Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001 R Hand/Bip001 R Hand").transform;

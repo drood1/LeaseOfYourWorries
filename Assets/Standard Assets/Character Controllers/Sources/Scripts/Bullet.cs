@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour {
 	float dis = 500f;
 	float bspeed = 0;
 	float starttime = 0f;
+	int dmg = 0;
 	void Start()
 	{
 		starttime = Time.time;
@@ -29,6 +30,9 @@ public class Bullet : MonoBehaviour {
 	public void setdis(float a, float b){
 		dis = a;
 		bspeed = b;
+	}
+	public void setdmg(int a){
+		dmg = a;
 	}
 
 }

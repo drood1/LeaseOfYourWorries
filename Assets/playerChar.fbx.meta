@@ -1,32 +1,21 @@
 fileFormatVersion: 2
-guid: 71e72c588d6d1494cbd5f9784eb58bda
+guid: 61f7eb1c0a0c6a14da49ce87995ef5b9
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: cloak
-    100004: funky_hat
-    100006: mustache
-    100008: pCylinder2
-    100010: polySurface6
-    100012: transform1
-    100014: transform2
-    100016: transform3
-    100018: transform4
-    400000: //RootNode
-    400002: cloak
-    400004: funky_hat
-    400006: mustache
-    400008: pCylinder2
-    400010: polySurface6
-    400012: transform1
-    400014: transform2
-    400016: transform3
-    400018: transform4
-    2300000: polySurface6
-    3300000: polySurface6
-    4300000: polySurface6
+    100000: be_r_hand
+    100002: bn_r_elbow
+    100004: imagePlane1
+    100006: Kid
+    100008: //RootNode
+    400000: be_r_hand
+    400002: bn_r_elbow
+    400004: imagePlane1
+    400006: Kid
+    400008: //RootNode
+    4300000: Kid
     9500000: //RootNode
+    13700000: Kid
   materials:
     importMaterials: 1
     materialName: 0
@@ -45,7 +34,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .400000006
+    globalScale: .200000003
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

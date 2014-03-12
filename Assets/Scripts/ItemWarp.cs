@@ -3,6 +3,7 @@ using System.Collections;
 
 public class ItemWarp : MonoBehaviour {
 	public GameObject player = null;
+	public GameObject Boo = null;
 	GameObject hand;
 	GameObject wep;
 	public int wepnum = 0;
@@ -40,6 +41,7 @@ public class ItemWarp : MonoBehaviour {
 		if(Input.GetMouseButtonDown(1)){
 				
 			player.SendMessage("Equip",wepnum);
+			Boo.SendMessage("Warp");
 			player.GetComponent<Shooting>().stat(arraystats,wepcd,weprange,melee);
 				//wep.collider.enabled = false;
 				//player.gameObject.GetComponent<Grabbing>().holding(true);

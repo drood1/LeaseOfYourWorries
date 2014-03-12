@@ -4,7 +4,10 @@ using System.Collections;
 public class Shooting : MonoBehaviour {
 	public float bspeed = 3000f;
 	public GameObject bullet = null;
-	public GameObject bullettype1 = null;
+	public GameObject Circle = null;
+	public GameObject Cone = null;
+	public GameObject Rectangles = null;
+	public GameObject Sphere = null;
 	public GameObject bullettype2 = null;
 	public bool melee = false;
 	public float maxdis = 10f;
@@ -12,7 +15,7 @@ public class Shooting : MonoBehaviour {
 	float starttime = -1000f;
 	public float cdtime = 1f;
 	int buldmg = 0;
-	int bultype = 0;
+	int bultype = 1;
 	void Start () {
 		//starttime = Time.time;
 		
@@ -20,7 +23,17 @@ public class Shooting : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		bullet = bullettype1;
+		if(bultype == 1){
+			bullet = Circle;
+		}else if(bultype == 2){
+			bullet = Cone;
+		}else if(bultype == 3){
+			bullet = Rectangles;
+		}else if(bultype == 4){
+			bullet = Sphere;
+		}else if(bultype == 5){
+			bullet = bullettype2;
+		}
 		if(Input.GetMouseButtonDown(0)){
 			if(Time.time-starttime >= cdtime){
 				starttime = Time.time;

@@ -14,7 +14,8 @@ public class WarptoMe : MonoBehaviour {
 	}
 	void Warp (){
 		gameObject.GetComponent<BooPathing>().Stop();
-		gameObject.transform.position = new Vector3(player.transform.position.x + 1, player.transform.position.y, gameObject.transform.position.z);
+		//gameObject.transform.position = player.transform.position;
+		gameObject.transform.position = new Vector3(player.transform.position.x + 1f, gameObject.transform.position.y, player.transform.position.z + 1f);
 		gameObject.transform.LookAt(player.transform);
 	}
 }

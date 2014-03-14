@@ -14,14 +14,14 @@ public class Bullet : MonoBehaviour {
 		starttime = Time.time;
 	}
 	private void OnCollisionEnter(Collision c){
-		GameObject.Destroy (gameObject);
+		if(c.gameObject.tag == "enemy"){
+			GameObject.Destroy (gameObject);
+		}
+
+
 	}
 	void Update () {
 		//Debug.Log((Time.time-starttime)*bspeed);
-		bulletlife -= Time.deltaTime;
-		if(bulletlife <= 0){
-			GameObject.Destroy (gameObject);
-		}
 		if((Time.time-starttime)*bspeed >= dis){
 			GameObject.Destroy (gameObject);
 		}

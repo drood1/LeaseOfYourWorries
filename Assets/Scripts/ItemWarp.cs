@@ -23,6 +23,12 @@ public class ItemWarp : MonoBehaviour {
 		if(wepnum == 2){
 			wep = GameObject.Find("jnt_bucket");
 		}
+		if(wepnum == 3){
+			wep = GameObject.Find("jnt_knife");
+		}
+		if(wepnum == 4){
+			wep = GameObject.Find("jnt_duster");
+		}
 		collider.isTrigger = true;
 		arraystats = new int[2];
 		arraystats[0] = wepdmg;
@@ -39,7 +45,6 @@ public class ItemWarp : MonoBehaviour {
 
 
 		if(Input.GetMouseButtonDown(1)){
-				
 			player.SendMessage("Equip",wepnum);
 			Boo.SendMessage("Warp");
 			player.GetComponent<Shooting>().stat(arraystats,wepcd,weprange,melee);
@@ -69,6 +74,16 @@ public class ItemWarp : MonoBehaviour {
 			wep = GameObject.Find("jnt_bucket");
 			wep.transform.parent = null;
 			//wep.transform.parent = GameObject.Find("weaponBucket").transform;
+		}
+		if(numnum == 3){
+			wep = GameObject.Find("jnt_knife");
+			wep.transform.parent = null;
+
+		}
+		if(numnum == 4){
+			wep = GameObject.Find("jnt_duster");
+			wep.transform.parent = null;
+
 		}
 
 	}

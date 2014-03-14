@@ -32,6 +32,12 @@ public class Grabbing : MonoBehaviour {
 			if(prewepnum == 2){
 				wep = GameObject.Find("jnt_bucket");
 			}
+			if(prewepnum == 3){
+				wep = GameObject.Find("jnt_knife");
+			}
+			if(prewepnum == 4){
+				wep = GameObject.Find("jnt_duster");
+			}
 			wep.SendMessage("unequip",prewepnum);
 			prewepnum = wepnum;
 				//wep.transform.parent = null;

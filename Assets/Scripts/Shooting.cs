@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Shooting : MonoBehaviour {
-	public float bspeed = 3000f;
+	public float bspeed = 300f;
 	public GameObject bullet = null;
 	public GameObject Circle = null;
 	public GameObject Cone = null;
@@ -34,7 +34,6 @@ public class Shooting : MonoBehaviour {
 		}else if(bultype == 5){
 			bullet = bullettype2;
 		}
-		Debug.Log(Time.time.ToString("f2"));
 		if(Input.GetMouseButtonDown(0)){
 			if(Time.time >= starttime){
 				starttime = Time.time + cdtime;

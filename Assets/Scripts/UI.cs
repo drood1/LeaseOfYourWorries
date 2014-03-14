@@ -35,7 +35,7 @@ public class UI : MonoBehaviour {
 		GUI.Label ( new Rect (10,Screen.height - 20,100,50), "Candies " + Candies);
 		//GUI.Box(new Rect(20,50,60,curRep), curRep + " / " + maxRep);
 		GUI.Box(new Rect(10,50,repBarLength,25),"");
-		GUI.Box(new Rect(10,50,(Screen.width/3),25), curRep + " / " + maxRep + " Rep");
+		GUI.Box(new Rect(10,50,562,25), curRep + " / " + maxRep + " Rep");
 	}
 
 	void addCandy() {

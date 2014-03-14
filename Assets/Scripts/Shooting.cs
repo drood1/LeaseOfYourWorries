@@ -34,9 +34,10 @@ public class Shooting : MonoBehaviour {
 		}else if(bultype == 5){
 			bullet = bullettype2;
 		}
+		Debug.Log(Time.time.ToString("f2"));
 		if(Input.GetMouseButtonDown(0)){
-			if(Time.time-starttime >= cdtime){
-				starttime = Time.time;
+			if(Time.time >= starttime){
+				starttime = Time.time + cdtime;
 				GameObject shot = Instantiate (bullet, transform.position+transform.forward,transform.rotation) as GameObject;
 				if(melee == true){
 					shot.renderer.enabled = false;

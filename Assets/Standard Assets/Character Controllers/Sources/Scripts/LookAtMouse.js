@@ -7,6 +7,7 @@
 var speed = 4.0;
  
 function Update () {
+	//rigidbody.freezeRotation = true;
     // Generate a plane that intersects the transform's position with an upwards normal.
     var playerPlane = new Plane(Vector3.up, transform.position);
  
@@ -30,4 +31,5 @@ function Update () {
         // Smoothly rotate towards the target point.
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, speed * Time.deltaTime);
     }
+    
 }

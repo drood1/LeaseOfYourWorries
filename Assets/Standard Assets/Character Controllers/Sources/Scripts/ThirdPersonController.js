@@ -137,9 +137,9 @@ function UpdateSmoothedMovementDirection ()
 	// Right vector relative to the camera
 	// Always orthogonal to the forward vector
 	var right = Vector3(forward.z, 0, -forward.x);
-	var v = Input.GetAxisRaw("Vertical");
-	var h = Input.GetAxisRaw("Horizontal");
-
+	var v = Input.GetAxis("Vertical");
+    var h = Input.GetAxis("Horizontal");
+	moveDirection = Vector3(h, 0, v);
 	// Are we moving backwards or looking backwards
 	
 	var wasMoving = isMoving;
@@ -159,21 +159,7 @@ function UpdateSmoothedMovementDirection ()
 		// We store speed and direction seperately,
 		// so that when the character stands still we still have a valid forward direction
 		// moveDirection is always normalized, and we only update it if there is user input.
-		if (targetDirection != Vector3.zero)
-		{
-			// If we are really slow, just snap to the target direction
-			if (moveSpeed < walkSpeed * 0.9 && grounded)
-			{
-				moveDirection = targetDirection.normalized;
-			}
-			// Otherwise smoothly turn towards it
-			else
-			{
-				moveDirection = Vector3.RotateTowards(moveDirection, targetDirection, rotateSpeed * Mathf.Deg2Rad * Time.deltaTime, 1000);
-				
-				moveDirection = moveDirection.normalized;
-			}
-		}
+		
 		
 		// Smooth the speed based on the current target direction
 		var curSmooth = speedSmoothing * Time.deltaTime;

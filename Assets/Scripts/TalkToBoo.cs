@@ -9,12 +9,12 @@ public class TalkToBoo : MonoBehaviour {
 	void OnGUI() {
 		if(trigger == 1)	{
 			//GUI.skin.font = Canterbury;
-			GUI.Label ( new Rect (700, 600,350,300), "WHY HULLO THAR!");
+			GUI.Label ( new Rect (300, 300,350,300), "WHY HULLO THAR!");
 		}
 		else if(trigger == 2)
-			GUI.Label ( new Rect (700, 600,350,300), "THIS IS A TEXT BAWKS");
+			GUI.Label ( new Rect (300, 300,350,300), "THIS IS A TEXT BAWKS");
 		else if(trigger == 3)
-			GUI.Label ( new Rect (700, 600,350,300), "IT TELLS YOU THINGS :o!");
+			GUI.Label ( new Rect (300, 300,350,300), "IT TELLS YOU THINGS :o!");
 		else trigger = 0;
 	}
 	

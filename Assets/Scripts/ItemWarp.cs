@@ -4,6 +4,7 @@ using System.Collections;
 public class ItemWarp : MonoBehaviour {
 	public GameObject player = null;
 	public GameObject Boo = null;
+	public GameObject cam = null;
 	GameObject hand;
 	GameObject wep;
 	public int wepnum = 0;
@@ -11,6 +12,7 @@ public class ItemWarp : MonoBehaviour {
 	public int wepbul = 0;
 	public float wepcd = 0f;
 	public float weprange = 0f;
+	public int level = 0;
 	public bool melee = false;
 	public int[] arraystats;
 	Grabbing whatdo;
@@ -45,6 +47,22 @@ public class ItemWarp : MonoBehaviour {
 
 
 		if(Input.GetMouseButtonDown(1)){
+			int plvl = cam.GetComponent<UI>().getLvl();
+			int temp = plvl - level;
+			int pcandies = cam.GetComponent<UI>().getcan();
+			if(temp >= 0)
+				pcandies -= 5;
+			if(temp == -1)
+				pcandies -= 10;
+			if(temp == -2)
+				pcandies -= 20;
+			if(temp <= -3)
+				pcandies -= 45;
+			if(pcandies < 0){
+				Boo.SendMessage("Warp");
+				player.SendMessage("Poor");
+			}else{
+			cam.GetComponent<UI>().setcan(pcandies);
 			player.SendMessage("Equip",wepnum);
 			Boo.SendMessage("Warp");
 			player.GetComponent<Shooting>().stat(arraystats,wepcd,weprange,melee);
@@ -56,6 +74,7 @@ public class ItemWarp : MonoBehaviour {
 			this.transform.localRotation = Quaternion.identity;
 			//this.transform.localRotation = Quaternion.Euler(0, 0, -50);
 			//gameObject.transform.parent.gameObject;
+			}
 		}
 	}
 	void OnTriggerEnter(Collider other) {

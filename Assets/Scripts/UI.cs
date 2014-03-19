@@ -3,7 +3,7 @@ using System.Collections;
 
 public class UI : MonoBehaviour {
 	public GameObject Heart = null;
-	int Candies = 3;
+	int Candies = 99;
 	public int curRep = 0;
 	private int maxRep = 100;
 	private int curLevel = 1;
@@ -30,6 +30,15 @@ public class UI : MonoBehaviour {
 	public void AdjustCurrentRep(int adjRep){
 		curRep += adjRep;
 		repBarLength = (Screen.width/3)*(curRep /(float)maxRep);
+	}
+	public int getLvl(){
+		return curLevel;
+	}
+	public int getcan(){
+		return Candies;
+	}
+	public void setcan(int a){
+		Candies = a;
 	}
 	void OnGUI () {
 		GUI.Label ( new Rect (10,Screen.height - 20,100,50), "Candies " + Candies);

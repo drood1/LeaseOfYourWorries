@@ -83,27 +83,8 @@ public class ItemWarp : MonoBehaviour {
 		}
 	}
 	public void unequip(int numnum){
+		this.transform.parent = null;
 
-		if(numnum == 1){
-			wep = GameObject.Find("jnt_poker");
-			wep.transform.parent = null;
-			//wep.transform.parent = GameObject.Find("weaponPoker").transform;
-		}
-		if(numnum == 2){
-			wep = GameObject.Find("jnt_bucket");
-			wep.transform.parent = null;
-			//wep.transform.parent = GameObject.Find("weaponBucket").transform;
-		}
-		if(numnum == 3){
-			wep = GameObject.Find("jnt_knife");
-			wep.transform.parent = null;
-
-		}
-		if(numnum == 4){
-			wep = GameObject.Find("jnt_duster");
-			wep.transform.parent = null;
-
-		}
 
 	}
 	}

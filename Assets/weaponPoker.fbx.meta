@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3e9997c766e3bc84b952b98d36ed9f68
+guid: cc0224313ba23dd4bb5e3c99df683e20
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -10,7 +10,6 @@ ModelImporter:
     400002: poker
     400004: //RootNode
     4300000: poker
-    7400000: Take 001
     9500000: //RootNode
     13700000: poker
   materials:
@@ -49,7 +48,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []

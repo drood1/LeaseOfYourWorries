@@ -2,18 +2,28 @@
 using System.Collections;
 
 public class BooregardDetection : MonoBehaviour {
-
+	
+	//NEED TO MAKE IT SO WHEN EXITING BOOREGARDS "RANGE", SET INRANGE TO FALSE
+	
 	void OnTriggerEnter(Collider coll)	{
-		GameObject g = coll.gameObject;
-		print ("In range of Booregard.");	
+		GameObject g = coll.gameObject;	
 		TalkToBoo charCode = g.GetComponent<TalkToBoo>();
+		
 		if(charCode != null){
 			charCode.inRange = true;
+		}
 	}
+	
+	void OnTriggerExit(Collider coll)	{
+		GameObject g = coll.gameObject;
+		TalkToBoo charCode = g.GetComponent<TalkToBoo>();
+		
+		if(charCode != null){
+			charCode.inRange = false;
+		}
 	}
-
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
 }

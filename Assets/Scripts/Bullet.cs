@@ -9,8 +9,10 @@ public class Bullet : MonoBehaviour {
 	float bspeed = 0;
 	float starttime = 0f;
 	int dmg = 0;
+	float angle;
 	void Start()
 	{
+
 		starttime = Time.time;
 	}
 	private void OnCollisionEnter(Collision c){
@@ -20,12 +22,15 @@ public class Bullet : MonoBehaviour {
 
 
 	}
+	void FixedUpdated(){
+	}
 	void Update () {
 		//Debug.Log((Time.time-starttime)*bspeed);
 		if((Time.time-starttime)*bspeed >= dis){
 			GameObject.Destroy (gameObject);
 		}
 
+		
 	}
 	public void setdis(float a, float b){
 		dis = a;

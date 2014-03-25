@@ -11,3 +11,5 @@
 /*.userprefs
 /*.pidb
 /*.booproj
+ProjectSettings/Physics2DSettings.asset
+ProjectSettings/TagManager.asset

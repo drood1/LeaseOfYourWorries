@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Shooting : MonoBehaviour {
-	public float bspeed = 300f;
+	public float bspeed = 3000f;
 	public GameObject bullet = null;
 	public GameObject Circle = null;
 	public GameObject Cone = null;
@@ -41,6 +41,7 @@ public class Shooting : MonoBehaviour {
 				if(melee == true){
 					shot.renderer.enabled = false;
 				}
+				shot.rigidbody.AddTorque(0,30,0);
 				shot.GetComponent<Bullet>().setdis(maxdis,bspeed);
 				shot.GetComponent<Bullet>().setdmg(buldmg);
 				shot.rigidbody.AddForce(transform.forward*bspeed);

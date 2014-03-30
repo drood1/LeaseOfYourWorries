@@ -337,8 +337,7 @@ function Update () {
 }
 
 private function ApplyInputVelocityChange (velocity : Vector3) {	
-	if (!canControl)
-		inputMoveDirection = Vector3.zero;
+	
 	
 	// Find desired velocity
 	var desiredVelocity : Vector3;

@@ -41,7 +41,11 @@ public class Shooting : MonoBehaviour {
 				if(melee == true){
 					shot.renderer.enabled = false;
 				}
-				shot.rigidbody.AddTorque(0,30,0);
+
+				if(bultype == 5){
+					shot.rigidbody.AddTorque(0,100,0);
+
+				}
 				shot.GetComponent<Bullet>().setdis(maxdis,bspeed);
 				shot.GetComponent<Bullet>().setdmg(buldmg);
 				shot.rigidbody.AddForce(transform.forward*bspeed);

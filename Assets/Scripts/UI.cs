@@ -2,7 +2,9 @@
 using System.Collections;
 
 public class UI : MonoBehaviour {
-	public GameObject Heart = null;
+	public Texture Bar = null;
+	public Texture BarBack = null;
+	public Texture candy = null;
 	int Candies = 99;
 	public int curRep = 0;
 	private int maxRep = 100;
@@ -30,7 +32,7 @@ public class UI : MonoBehaviour {
 	}
 	public void AdjustCurrentRep(int adjRep){
 		curRep += adjRep;
-		repBarLength = (532)*(curRep /(float)maxRep);
+		repBarLength = (512)*(curRep /(float)maxRep);
 	}
 	public int getLvl(){
 		return curLevel;
@@ -42,12 +44,15 @@ public class UI : MonoBehaviour {
 		Candies = a;
 	}
 	void OnGUI () {
-		GUI.Label ( new Rect (10,Screen.height - 20,100,50), "Candies " + Candies);
+		GUI.Label ( new Rect (85,Screen.height - 20,100,50), "" + Candies);
 		//GUI.Box(new Rect(20,50,60,curRep), curRep + " / " + maxRep);
 		GUI.Box(new Rect(10,90,repBarLength,25),"");
-		GUI.Box(new Rect(10,90,532,25), curRep + " / " + maxRep + " Rep");
-	}
+		GUI.Box(new Rect(10,90,512,25), curRep + " / " + maxRep + " Rep");
+		GUI.DrawTexture(new Rect(532,0,413,88),BarBack);
+		GUI.DrawTexture(new Rect(532,0,413,88),Bar);
+		GUI.DrawTexture(new Rect(10,Screen.height - 100,64,100),candy);
 
+	}
 	void addCandy() {
 		Candies++;
 	}

@@ -32,7 +32,7 @@ public class Shooting : MonoBehaviour {
 		}else if(bultype == 4){
 			bullet = Sphere;
 		}else if(bultype == 5){
-			bullet = bullettype2;
+			bullet = bullettype2;//custom bullet for knife
 		}
 		if(Input.GetMouseButtonDown(0)){
 			if(Time.time >= starttime){

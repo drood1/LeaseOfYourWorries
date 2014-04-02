@@ -16,6 +16,13 @@ public class ItemWarp : MonoBehaviour {
 	public bool melee = false;
 	public int[] arraystats;
 	private Vector3 ov;
+	public Texture popups;
+	public Texture popups1;
+	public Texture popups2;
+	public Texture popups3;
+	public Texture popups4;
+	public Sprite[] array;
+	private bool showme = false;
 	Grabbing whatdo;
 	// Use this for initialization
 	void Start () {
@@ -55,9 +62,17 @@ public class ItemWarp : MonoBehaviour {
 	void Update () {
 
 	}
+	public void OnGUI(){
+
+
+	}
+	void OnMouseExit(){
+		showme = false;
+
+	}
 	void OnMouseOver (){
 		//if(whatdo.holdingitem == false){
-
+		showme = true;
 
 		if(Input.GetMouseButtonDown(1)){
 			int plvl = cam.GetComponent<UI>().getLvl();
@@ -85,12 +100,8 @@ public class ItemWarp : MonoBehaviour {
 				wep.transform.parent = hand.transform;
 				wep.transform.localPosition = new Vector3(0,0,0);
 				ov = this.transform.eulerAngles;
+				this.transform.localRotation = Quaternion.identity;
 
-				if(wepnum == 7){
-
-				}else{
-					this.transform.localRotation = Quaternion.identity;
-				}
 			//this.transform.localRotation = Quaternion.Euler(0, 0, -50);
 			//gameObject.transform.parent.gameObject;
 			}

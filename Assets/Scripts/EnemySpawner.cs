@@ -128,8 +128,8 @@ public class Wave {
 	List<string> one = new List<string>()
 	{
 		"Enemy3",
-		//"Enemy2",
-		//"Enemy2",
+		"Enemy2",
+		"Enemy1",
 	};
 	
 	List<string> two = new List<string>()

@@ -15,8 +15,9 @@ public class Bullet : MonoBehaviour {
 	}
 	private void OnCollisionEnter(Collision c){
 		if(c.gameObject.tag == "enemy"){
-			GameObject.Destroy (gameObject);
+			Debug.Log("Hit enemy");
 			c.gameObject.SendMessage("getHit", dmg);
+			GameObject.Destroy (gameObject);
 		}
 		if(c.gameObject.tag == "Enemy Bullet"){
 			GameObject.Destroy (gameObject);

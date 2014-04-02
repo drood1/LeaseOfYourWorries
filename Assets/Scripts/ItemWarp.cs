@@ -16,6 +16,7 @@ public class ItemWarp : MonoBehaviour {
 	public bool melee = false;
 	public int[] arraystats;
 	private Vector3 ov;
+	public Texture popup;
 	public Texture popups;
 	public Texture popups1;
 	public Texture popups2;
@@ -63,8 +64,21 @@ public class ItemWarp : MonoBehaviour {
 
 	}
 	public void OnGUI(){
-
-
+		int plvl = cam.GetComponent<UI>().getLvl();
+		int temp = plvl - level;
+		int pcandies = cam.GetComponent<UI>().getcan();
+		if(temp >= 0)
+			popup = popups;
+		if(temp == -1)
+			popup = popups1;
+		if(temp == -2)
+			popup = popups2;
+		if(temp == -3)
+			popup = popups3;
+		if(temp <= -4)
+			popup = popups4;
+		if(showme)
+			GUI.DrawTexture(new Rect(Input.mousePosition.x,Screen.height-Input.mousePosition.y,100,100),popup);
 	}
 	void OnMouseExit(){
 		showme = false;
@@ -84,8 +98,10 @@ public class ItemWarp : MonoBehaviour {
 				pcandies -= 10;
 			if(temp == -2)
 				pcandies -= 20;
-			if(temp <= -3)
-				pcandies -= 45;
+			if(temp == -3)
+				pcandies -= 35;
+			if(temp <= -4)
+				pcandies -= 75;
 			if(pcandies < 0){
 				Boo.SendMessage("Warp");
 				player.SendMessage("Poor");
@@ -101,9 +117,7 @@ public class ItemWarp : MonoBehaviour {
 				wep.transform.localPosition = new Vector3(0,0,0);
 				ov = this.transform.eulerAngles;
 				this.transform.localRotation = Quaternion.identity;
-				wep.transform.parent = hand.transform;
-				wep.transform.localPosition = new Vector3(0,0,0);
-				this.transform.localRotation = Quaternion.identity;
+	
 
 			//this.transform.localRotation = Quaternion.Euler(0, 0, -50);
 			//gameObject.transform.parent.gameObject;

@@ -2,34 +2,47 @@
 using System.Collections;
 
 public class UI : MonoBehaviour {
-	public GameObject Heart = null;
+	public Texture Bar = null;
+	public Texture Bar1 = null;
+	public Texture Bar2 = null;
+	public Texture Bar3 = null;
+	public Texture Bar4 = null;
+	public Texture BarBack = null;
+	public Texture candy = null;
+	public GUIStyle style = null;
+	public GUIStyle style2 = null;
 	int Candies = 99;
 	public int curRep = 0;
-	private int maxRep = 100;
-	private int curLevel = 1;
+	private int maxRep = 99;
+	private int curLevel = 0;
+	private int maxLevel = 4;
 	//public Texture repTexture = null;
-
+	
 	public float repBarLength;
 	// Use this for initialization
 	void Start () {
 		repBarLength = Screen.width/2;
 		curRep = 0;
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		AdjustCurrentRep(1);
-		if(curRep >= maxRep){
-			curRep = 0;
-			curLevel++;
-			maxRep += (20 *curLevel);
+		if(curLevel < maxLevel){
+			AdjustCurrentRep(1);
+			if(curRep >= maxRep){
+				curRep = 0;
+				curLevel++;
+				maxRep += (20 *curLevel) + 100;
+				
+			}
 		}
 		//GameObject shot = Instantiate (Heart, Vector3(0,0,0),Quaternion.identity) as GameObject;
-
+		
 	}
 	public void AdjustCurrentRep(int adjRep){
 		curRep += adjRep;
-		repBarLength = (Screen.width/3)*(curRep /(float)maxRep);
+		repBarLength = (393)*(curRep /(float)maxRep);
 	}
 	public int getLvl(){
 		return curLevel;
@@ -41,12 +54,33 @@ public class UI : MonoBehaviour {
 		Candies = a;
 	}
 	void OnGUI () {
-		GUI.Label ( new Rect (10,Screen.height - 20,100,50), "Candies " + Candies);
+		GUI.Label ( new Rect (85,Screen.height - 55,100,50), "" + Candies,style);
 		//GUI.Box(new Rect(20,50,60,curRep), curRep + " / " + maxRep);
-		GUI.Box(new Rect(10,50,repBarLength,25),"");
-		GUI.Box(new Rect(10,50,562,25), curRep + " / " + maxRep + " Rep");
+		
+		
+		GUI.DrawTexture(new Rect(532,0,413,88),BarBack);
+		if(curLevel == 0){
+			GUI.DrawTexture(new Rect(532,0,413,88),Bar);
+		}
+		if(curLevel == 1){
+			GUI.DrawTexture(new Rect(532,0,413,88),Bar1);
+		}
+		if(curLevel == 2){
+			GUI.DrawTexture(new Rect(532,0,413,88),Bar2);
+		}
+		if(curLevel == 3){
+			GUI.DrawTexture(new Rect(532,0,413,88),Bar3);
+		}
+		if(curLevel == 4){
+			GUI.DrawTexture(new Rect(532,0,413,88),Bar4);
+		}
+		GUI.DrawTexture(new Rect(10,Screen.height - 100,64,100),candy);
+		if(curLevel != 4)
+			GUI.Box(new Rect(542,23,393,54), curRep + " / " + maxRep + " Rep", style2);
+		else
+			GUI.Box(new Rect(542,23,393,54), "Maxed out Rep", style2);
+		GUI.Box(new Rect(542,23,repBarLength,54),"");
 	}
-
 	void addCandy() {
 		Candies++;
 	}

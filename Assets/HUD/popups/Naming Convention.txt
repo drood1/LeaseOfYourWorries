@@ -1,0 +1,7 @@
+Weapon's Tier Number - Current Reputation Level
+
+EXAMPLE:
+01-03
+Image to use for Tier 1 item at Level 3 Repuation
+
+Numbers start at 00.

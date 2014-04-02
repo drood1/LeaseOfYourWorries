@@ -86,22 +86,22 @@ public class Player : MonoBehaviour {
 	void OnGUI() {
 		//GUI.Label ( new Rect (10,Screen.height - 50,100,50), "Health: " + health);
 		if (health == 5){
-			GUI.DrawTexture(new Rect(10,0,532,80),health1);
+			GUI.DrawTexture(new Rect(10,0,Screen.width/4,50),health1);
 		}
 		if (health == 4){
-			GUI.DrawTexture(new Rect(10,0,532,80),health2);
+			GUI.DrawTexture(new Rect(10,0,Screen.width/4,50),health2);
 		}
 		if (health == 3){
-			GUI.DrawTexture(new Rect(10,0,532,80),health3);
+			GUI.DrawTexture(new Rect(10,0,Screen.width/4,50),health3);
 		}
 		if (health == 2){
-			GUI.DrawTexture(new Rect(10,0,532,80),health4);
+			GUI.DrawTexture(new Rect(10,0,Screen.width/4,50),health4);
 		}
 		if (health == 1){
-			GUI.DrawTexture(new Rect(10,0,532,80),health5);
+			GUI.DrawTexture(new Rect(10,0,Screen.width/4,50),health5);
 		}
 		if (health <= 0){
-			GUI.DrawTexture(new Rect(10,0,532,80),health6);
+			GUI.DrawTexture(new Rect(10,0,Screen.width/4,50),health6);
 		}
 	}
 }

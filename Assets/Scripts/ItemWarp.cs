@@ -15,7 +15,6 @@ public class ItemWarp : MonoBehaviour {
 	public int level = 0;
 	public bool melee = false;
 	public int[] arraystats;
-	private Vector3 ov;
 	Grabbing whatdo;
 	// Use this for initialization
 	void Start () {
@@ -31,18 +30,6 @@ public class ItemWarp : MonoBehaviour {
 		}
 		if(wepnum == 4){
 			wep = GameObject.Find("jnt_duster");
-		}
-		if(wepnum == 5){
-			wep = GameObject.Find("jnt_bread");
-		}
-		if(wepnum == 6){
-			wep = GameObject.Find("jnt_book");
-		}
-		if(wepnum == 7){
-			wep = GameObject.Find("jnt_rifle");
-		}
-		if(wepnum == 8){
-			wep = GameObject.Find("jnt_sword");
 		}
 		collider.isTrigger = true;
 		arraystats = new int[2];
@@ -75,22 +62,16 @@ public class ItemWarp : MonoBehaviour {
 				Boo.SendMessage("Warp");
 				player.SendMessage("Poor");
 			}else{
-				cam.GetComponent<UI>().setcan(pcandies);
-				player.SendMessage("Equip",wepnum);
-				Boo.SendMessage("Warp");
-				player.GetComponent<Shooting>().stat(arraystats,wepcd,weprange,melee);
+			cam.GetComponent<UI>().setcan(pcandies);
+			player.SendMessage("Equip",wepnum);
+			Boo.SendMessage("Warp");
+			player.GetComponent<Shooting>().stat(arraystats,wepcd,weprange,melee);
 				//wep.collider.enabled = false;
 				//player.gameObject.GetComponent<Grabbing>().holding(true);
 			//gameObject.transform.parent = player.transform.Find("Bip001/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 R Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001 R Hand/Bip001 R Hand").transform;
-				wep.transform.parent = hand.transform;
-				wep.transform.localPosition = new Vector3(0,0,0);
-				ov = this.transform.eulerAngles;
-
-				if(wepnum == 7){
-
-				}else{
-					this.transform.localRotation = Quaternion.identity;
-				}
+			wep.transform.parent = hand.transform;
+			wep.transform.localPosition = new Vector3(0,0,0);
+			this.transform.localRotation = Quaternion.identity;
 			//this.transform.localRotation = Quaternion.Euler(0, 0, -50);
 			//gameObject.transform.parent.gameObject;
 			}
@@ -103,7 +84,7 @@ public class ItemWarp : MonoBehaviour {
 	}
 	public void unequip(int numnum){
 		this.transform.parent = null;
-		this.transform.eulerAngles = ov;
+
 
 	}
 	}

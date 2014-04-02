@@ -134,7 +134,7 @@ public class Player : MonoBehaviour {
 
 	void getHit(int dmg) {
 		if(invincible == false) {
-			health -=dmg;
+			health -= dmg;
 			invincible = true;
 			timer = Time.time;
 		}

@@ -25,6 +25,8 @@ public class EnemySpawner : MonoBehaviour {
 	public List<Wave> waves = new List<Wave>();	// Container for Waves
 	public Wave one = new Wave(1,2,1);			
 	public Wave two = new Wave(2,1,2);
+	public Wave three = new Wave(3,1,3);
+	public Wave four = new Wave(4,1,4);
 	
 	
 	// Use this for initialization
@@ -39,6 +41,8 @@ public class EnemySpawner : MonoBehaviour {
 		
 		waves.Add (one);
 		waves.Add (two);
+		waves.Add (three);
+		waves.Add (four);
 		current_wave = waves[0];
 		spawn_speed = current_wave.spawn_speed;
 		place_in_wave = 0;
@@ -127,17 +131,34 @@ public class Wave {
 	public List<List<string>> wave_list = new List<List<string>>();
 	List<string> one = new List<string>()
 	{
-		"Enemy3",
-		"Enemy2",
+		"Enemy1",
+		"Enemy1",
 		"Enemy1",
 	};
 	
 	List<string> two = new List<string>()
 	{
+		"Enemy1",
+		"Enemy1",
 		"Enemy2",
 		"Enemy2",
+	};
+	List<string> three = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
 		"Enemy2",
 		"Enemy2",
+		"Enemy3",
+	};
+	List<string> four = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3"
 	};
 	
 	
@@ -146,6 +167,8 @@ public class Wave {
 		wave_list.Add (null);
 		wave_list.Add (one);
 		wave_list.Add (two);
+		wave_list.Add (three);
+		wave_list.Add (four);
 		
 		wave_name = name;
 		spawn_speed = speed;

@@ -37,15 +37,8 @@ public class Enemy : MonoBehaviour {
 	
 	private void OnCollisionEnter(Collision c) 
 	{
-		if(c.gameObject.tag == "bullet") {
-			this.rigidbody.constraints = RigidbodyConstraints.FreezePosition;
-			is_hit = true;
-			time_hit = Time.time;
-			GUIDamage = Instantiate(GUIPrefab,Camera.main.WorldToViewportPoint(gameObject.transform.position), Quaternion.identity) as GameObject;
-			GUIDamage.guiText.text = "5";
-			health -= 5;
-			mesh_rend.material = damaged;
-		}
+		//if(c.gameObject.tag == "bullet") {
+		//}
 		if(c.gameObject.tag == "Player") {
 			this.rigidbody.constraints = RigidbodyConstraints.FreezePosition;
 			is_hit = true;
@@ -79,5 +72,15 @@ public class Enemy : MonoBehaviour {
 		//transform.position = Vector3.MoveTowards(transform.position, player.transform.position, .05f);
 		this.transform.LookAt(player.transform);
 		this.transform.Translate(Vector3.forward * move_speed *Time.deltaTime);
+	}
+
+	void getHit(int dmg) {
+		this.rigidbody.constraints = RigidbodyConstraints.FreezePosition;
+		is_hit = true;
+		time_hit = Time.time;
+		GUIDamage = Instantiate(GUIPrefab,Camera.main.WorldToViewportPoint(gameObject.transform.position), Quaternion.identity) as GameObject;
+		GUIDamage.guiText.text = dmg.ToString();
+		health -= dmg;
+		mesh_rend.material = damaged;
 	}
 }

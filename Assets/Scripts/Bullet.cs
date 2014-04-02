@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour {
 	float dis = 500f;
 	float bspeed = 0;
 	float starttime = 0f;
-	int dmg = 0;
+	public int dmg = 0;
 	void Start()
 	{
 		starttime = Time.time;
@@ -16,13 +16,15 @@ public class Bullet : MonoBehaviour {
 	private void OnCollisionEnter(Collision c){
 		if(c.gameObject.tag == "enemy"){
 			GameObject.Destroy (gameObject);
+			c.gameObject.SendMessage("getHit", dmg);
 		}
 		if(c.gameObject.tag == "Enemy Bullet"){
 			GameObject.Destroy (gameObject);
 		}
-		if(c.gameObject.tag == "Player") {
+		if(c.gameObject.tag == "Player" && this.gameObject.tag != "bullet") {
 			GameObject player = GameObject.Find("playerChar");
 			player.SendMessage("getHit", dmg);
+			GameObject.Destroy(gameObject);
 		}
 	}
 	void Update () {

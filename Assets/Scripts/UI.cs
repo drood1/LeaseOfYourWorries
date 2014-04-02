@@ -36,6 +36,9 @@ public class UI : MonoBehaviour {
 				maxRep += (20 *curLevel) + 100;
 				
 			}
+			if(Input.GetKeyDown ("p")){
+				curLevel++;
+			}
 		}
 		//GameObject shot = Instantiate (Heart, Vector3(0,0,0),Quaternion.identity) as GameObject;
 		

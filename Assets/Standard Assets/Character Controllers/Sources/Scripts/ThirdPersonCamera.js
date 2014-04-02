@@ -222,6 +222,7 @@ function SetUpRotation (centerPos : Vector3, headPos : Vector3)
 		extraLookAngle = extraLookAngle - centerToTopAngle;
 		cameraTransform.rotation *= Quaternion.Euler(-extraLookAngle, 0, 0);
 	}
+	
 }
 
 function GetCenterOffset ()

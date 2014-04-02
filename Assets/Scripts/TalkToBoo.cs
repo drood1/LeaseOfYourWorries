@@ -31,22 +31,22 @@ public class TalkToBoo : MonoBehaviour {
 	bool toopoor = false;
 	void OnGUI() {
 		if(trigger == 1)	{
-			GUI.Label ( new Rect (550, 600,550,300), "Enough lazing about boy!");
+			GUI.Label ( new Rect (550, 600,600,300), "Enough lazing about boy!");
 		}
 		else if(trigger == 2)
-			GUI.Label ( new Rect (550, 600,550,300), "Don't you want your candy back?");
+			GUI.Label ( new Rect (550, 600,600,300), "Don't you want your candy back?");
 		else if(trigger == 3)
-			GUI.Label ( new Rect (550, 600,550,300), "Have at them!");
+			GUI.Label ( new Rect (550, 600,600,300), "Have at them!");
 		else if(trigger == 10)
-			GUI.Label ( new Rect (550, 600,550,300), "It seems you have some spunk about you! Why don't you try your luck in the dining hall?");
+			GUI.Label ( new Rect (550, 600,600,300), "It seems you have some spunk about you! Why don't you try your luck in the dining hall?");
 		else if(trigger == 20)
-			GUI.Label ( new Rect (550, 600,550,300), "Forget the spunk, you've got good old-fashioned moxie! Feel free to poke around the master bedroom.");
+			GUI.Label ( new Rect (550, 600,600,300), "Forget the spunk, you've got good old-fashioned moxie! Feel free to poke around the master bedroom.");
 		else if(trigger == 30)
-			GUI.Label ( new Rect (550, 600,550,300), "There seems to be even more ruffians occupying the bathroom. Be a lad and clear them out for me.");
+			GUI.Label ( new Rect (550, 600,600,300), "There seems to be even more ruffians occupying the bathroom. Be a lad and clear them out for me.");
 		else if(trigger == 40)
-			GUI.Label ( new Rect (550, 600,550,300), "You continue to impress me my boy! Feel free to peruse my entire estate and give those delinquents what for!");
+			GUI.Label ( new Rect (550, 600,700,300), "You continue to impress me boy! Feel free to peruse my entire estate and give those delinquents what for!");
 		if(toopoor)
-			GUI.Label ( new Rect (550, 600,550,300), "You poor!");
+			GUI.Label ( new Rect (550, 600,600,300), "You poor!");
 	}
 	public void Poor(){
 		toopoor = true;

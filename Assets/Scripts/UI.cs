@@ -5,6 +5,7 @@ public class UI : MonoBehaviour {
 	public Texture Bar = null;
 	public Texture BarBack = null;
 	public Texture candy = null;
+	public GUIStyle style = null;
 	int Candies = 99;
 	public int curRep = 0;
 	private int maxRep = 100;
@@ -44,7 +45,7 @@ public class UI : MonoBehaviour {
 		Candies = a;
 	}
 	void OnGUI () {
-		GUI.Label ( new Rect (85,Screen.height - 20,100,50), "" + Candies);
+		GUI.Label ( new Rect (85,Screen.height - 55,100,50), "" + Candies,style);
 		//GUI.Box(new Rect(20,50,60,curRep), curRep + " / " + maxRep);
 		GUI.Box(new Rect(10,90,repBarLength,25),"");
 		GUI.Box(new Rect(10,90,512,25), curRep + " / " + maxRep + " Rep");

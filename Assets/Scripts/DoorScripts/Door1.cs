@@ -20,7 +20,7 @@ public class Door1 : MonoBehaviour {
 		
 		int cur_level = ui_script.getLvl();
 		
-		if(cur_level == 2){
+		if(cur_level == 1){
 			if(opened == false)	{
 				talk_script.trigger = 10;
 				Vector3 new_pos = new Vector3(1.94719f, 2.78724f, -9.4773f);

@@ -17,8 +17,13 @@ public class Bullet : MonoBehaviour {
 		if(c.gameObject.tag == "enemy"){
 			GameObject.Destroy (gameObject);
 		}
-
-
+		if(c.gameObject.tag == "Enemy Bullet"){
+			GameObject.Destroy (gameObject);
+		}
+		if(c.gameObject.tag == "Player") {
+			GameObject player = GameObject.Find("playerChar");
+			player.SendMessage("getHit", dmg);
+		}
 	}
 	void Update () {
 		//Debug.Log((Time.time-starttime)*bspeed);

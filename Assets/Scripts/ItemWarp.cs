@@ -101,6 +101,9 @@ public class ItemWarp : MonoBehaviour {
 				wep.transform.localPosition = new Vector3(0,0,0);
 				ov = this.transform.eulerAngles;
 				this.transform.localRotation = Quaternion.identity;
+				wep.transform.parent = hand.transform;
+				wep.transform.localPosition = new Vector3(0,0,0);
+				this.transform.localRotation = Quaternion.identity;
 
 			//this.transform.localRotation = Quaternion.Euler(0, 0, -50);
 			//gameObject.transform.parent.gameObject;

@@ -20,6 +20,8 @@ public class BooregardDetection : MonoBehaviour {
 		
 		if(charCode != null){
 			charCode.inRange = false;
+			if(charCode.trigger < 10)
+				charCode.trigger = 0;
 		}
 	}
 	// Update is called once per frame

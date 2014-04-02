@@ -92,7 +92,7 @@ private var isControllable = true;
 
 function Awake ()
 {
-	//moveDirection = transform.TransformDirection(Vector3.forward);
+	moveDirection = transform.TransformDirection(Vector3.forward);
 	
 	_animation = GetComponent(Animation);
 	if(!_animation)
@@ -139,7 +139,6 @@ function UpdateSmoothedMovementDirection ()
 	var right = Vector3(forward.z, 0, -forward.x);
 	var v = Input.GetAxis("Vertical");
     var h = Input.GetAxis("Horizontal");
-    
 	moveDirection = Vector3(h, 0, v);
 	// Are we moving backwards or looking backwards
 	

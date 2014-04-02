@@ -11,7 +11,7 @@ public class SplashScreen : MonoBehaviour {
 		int buttonheight = 100;
 		int halfbuttonwidth = buttonwidth/2;
 		int halfscreenwidth = Screen.width/2;
-		if(GUI.Button(new Rect(halfscreenwidth-halfbuttonwidth,390,buttonwidth,buttonheight),"Play")){
+		if(GUI.Button(new Rect(halfscreenwidth-halfbuttonwidth,500,buttonwidth,buttonheight),"Play")){
 			Application.LoadLevel("Lease Of Your Worries");
 
 		}

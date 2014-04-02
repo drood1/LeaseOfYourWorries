@@ -21,7 +21,7 @@ public class UI : MonoBehaviour {
 	public float repBarLength;
 	// Use this for initialization
 	void Start () {
-		repBarLength = Screen.width/2;
+		repBarLength = (393)*(curRep /(float)maxRep);
 		curRep = 0;
 		
 	}
@@ -29,7 +29,7 @@ public class UI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(curLevel < maxLevel){
-			AdjustCurrentRep(1);
+			//AdjustCurrentRep(1);
 			if(curRep >= maxRep){
 				curRep = 0;
 				curLevel++;

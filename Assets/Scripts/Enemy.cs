@@ -64,6 +64,8 @@ public class Enemy : MonoBehaviour {
 				Instantiate(candy, transform.position, transform.rotation);
 			}
 			spawner.SendMessage("increase_death_count");
+			GameObject yay = GameObject.FindWithTag("MainCamera");
+			yay.SendMessage("AdjustCurrentRep",5);
 			GameObject.Destroy (gameObject);
 		}	
 	}

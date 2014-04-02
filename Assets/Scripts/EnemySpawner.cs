@@ -127,9 +127,9 @@ public class Wave {
 	public List<List<string>> wave_list = new List<List<string>>();
 	List<string> one = new List<string>()
 	{
-		"Enemy1",
-		"Enemy2",
-		"Enemy2",
+		"Enemy3",
+		//"Enemy2",
+		//"Enemy2",
 	};
 	
 	List<string> two = new List<string>()

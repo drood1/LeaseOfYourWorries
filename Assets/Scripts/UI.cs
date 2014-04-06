@@ -61,28 +61,29 @@ public class UI : MonoBehaviour {
 		//GUI.Box(new Rect(20,50,60,curRep), curRep + " / " + maxRep);
 		
 		
-		GUI.DrawTexture(new Rect(532,0,413,88),BarBack);
+		GUI.DrawTexture(new Rect(552,0,413,88),BarBack);
 		if(curLevel == 0){
-			GUI.DrawTexture(new Rect(532,0,413,88),Bar);
+			GUI.DrawTexture(new Rect(552,0,413,88),Bar);
 		}
 		if(curLevel == 1){
-			GUI.DrawTexture(new Rect(532,0,413,88),Bar1);
+			GUI.DrawTexture(new Rect(552,0,413,88),Bar1);
 		}
 		if(curLevel == 2){
-			GUI.DrawTexture(new Rect(532,0,413,88),Bar2);
+			GUI.DrawTexture(new Rect(552,0,413,88),Bar2);
 		}
 		if(curLevel == 3){
-			GUI.DrawTexture(new Rect(532,0,413,88),Bar3);
+			GUI.DrawTexture(new Rect(552,0,413,88),Bar3);
 		}
 		if(curLevel == 4){
-			GUI.DrawTexture(new Rect(532,0,413,88),Bar4);
+			GUI.DrawTexture(new Rect(552,0,413,88),Bar4);
 		}
 		GUI.DrawTexture(new Rect(10,Screen.height - 100,64,100),candy);
 		if(curLevel != 4)
-			GUI.Box(new Rect(542,23,393,54), curRep + " / " + maxRep + " Rep", style2);
+			GUI.Box(new Rect(562,23,393,54), curRep + " / " + maxRep + " Rep", style2);
 		else
-			GUI.Box(new Rect(542,23,393,54), "Maxed out Rep", style2);
-		GUI.Box(new Rect(542,23,repBarLength,54),"");
+			GUI.Box(new Rect(562,23,393,54), "Maxed out Rep", style2);
+		if(curRep != 0)
+			GUI.Box(new Rect(562,23,repBarLength,54),"");
 	}
 	void addCandy() {
 		Candies++;

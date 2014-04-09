@@ -8,7 +8,7 @@ public class BooregardDetection : MonoBehaviour {
 	void OnTriggerEnter(Collider coll)	{
 		GameObject g = coll.gameObject;	
 		TalkToBoo charCode = g.GetComponent<TalkToBoo>();
-		
+
 		if(charCode != null){
 			charCode.inRange = true;
 		}
@@ -17,7 +17,7 @@ public class BooregardDetection : MonoBehaviour {
 	void OnTriggerExit(Collider coll)	{
 		GameObject g = coll.gameObject;
 		TalkToBoo charCode = g.GetComponent<TalkToBoo>();
-		
+
 		if(charCode != null){
 			charCode.inRange = false;
 			if(charCode.trigger < 10)

@@ -23,7 +23,7 @@ public class Door4 : MonoBehaviour {
 		if(cur_level == 4){
 			if(opened == false){
 				talk_script.trigger = 40;
-				Vector3 new_pos = new Vector3(19.3984f, 2.78724f, 13.6414f);
+				Vector3 new_pos = new Vector3(19.27148f, 2.78724f, 13.6414f);
 				transform.localPosition = new_pos;
 				Vector3 new_rot = new Vector3(0f, 247.797f, 0f);
 				transform.eulerAngles = new_rot;

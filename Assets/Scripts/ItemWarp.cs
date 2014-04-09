@@ -7,6 +7,7 @@ public class ItemWarp : MonoBehaviour {
 	public GameObject cam = null;
 	GameObject hand;
 	GameObject wep;
+	public bool eq = false;
 	public int wepnum = 0;
 	public int wepdmg = 0;
 	public int wepbul = 0;
@@ -64,21 +65,23 @@ public class ItemWarp : MonoBehaviour {
 
 	}
 	public void OnGUI(){
-		int plvl = cam.GetComponent<UI>().getLvl();
-		int temp = plvl - level;
-		int pcandies = cam.GetComponent<UI>().getcan();
-		if(temp >= 0)
-			popup = popups;
-		if(temp == -1)
-			popup = popups1;
-		if(temp == -2)
-			popup = popups2;
-		if(temp == -3)
-			popup = popups3;
-		if(temp <= -4)
-			popup = popups4;
-		if(showme)
-			GUI.DrawTexture(new Rect(Input.mousePosition.x,Screen.height-Input.mousePosition.y,100,100),popup);
+		if(eq == false){
+			int plvl = cam.GetComponent<UI>().getLvl();
+			int temp = plvl - level;
+			int pcandies = cam.GetComponent<UI>().getcan();
+			if(temp >= 0)
+				popup = popups;
+			if(temp == -1)
+				popup = popups1;
+			if(temp == -2)
+				popup = popups2;
+			if(temp == -3)
+				popup = popups3;
+			if(temp <= -4)
+				popup = popups4;
+			if(showme)
+				GUI.DrawTexture(new Rect(Input.mousePosition.x,Screen.height-Input.mousePosition.y,100,100),popup);
+		}
 	}
 	void OnMouseExit(){
 		showme = false;
@@ -106,6 +109,7 @@ public class ItemWarp : MonoBehaviour {
 				Boo.SendMessage("Warp");
 				player.SendMessage("Poor");
 			}else{
+				eq = true;
 				cam.GetComponent<UI>().setcan(pcandies);
 				player.SendMessage("Equip",wepnum);
 				Boo.SendMessage("Warp");
@@ -132,6 +136,6 @@ public class ItemWarp : MonoBehaviour {
 	public void unequip(int numnum){
 		this.transform.parent = null;
 		this.transform.eulerAngles = ov;
-
+		eq = false;
 	}
 	}

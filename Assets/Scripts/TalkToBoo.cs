@@ -2,12 +2,11 @@
 using System.Collections;
 
 public class TalkToBoo : MonoBehaviour {
-	
-	//NEED TO MAKE IT SO WHEN EXITING BOOREGARDS "RANGE", SET INRANGE TO FALSE
+
 	
 	public bool inRange = false;
 	public int trigger = 0;
-	public GameObject boo = null;
+
 	/*
 	void OnGUI() {
 		if(inRange == true)	{
@@ -45,6 +44,10 @@ public class TalkToBoo : MonoBehaviour {
 			GUI.Label ( new Rect (550, 600,600,300), "There seems to be even more ruffians occupying the bathroom. Be a lad and clear them out for me.");
 		else if(trigger == 40)
 			GUI.Label ( new Rect (550, 600,700,300), "You continue to impress me boy! Feel free to peruse my entire estate and give those delinquents what for!");
+		else if(trigger == 12)
+			GUI.Label ( new Rect (650, 600, 600, 300), "Such a kind gesture from a kind young man!");
+		else if(trigger == 13)
+			GUI.Label (new Rect (550, 600, 600, 300), "I appreciate the offer young man, but it's not nearly enough to satisfy me!");
 		if(toopoor)
 			GUI.Label ( new Rect (550, 600,600,300), "You poor!");
 	}
@@ -72,6 +75,19 @@ public class TalkToBoo : MonoBehaviour {
 			trigger = 0;
 		}
 
-
+		//********************trading candy for rep******************
+		if(inRange == true) {
+			if(Input.GetKeyDown ("c")){
+				if(ui_script.Candies < 10)
+					trigger = 13;
+				else{
+					trigger = 12;
+					ui_script.Candies -= 10;
+					ui_script.curRep += 20;
+				}
+			}
+		}
+		else
+			trigger = 0;
 	}
 }

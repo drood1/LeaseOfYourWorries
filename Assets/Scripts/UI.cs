@@ -11,7 +11,7 @@ public class UI : MonoBehaviour {
 	public Texture candy = null;
 	public GUIStyle style = null;
 	public GUIStyle style2 = null;
-	int Candies = 99;
+	public int Candies = 99;
 	public int curRep = 0;
 	private int maxRep = 99;
 	private int curLevel = 0;

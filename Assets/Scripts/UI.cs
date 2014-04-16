@@ -82,7 +82,7 @@ public class UI : MonoBehaviour {
 			GUI.Box(new Rect(562,23,393,54), curRep + " / " + maxRep + " Rep", style2);
 		else
 			GUI.Box(new Rect(562,23,393,54), "Maxed out Rep", style2);
-		if(curRep != 0)
+		if(curRep > 0 && curLevel != 4)
 			GUI.Box(new Rect(562,23,repBarLength,54),"");
 	}
 	void addCandy() {

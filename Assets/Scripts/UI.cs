@@ -21,7 +21,7 @@ public class UI : MonoBehaviour {
 	public float repBarLength;
 	// Use this for initialization
 	void Start () {
-		repBarLength = (393)*(curRep /(float)maxRep);
+		repBarLength = (409)*(curRep /(float)maxRep);
 		curRep = 0;
 		
 	}
@@ -45,7 +45,7 @@ public class UI : MonoBehaviour {
 	}
 	public void AdjustCurrentRep(int adjRep){
 		curRep += adjRep;
-		repBarLength = (393)*(curRep /(float)maxRep);
+		repBarLength = (409)*(curRep /(float)maxRep);
 	}
 	public int getLvl(){
 		return curLevel;
@@ -60,30 +60,32 @@ public class UI : MonoBehaviour {
 		GUI.Label ( new Rect (85,Screen.height - 55,100,50), "" + Candies,style);
 		//GUI.Box(new Rect(20,50,60,curRep), curRep + " / " + maxRep);
 		
-		
-		GUI.DrawTexture(new Rect(552,0,413,88),BarBack);
+		// gray bar behind Rep meter
+		GUI.DrawTexture(new Rect(532,10,425,77),BarBack);
+		// Increasing bar
+		if(curRep > 0 && curLevel != 4)
+			GUI.Box(new Rect(540,30,repBarLength,48),"");
 		if(curLevel == 0){
-			GUI.DrawTexture(new Rect(552,0,413,88),Bar);
+		// Actual Rep meter
+			GUI.DrawTexture(new Rect(532,10,425,77),Bar);
 		}
 		if(curLevel == 1){
-			GUI.DrawTexture(new Rect(552,0,413,88),Bar1);
+			GUI.DrawTexture(new Rect(532,10,425,77),Bar1);
 		}
 		if(curLevel == 2){
-			GUI.DrawTexture(new Rect(552,0,413,88),Bar2);
+			GUI.DrawTexture(new Rect(532,10,425,77),Bar2);
 		}
 		if(curLevel == 3){
-			GUI.DrawTexture(new Rect(552,0,413,88),Bar3);
+			GUI.DrawTexture(new Rect(532,10,425,77),Bar3);
 		}
 		if(curLevel == 4){
-			GUI.DrawTexture(new Rect(552,0,413,88),Bar4);
+			GUI.DrawTexture(new Rect(532,10,425,77),Bar4);
 		}
 		GUI.DrawTexture(new Rect(10,Screen.height - 100,64,100),candy);
-		if(curLevel != 4)
-			GUI.Box(new Rect(562,23,393,54), curRep + " / " + maxRep + " Rep", style2);
+		if(curLevel != 4) //If not at max Rep, display current Rep out of amount needed for next level
+			GUI.Box(new Rect(532,27,393,54), curRep + " / " + maxRep + " Rep", style2);
 		else
-			GUI.Box(new Rect(562,23,393,54), "Maxed out Rep", style2);
-		if(curRep > 0 && curLevel != 4)
-			GUI.Box(new Rect(562,23,repBarLength,54),"");
+			GUI.Box(new Rect(562,27,393,54), "Maxed out Rep", style2);
 	}
 	void addCandy() {
 		Candies++;

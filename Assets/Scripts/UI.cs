@@ -7,6 +7,7 @@ public class UI : MonoBehaviour {
 	public Texture Bar2 = null;
 	public Texture Bar3 = null;
 	public Texture Bar4 = null;
+	public Texture Enem = null;
 	public Texture BarBack = null;
 	public Texture candy = null;
 	public GUIStyle style = null;
@@ -59,7 +60,7 @@ public class UI : MonoBehaviour {
 	void OnGUI () {
 		GUI.Label ( new Rect (85,Screen.height - 55,100,50), "" + Candies,style);
 		//GUI.Box(new Rect(20,50,60,curRep), curRep + " / " + maxRep);
-		
+		GUI.DrawTexture(new Rect(975,10,89,112),Enem);
 		// gray bar behind Rep meter
 		GUI.DrawTexture(new Rect(532,10,425,77),BarBack);
 		// Increasing bar

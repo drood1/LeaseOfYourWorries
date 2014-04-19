@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dd67c01332b8d6d47ac6880efe7a7bb6
+guid: a12f896f66325d141a78320230cb192e
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
@@ -7,7 +7,7 @@ ModelImporter:
     400000: //RootNode
     2300000: //RootNode
     3300000: //RootNode
-    4300000: attackCone01
+    4300000: atkshp_cone
     9500000: //RootNode
   materials:
     importMaterials: 1

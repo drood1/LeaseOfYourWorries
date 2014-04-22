@@ -24,6 +24,7 @@ public class ItemWarp : MonoBehaviour {
 	public Texture popups3;
 	public Texture popups4;
 	public Sprite[] array;
+	public float MAX_RANGE = 4;
 	private bool showme = false;
 	Grabbing whatdo;
 	// Use this for initialization
@@ -89,8 +90,11 @@ public class ItemWarp : MonoBehaviour {
 	}
 	void OnMouseOver (){
 		//if(whatdo.holdingitem == false){
-		showme = true;
 
+		float dist = Vector3.Distance(player.transform.position,this.transform.position);
+		if(dist <= MAX_RANGE){
+			showme = true;
+		}
 		if(Input.GetMouseButtonDown(1)){
 			int plvl = cam.GetComponent<UI>().getLvl();
 			int temp = plvl - level;

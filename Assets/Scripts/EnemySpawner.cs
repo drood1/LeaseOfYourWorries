@@ -10,7 +10,8 @@ public class EnemySpawner : MonoBehaviour {
 	public float cooldown_timer;		// Actual time between waves
 	public GameObject enemy = null;		// Enemy that will be spawned at each Instantiate. 
 	// This object will change according to what enemy will be spawned
-	
+
+	public GameObject ui = null;
 	public GameObject enemy1 = null;	// Basic enemy, follows player around
 	public GameObject enemy2 = null;	// Basic enemy, can only be hurt before it attacks
 	public GameObject enemy3 = null;	// Basic enemy, only moves when player isn't looking
@@ -43,7 +44,7 @@ public class EnemySpawner : MonoBehaviour {
 		spawn_on = true;
 		cooldown = false;
 		new_wave = false;
-		cooldown_timer = 5.0F;
+		cooldown_timer = 8.0F;
 		player = GameObject.Find("playerChar");
 		
 		waves.Add (one);
@@ -54,6 +55,7 @@ public class EnemySpawner : MonoBehaviour {
 		spawn_speed = current_wave.spawn_speed;
 		place_in_wave = 0;
 
+		ui = GameObject.Find ("Main Camera");
 		door1 = GameObject.Find("Door1");
 		door2 = GameObject.Find("Door2");
 		door3 = GameObject.Find("Door3");
@@ -66,7 +68,8 @@ public class EnemySpawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		sendEnemyCount();
+
 		if(spawn_on && !cooldown && !new_wave) {
 			// Only spawns when a wave is active and not in cooldown or wave countdown mode
 			if(Time.time - start_time > spawn_speed) {
@@ -109,6 +112,8 @@ public class EnemySpawner : MonoBehaviour {
 			}
 		}
 		if(!cooldown && new_wave) {
+			//float timeLeft = cooldown_timer - (Time.time - start_time);
+			//GUI.Label (new Rect(1110,80,89,112), "Next wave starts in " + timeLeft);
 			// start new wave
 			if(Time.time -  start_time > cooldown_timer) {
 				start_time = Time.time;
@@ -153,6 +158,11 @@ public class EnemySpawner : MonoBehaviour {
 		door3.SendMessage("CloseDoor");
 		door4.SendMessage("CloseDoor");
 		door5.SendMessage("CloseDoor");
+	}
+
+	void sendEnemyCount() {
+		int count = current_wave.spawn_list.Count - death_count;
+		ui.SendMessage("DisplayEnemyCount", count);
 	}
 	
 }

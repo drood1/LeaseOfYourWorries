@@ -12,11 +12,13 @@ public class UI : MonoBehaviour {
 	public Texture candy = null;
 	public GUIStyle style = null;
 	public GUIStyle style2 = null;
+	public GUIStyle style3 = null;
 	public int Candies = 99;
 	public int curRep = 0;
 	private int maxRep = 99;
 	private int curLevel = 0;
 	private int maxLevel = 4;
+	private int enemy_count = 0;
 	//public Texture repTexture = null;
 	
 	public float repBarLength;
@@ -61,6 +63,11 @@ public class UI : MonoBehaviour {
 		GUI.Label ( new Rect (85,Screen.height - 55,100,50), "" + Candies,style);
 		//GUI.Box(new Rect(20,50,60,curRep), curRep + " / " + maxRep);
 		GUI.DrawTexture(new Rect(975,10,89,112),Enem);
+		// Enemy Count
+		if(enemy_count < 10)
+			GUI.Label ( new Rect(1010,80,89,112), "0" + enemy_count.ToString(), style3);
+		else
+			GUI.Label ( new Rect(1010,80,89,112), enemy_count.ToString(), style3);
 		// gray bar behind Rep meter
 		GUI.DrawTexture(new Rect(532,10,425,77),BarBack);
 		// Increasing bar
@@ -90,5 +97,9 @@ public class UI : MonoBehaviour {
 	}
 	void addCandy() {
 		Candies++;
+	}
+
+	void DisplayEnemyCount(int count) {
+		enemy_count = count;
 	}
 }

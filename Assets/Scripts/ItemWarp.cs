@@ -29,6 +29,7 @@ public class ItemWarp : MonoBehaviour {
 	Grabbing whatdo;
 	// Use this for initialization
 	void Start () {
+		player = GameObject.FindWithTag("Player");
 		hand = GameObject.FindWithTag("Hand");
 		if(wepnum == 1){
 			wep = GameObject.Find("jnt_poker");

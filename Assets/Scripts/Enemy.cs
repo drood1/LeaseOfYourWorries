@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour {
 		
 		spawner = GameObject.Find ("Terrain");
 		this.rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
+		Physics.IgnoreLayerCollision(8,9);
 	}
 	
 	private void OnCollisionEnter(Collision c) 

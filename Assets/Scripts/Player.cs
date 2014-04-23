@@ -85,8 +85,8 @@ public class Player : MonoBehaviour {
 				target.y = 0;
 				current.y = 0;
 
-				Vector3 heading = target - current;
-				this.transform.Translate (heading * 2);
+				//Vector3 heading = target - current;
+				//this.transform.Translate (heading * 2);
 			}
 		}
 	} 
@@ -104,8 +104,8 @@ public class Player : MonoBehaviour {
 				target.y = 0;
 				current.y = 0;
 				
-				Vector3 heading = target - current;
-				this.transform.Translate (heading * 2);
+				//Vector3 heading = target - current;
+				//this.transform.Translate (heading * 2);
 			}
 		}
 	} 

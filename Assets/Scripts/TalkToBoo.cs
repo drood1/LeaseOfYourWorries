@@ -6,50 +6,42 @@ public class TalkToBoo : MonoBehaviour {
 	
 	public bool inRange = false;
 	public int trigger = 0;
+	public Font WashingtonText;
+	public bool DoorsOpen = false;
 
-	/*
-	void OnGUI() {
-		if(inRange == true)	{
-			if(trigger == 1)	{
-				//GUI.skin.font = Canterbury;
-				GUI.Label ( new Rect (700, 600,350,300), "WHY HULLO THAR!");
-			}
-			else if(trigger == 2)
-				GUI.Label ( new Rect (700, 600,350,300), "THIS IS A TEXT BAWKS");
-			else if(trigger == 3)
-				GUI.Label ( new Rect (700, 600,350,300), "IT TELLS YOU THINGS :o!");
-			else trigger = 0;
-		}
-		else
-			trigger = 0;
+	private bool SpokenOpen = true;
+	private bool SpokenClosed = false;
 
-		//need to set first variable to Booregard's transform.position
-	}
-	*/
-	
 	bool toopoor = false;
 	void OnGUI() {
-		if(trigger == 1)	{
-			GUI.Label ( new Rect (550, 600,600,300), "Enough lazing about boy!");
-		}
+		GUI.skin.font = WashingtonText;
+
+		if(trigger == 1)	
+			GUI.Label ( new Rect (500, 600,700,300), "Enough lazing about boy!");
 		else if(trigger == 2)
-			GUI.Label ( new Rect (550, 600,600,300), "Don't you want your candy back?");
+			GUI.Label ( new Rect (500, 600,700,300), "Don't you want your candy back?");
 		else if(trigger == 3)
-			GUI.Label ( new Rect (550, 600,600,300), "Have at them!");
-		else if(trigger == 10)
-			GUI.Label ( new Rect (550, 600,600,300), "It seems you have some spunk about you! Why don't you try your luck in the dining hall?");
-		else if(trigger == 20)
-			GUI.Label ( new Rect (550, 600,600,300), "Forget the spunk, you've got good old-fashioned moxie! Feel free to poke around the master bedroom.");
-		else if(trigger == 30)
-			GUI.Label ( new Rect (550, 600,600,300), "There seems to be even more ruffians occupying the bathroom. Be a lad and clear them out for me.");
-		else if(trigger == 40)
-			GUI.Label ( new Rect (550, 600,700,300), "You continue to impress me boy! Feel free to peruse my entire estate and give those delinquents what for!");
+			GUI.Label ( new Rect (550, 600,700,300), "Have at them!");
 		else if(trigger == 12)
-			GUI.Label ( new Rect (650, 600, 600, 300), "Such a kind gesture from a kind young man!");
+			GUI.Label ( new Rect (300, 600, 950, 300), "Such a kind gesture from a kind young man!");
 		else if(trigger == 13)
-			GUI.Label (new Rect (550, 600, 600, 300), "I appreciate the offer young man, but it's not nearly enough to satisfy me!");
-		if(toopoor)
-			GUI.Label ( new Rect (550, 600,600,300), "You poor!");
+			GUI.Label (new Rect (500, 600, 750, 300), "I appreciate the offer young man, but it's not nearly enough to satisfy me!");
+		else if(trigger == 15)
+			GUI.Label (new Rect (500, 600, 750, 300), "Well done young man! You've earned a brief respite.");
+		else if(trigger == 16)
+			GUI.Label (new Rect (500, 600, 750, 300), "Ready your arms, here they come!");
+
+
+		if(DoorsOpen == true && SpokenOpen == false)	{
+			trigger = 15;
+			SpokenOpen = true;
+			SpokenClosed = false;
+		}
+		if(DoorsOpen == false && SpokenClosed == false)	{
+			trigger = 16;
+			SpokenClosed = true;
+			SpokenOpen = false;
+		}
 	}
 	public void Poor(){
 		toopoor = true;
@@ -64,7 +56,7 @@ public class TalkToBoo : MonoBehaviour {
 		if(inRange == true){
 			if(Input.GetKeyDown("t")){
 				trigger++;
-				if(trigger == 4 || trigger == 10 || trigger == 20 || trigger == 30 || trigger == 40)
+				if(trigger == 4)
 					trigger = 0;
 			}
 		}
@@ -87,7 +79,7 @@ public class TalkToBoo : MonoBehaviour {
 				}
 			}
 		}
-		else
-			trigger = 0;
+		//else
+		//	trigger = 0;
 	}
 }

@@ -154,7 +154,7 @@ public class ItemWarp : MonoBehaviour {
 		}
 	}
 	void OnTriggerEnter(Collider other) {
-		if(other.gameObject.tag == "Player" || other.gameObject.tag == "enemy"){
+		if(other.gameObject.tag == "Player" || other.gameObject.tag == "enemy" || other.gameObject.tag == "weap"){
 
 		}
 	}

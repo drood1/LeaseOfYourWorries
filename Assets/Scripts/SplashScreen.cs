@@ -16,11 +16,11 @@ public class SplashScreen : MonoBehaviour {
 		int halfscreenwidth = Screen.width/2;
 		if (tut == false){
 			GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Base);
-			if(GUI.Button(new Rect(halfscreenwidth-halfbuttonwidth,400,buttonwidth,buttonheight),"Play")){
+			if(GUI.Button(new Rect(halfscreenwidth-(buttonwidth/2),500,buttonwidth,buttonheight),"Play")){
 				Application.LoadLevel("Lease Of Your Worries");
 
 			}
-			if(GUI.Button(new Rect(halfscreenwidth-halfbuttonwidth,500,buttonwidth,buttonheight),"Instructions")){
+			if(GUI.Button(new Rect(halfscreenwidth+(buttonwidth/2),500,buttonwidth,buttonheight),"Instructions")){
 				tut = true;
 				
 			}

@@ -34,7 +34,7 @@ public class UI : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(curLevel < maxLevel){
-			AdjustCurrentRep(1);
+			//AdjustCurrentRep(1);
 			if(curRep >= maxRep){
 				curRep = curRep-maxRep;
 				curLevel++;

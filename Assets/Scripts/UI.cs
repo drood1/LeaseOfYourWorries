@@ -19,6 +19,8 @@ public class UI : MonoBehaviour {
 	private int curLevel = 0;
 	private int maxLevel = 4;
 	private int enemy_count = 0;
+    float timeToWave = 0;
+	int yo = 0;
 	//public Texture repTexture = null;
 	
 	public float repBarLength;
@@ -44,7 +46,7 @@ public class UI : MonoBehaviour {
 			}
 		}
 		//GameObject shot = Instantiate (Heart, Vector3(0,0,0),Quaternion.identity) as GameObject;
-		
+		yo = (int)timeToWave;
 	}
 	public void AdjustCurrentRep(int adjRep){
 		curRep += adjRep;
@@ -68,6 +70,9 @@ public class UI : MonoBehaviour {
 			GUI.Label ( new Rect(1010,80,89,112), "0" + enemy_count.ToString(), style3);
 		else
 			GUI.Label ( new Rect(1010,80,89,112), enemy_count.ToString(), style3);
+
+		if(timeToWave > 0)
+			GUI.Label (new Rect (1150,80, 89, 112), "Time to Next Wave: " + yo.ToString(), style3);
 		// gray bar behind Rep meter
 		GUI.DrawTexture(new Rect(532,10,425,77),BarBack);
 		// Increasing bar
@@ -101,5 +106,8 @@ public class UI : MonoBehaviour {
 
 	void DisplayEnemyCount(int count) {
 		enemy_count = count;
+	}
+	void DisplayTimeToNextWave(float yo) {
+		timeToWave = yo;
 	}
 }

@@ -163,6 +163,10 @@ public class EnemySpawner : MonoBehaviour {
 	void sendEnemyCount() {
 		int count = current_wave.spawn_list.Count - death_count;
 		ui.SendMessage("DisplayEnemyCount", count);
+		if(!cooldown && new_wave) {
+			float timeLeft = cooldown_timer - (Time.time - start_time);
+			ui.SendMessage("DisplayTimeToNextWave", timeLeft);
+		}
 	}
 	
 }

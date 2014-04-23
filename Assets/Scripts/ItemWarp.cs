@@ -131,13 +131,13 @@ public class ItemWarp : MonoBehaviour {
 			if(temp <= -4)
 				pcandies -= 75;
 			if(pcandies < 0){
-				Boo.SendMessage("Warp");
+				//Boo.SendMessage("Warp");
 				player.SendMessage("Poor");
 			}else{
 				eq = true;
 				cam.GetComponent<UI>().setcan(pcandies);
 				player.SendMessage("Equip",wepnum);
-				Boo.SendMessage("Warp");
+				//Boo.SendMessage("Warp");
 				player.GetComponent<Shooting>().stat(arraystats,wepcd,weprange,melee);
 				//wep.collider.enabled = false;
 				//player.gameObject.GetComponent<Grabbing>().holding(true);

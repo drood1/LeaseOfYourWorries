@@ -7,7 +7,7 @@ public class Enemy3 : MonoBehaviour {
 	public bool alive = true;
 	public bool invincible = true;
 	public bool not_shot = true;
-	public float i_timer = 3f;
+	public float i_timer = 2f;
 	public float a_timer;
 	
 	public GameObject player = null;

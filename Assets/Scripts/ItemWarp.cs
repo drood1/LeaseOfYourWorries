@@ -111,8 +111,8 @@ public class ItemWarp : MonoBehaviour {
 		//if(whatdo.holdingitem == false){
 
 		float dist = Vector3.Distance(this.transform.position,player.transform.position);
-		Debug.Log(player.transform.position);
-		Debug.Log(dist);
+		//Debug.Log(player.transform.position);
+		//Debug.Log(dist);
 		if(dist <= MAX_RANGE){
 			showme = true;
 		}

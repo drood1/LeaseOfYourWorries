@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class ItemWarp : MonoBehaviour {
-	public GameObject player = null;
+	private GameObject player = null;
 	public GameObject Boo = null;
 	public GameObject cam = null;
 	GameObject hand;
@@ -24,7 +24,7 @@ public class ItemWarp : MonoBehaviour {
 	public Texture popups3;
 	public Texture popups4;
 	public Sprite[] array;
-	public float MAX_RANGE = 4;
+	public float MAX_RANGE = 50;
 	private bool showme = false;
 	Grabbing whatdo;
 	// Use this for initialization
@@ -92,7 +92,9 @@ public class ItemWarp : MonoBehaviour {
 	void OnMouseOver (){
 		//if(whatdo.holdingitem == false){
 
-		float dist = Vector3.Distance(player.transform.position,this.transform.position);
+		float dist = Vector3.Distance(this.transform.position,player.transform.position);
+		Debug.Log(player.transform.position);
+		Debug.Log(dist);
 		if(dist <= MAX_RANGE){
 			showme = true;
 		}

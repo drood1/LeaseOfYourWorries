@@ -30,8 +30,10 @@ public class ItemWarp : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		MAX_RANGE = 3;
+		cam = GameObject.FindWithTag("MainCamera");
 		player = GameObject.FindWithTag("Player");
 		hand = GameObject.FindWithTag("Hand");
+		Boo = GameObject.FindWithTag("Boo");
 		if(wepnum == 1){
 			wep = GameObject.Find("jnt_poker");
 		}
@@ -55,6 +57,21 @@ public class ItemWarp : MonoBehaviour {
 		}
 		if(wepnum == 8){
 			wep = GameObject.Find("jnt_sword");
+		}
+		if(wepnum == 9){
+			wep = GameObject.Find("jnt_rapier");
+		}
+		if(wepnum == 10){
+			wep = GameObject.Find("jnt_turkeyLeg");
+		}
+		if(wepnum == 11){
+			wep = GameObject.Find("jnt_rake");
+		}
+		if(wepnum == 12){
+			wep = GameObject.Find("jnt_razor");
+		}
+		if(wepnum == 13){
+			wep = GameObject.Find("jnt_rollingPin");
 		}
 		collider.isTrigger = true;
 		arraystats = new int[2];

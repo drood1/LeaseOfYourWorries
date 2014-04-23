@@ -50,6 +50,21 @@ public class Grabbing : MonoBehaviour {
 			if(prewepnum == 8){
 				wep = GameObject.Find("jnt_sword");
 			}
+			if(prewepnum == 9){
+				wep = GameObject.Find("jnt_rapier");
+			}
+			if(prewepnum == 10){
+				wep = GameObject.Find("jnt_turkeyLeg");
+			}
+			if(prewepnum == 11){
+				wep = GameObject.Find("jnt_rake");
+			}
+			if(prewepnum == 12){
+				wep = GameObject.Find("jnt_razor");
+			}
+			if(prewepnum == 13){
+				wep = GameObject.Find("jnt_rollingPin");
+			}
 			wep.SendMessage("unequip",prewepnum);
 			prewepnum = wepnum;
 				//wep.transform.parent = null;

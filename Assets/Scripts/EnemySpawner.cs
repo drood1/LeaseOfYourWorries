@@ -109,6 +109,10 @@ public class EnemySpawner : MonoBehaviour {
 				spawn_speed = current_wave.spawn_speed;
 				start_time = Time.time;
 				OpenDoors();
+
+				var player_object = GameObject.Find ("playerChar");
+				TalkToBoo player_script = player_object.GetComponent<TalkToBoo>();
+				player_script.DoorsOpen = true;
 			}
 		}
 		if(!cooldown && new_wave) {
@@ -119,6 +123,10 @@ public class EnemySpawner : MonoBehaviour {
 				start_time = Time.time;
 				new_wave = false;
 				CloseDoors();
+
+				var player_object = GameObject.Find ("playerChar");
+				TalkToBoo player_script = player_object.GetComponent<TalkToBoo>();
+				player_script.DoorsOpen = false;
 			}
 		}
 	}

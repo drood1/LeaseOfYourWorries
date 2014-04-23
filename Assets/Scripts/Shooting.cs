@@ -16,11 +16,12 @@ public class Shooting : MonoBehaviour {
 	public Bullet bull;
 	float starttime = -1000f;
 	public float cdtime = 1f;
+	public float offsettime = -100f;
 	int buldmg = 0;
 	int bultype = 0;
 	void Start () {
 		//starttime = Time.time;
-		
+		anim.SetBool(hash.ratk,false);
 	}
 	
 	// Update is called once per frame
@@ -44,7 +45,7 @@ public class Shooting : MonoBehaviour {
 			if(Time.time >= starttime){
 				
 				Animatormang(bultype);
-
+				offsettime = Time.time + .3f;
 				starttime = Time.time + cdtime;
 				GameObject shot = Instantiate (bullet, transform.position+transform.forward,transform.rotation) as GameObject;
 				if(melee == true){
@@ -53,7 +54,16 @@ public class Shooting : MonoBehaviour {
 				shot.GetComponent<Bullet>().setdis(maxdis,bspeed);
 				shot.GetComponent<Bullet>().setdmg(buldmg);
 				shot.rigidbody.AddForce(transform.forward*bspeed);
+
 			}
+
+		}
+		if(Time.time >= offsettime){
+			//anim.SetBool(hash.ratk,false);
+			anim.SetBool(hash.ciratk,false);
+			anim.SetBool(hash.catk,false);
+			anim.SetBool(hash.hatk,false);
+			anim.SetBool(hash.hatk,false);
 		}
 	}
 	void AnimatorHold(int bultype){
@@ -72,19 +82,24 @@ public class Shooting : MonoBehaviour {
 
 	}
 	void Animatormang(int bultype){
+
 		if(bultype == 1){
+
 			anim.SetBool(hash.ciratk,true);
 		}
 		if(bultype == 2){
+
 			anim.SetBool(hash.catk,true);
 		}
 		if(bultype == 3){
+
 			anim.SetBool(hash.hatk,true);
 		}
 		if(bultype == 4){
+
 			anim.SetBool(hash.hatk,true);
 		}
-		
+		//anim.SetBool(hash.ratk,true);
 	}
 	public void stat(int[] arraystats,float timer,float range, bool type){
 		buldmg = arraystats[0];

@@ -17,6 +17,64 @@ public class BooPathing : MonoBehaviour {
 	void Update()	{
 		nav = GetComponent<NavMeshAgent>();
 		nav.speed = patrolSpeed;
+/*
+		var player_object = GameObject.Find ("playerChar");
+		var x = player_object.transform.position.x;
+		var z = player_object.transform.position.z;
+
+		//if player is in foyer
+		if(x > 38 && x < 61 && z < 40.5){
+			var Foyer_Points = GameObject.Find ("Foyer Patrol Points");
+
+			patrolWayPoints[0] = Foyer_Points.gameObject("Point A").Transform;
+			patrolWayPoints[1] = Foyer_Points.gameObject("Point B").Transform;
+			patrolWayPoints[2] = Foyer_Points.gameObject("Point C").Transform;
+			patrolWayPoints[3] = Foyer_Points.gameObject("Point D").Transform;
+			print ("Foyer");
+		}
+		//if player is in bedroom
+		if(x > 62 && z < 45){
+			var Bedroom_Points = GameObject.Find ("Bedroom Patrol Points");
+
+			patrolWayPoints[0] = A;
+			patrolWayPoints[1] = B;
+			patrolWayPoints[2] = C;
+			patrolWayPoints[3] = D;
+			print ("bedroom");
+		}
+		//if player is in bathroom
+		if(x > 56 && z > 45){
+			var Bathroom_Points = GameObject.Find ("Bathroom Patrol Points");
+
+			patrolWayPoints[0] = A;
+			patrolWayPoints[1] = B;
+			patrolWayPoints[2] = C;
+			patrolWayPoints[3] = D;
+			print ("bathroom");
+		}
+		//if player is in kitchen
+		if( x > 38 && x < 56 && z > 41){
+			var Kitchen_Points = GameObject.Find ("Kitchen Patrol Points");
+
+			patrolWayPoints[0] = A;
+			patrolWayPoints[1] = B;
+			patrolWayPoints[2] = C;
+			patrolWayPoints[3] = D;
+			print ("kitchen");
+		}
+		
+		//if player is in dining hall
+		if( x < 38)
+		{
+			var Dining_Points = GameObject.Find ("Dining Hall Patrol Points");
+
+			patrolWayPoints[0] = A;
+			patrolWayPoints[1] = B;
+			patrolWayPoints[2] = C;
+			patrolWayPoints[3] = D;
+			print ("Dining Hall");
+		}
+*/
 		Patrolling ();
 	}
 	public void Stop(){
@@ -25,7 +83,7 @@ public class BooPathing : MonoBehaviour {
 	public void Start(){
 		patrolSpeed = 2f;
 	}
-		
+
 	void Patrolling ()
 	{
 		// Set an appropriate speed for the NavMeshAgent.
@@ -42,7 +100,7 @@ public class BooPathing : MonoBehaviour {
 			{
 				
 				//set wayPointIndex to a random point.
-				wayPointIndex = Random.Range (0, 4);
+				wayPointIndex = Random.Range (0, 3);
 				
 				// Reset the timer.
 				patrolTimer = 0;

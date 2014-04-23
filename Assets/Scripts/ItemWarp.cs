@@ -24,11 +24,12 @@ public class ItemWarp : MonoBehaviour {
 	public Texture popups3;
 	public Texture popups4;
 	public Sprite[] array;
-	public float MAX_RANGE = 50;
+	public float MAX_RANGE = 40;
 	private bool showme = false;
 	Grabbing whatdo;
 	// Use this for initialization
 	void Start () {
+		MAX_RANGE = 3;
 		player = GameObject.FindWithTag("Player");
 		hand = GameObject.FindWithTag("Hand");
 		if(wepnum == 1){

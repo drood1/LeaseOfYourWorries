@@ -10,7 +10,6 @@ public class Shooting : MonoBehaviour {
 	public GameObject Circle = null;
 	public GameObject Cone = null;
 	public GameObject Rectangles = null;
-	public GameObject Sphere = null;
 	public GameObject bullettype2 = null;
 	public bool melee = false;
 	public float maxdis = 10f;
@@ -18,7 +17,7 @@ public class Shooting : MonoBehaviour {
 	float starttime = -1000f;
 	public float cdtime = 1f;
 	int buldmg = 0;
-	int bultype = 1;
+	int bultype = 0;
 	void Start () {
 		//starttime = Time.time;
 		
@@ -38,14 +37,13 @@ public class Shooting : MonoBehaviour {
 		}else if(bultype == 3){
 			bullet = Rectangles;
 		}else if(bultype == 4){
-			bullet = Sphere;
-		}else if(bultype == 5){
 			bullet = bullettype2;//custom bullet for knife
 		}
-		Animatormang(bultype);
-		if(Input.GetMouseButtonDown(0)){
+		AnimatorHold(bultype);
+		if(Input.GetMouseButtonDown(0) && bultype != 0){
 			if(Time.time >= starttime){
-
+				
+				Animatormang(bultype);
 
 				starttime = Time.time + cdtime;
 				GameObject shot = Instantiate (bullet, transform.position+transform.forward,transform.rotation) as GameObject;
@@ -58,11 +56,35 @@ public class Shooting : MonoBehaviour {
 			}
 		}
 	}
+	void AnimatorHold(int bultype){
+		if(bultype == 1){
+			anim.Play("Hold circle");
+		}
+		if(bultype == 2){
+			anim.Play("Hold line");
+		}
+		if(bultype == 3){
+			anim.Play("Hold throw");
+		}
+		if(bultype == 4){
+			anim.Play("Hold throw");
+		}
+
+	}
 	void Animatormang(int bultype){
+		if(bultype == 1){
+			anim.SetBool(hash.ciratk,true);
+		}
 		if(bultype == 2){
 			anim.SetBool(hash.catk,true);
 		}
-
+		if(bultype == 3){
+			anim.SetBool(hash.hatk,true);
+		}
+		if(bultype == 4){
+			anim.SetBool(hash.hatk,true);
+		}
+		
 	}
 	public void stat(int[] arraystats,float timer,float range, bool type){
 		buldmg = arraystats[0];

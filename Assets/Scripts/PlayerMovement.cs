@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour {
 		Debug.Log("x:" + inputVec.z);
 
 		controller.Move((inputVec + Vector3.up * -gravity + new Vector3(0, verticalVel, 0)) * Time.deltaTime);
-		if(Mathf.Abs(inputVec.x) > 0.1 || Mathf.Abs(inputVec.z) > 0.1)
+		if(Mathf.Abs(sumvalue) > 0.1)
 			anim.SetBool(hash.move,true);
 		else
 			anim.SetBool(hash.move,false);

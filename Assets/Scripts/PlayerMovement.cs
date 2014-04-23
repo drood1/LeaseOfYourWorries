@@ -6,12 +6,19 @@ public class PlayerMovement : MonoBehaviour {
 	public float runSpeed = 10f;
 	public int gravity = 20;
 	public float jumpSpeed = 8;
-	
+	private Animator anim;
+	private HashIDs hash;
+
 	bool canJump;
 	float moveSpeed;
 	float verticalVel;  // Used for continuing momentum while in air    
 	CharacterController controller;
-	
+	void Awake(){
+		anim = GetComponent<Animator>();
+		hash = GameObject.FindGameObjectWithTag("Object").GetComponent<HashIDs>();
+		anim.SetLayerWeight(1, 1f);
+	}
+
 	void Start()
 	{
 		controller = (CharacterController)GetComponent(typeof(CharacterController));
@@ -24,9 +31,15 @@ public class PlayerMovement : MonoBehaviour {
 		
 		Vector3 inputVec = new Vector3(x, 0, z);
 		inputVec *= runSpeed;
-		
+		float sumvalue = inputVec.x + inputVec.z;
+		Debug.Log("x:" + inputVec.x);
+		Debug.Log("x:" + inputVec.z);
+
 		controller.Move((inputVec + Vector3.up * -gravity + new Vector3(0, verticalVel, 0)) * Time.deltaTime);
-		
+		if(Mathf.Abs(inputVec.x) > 0.1 || Mathf.Abs(inputVec.z) > 0.1)
+			anim.SetBool(hash.move,true);
+		else
+			anim.SetBool(hash.move,false);
 		// Rotation
 
 		

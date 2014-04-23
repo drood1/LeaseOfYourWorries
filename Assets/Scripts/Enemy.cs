@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Enemy : MonoBehaviour {
-	public float move_speed = 2;
+	public float move_speed = .5f;
 	public float health  = 10f;
 	public float time_hit;
 	public float move_again = 1.5F;
@@ -45,6 +45,10 @@ public class Enemy : MonoBehaviour {
 			is_hit = true;
 			time_hit = Time.time;
 			
+		}
+
+		if(c.gameObject.tag == "enemy") {
+			Debug.Log("Enemy collides with enemy");
 		}
 	}
 	

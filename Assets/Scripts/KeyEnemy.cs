@@ -8,6 +8,8 @@ public class KeyEnemy : MonoBehaviour {
 	float move_speed = 2f;		// Movement Speed
 	float health = 10f; 		// Will take normal damage + 1
 	float time_hit;
+	public Transform[] waypoint;
+
 	// Use this for initialization
 	void Start () {
 	

@@ -2,13 +2,14 @@
 using System.Collections;
 
 public class Door5 : MonoBehaviour {
-	
+	Vector3 closed;
+	Vector3 rot;
+	bool opened = false;
 	// Use this for initialization
 	void Start () {
-		
+		closed = transform.localPosition;
+		rot = transform.eulerAngles;
 	}
-	
-	bool opened = false;
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,7 +21,7 @@ public class Door5 : MonoBehaviour {
 		
 		int cur_level = ui_script.getLvl ();
 		
-		if(cur_level == 4){
+		/*if(cur_level == 4){
 			if(opened == false){
 				talk_script.trigger = 40;
 				Vector3 new_pos = new Vector3(1.50841f, 2.78724f, 14.2331f);
@@ -29,6 +30,20 @@ public class Door5 : MonoBehaviour {
 				transform.eulerAngles = new_rot;
 			}
 			opened = true;
-		}
+		}*/
+	}
+	void OpenDoor() {
+		opened = true;
+		Vector3 new_pos = new Vector3(1.50841f, 2.78724f, 14.2331f);
+		transform.localPosition = new_pos;
+		Vector3 new_rot = new Vector3(0f, 297.592f, 0f);
+		transform.eulerAngles = new_rot;
+	}
+	
+	void CloseDoor() {
+		opened = false;
+		transform.localPosition = closed;
+		transform.localEulerAngles = rot;
+		
 	}
 }

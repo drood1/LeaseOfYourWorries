@@ -141,10 +141,18 @@ public class EnemySpawner : MonoBehaviour {
 
 	void OpenDoors() {
 		door1.SendMessage("OpenDoor");
+		door2.SendMessage("OpenDoor");
+		door3.SendMessage("OpenDoor");
+		door4.SendMessage("OpenDoor");
+		door5.SendMessage("OpenDoor");
 	}
 
 	void CloseDoors() {
 		door1.SendMessage("CloseDoor");
+		door2.SendMessage("CloseDoor");
+		door3.SendMessage("CloseDoor");
+		door4.SendMessage("CloseDoor");
+		door5.SendMessage("CloseDoor");
 	}
 	
 }

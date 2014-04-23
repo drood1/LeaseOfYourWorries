@@ -95,7 +95,7 @@ public class ItemWarp : MonoBehaviour {
 		if(dist <= MAX_RANGE){
 			showme = true;
 		}
-		if(Input.GetMouseButtonDown(1)){
+		if(Input.GetMouseButtonDown(1) && dist <= MAX_RANGE){
 			int plvl = cam.GetComponent<UI>().getLvl();
 			int temp = plvl - level;
 			int pcandies = cam.GetComponent<UI>().getcan();

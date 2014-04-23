@@ -29,7 +29,7 @@ public class ItemWarp : MonoBehaviour {
 	Grabbing whatdo;
 	// Use this for initialization
 	void Start () {
-		MAX_RANGE = 3;
+		MAX_RANGE = 2.5f;
 		cam = GameObject.FindWithTag("MainCamera");
 		player = GameObject.FindWithTag("Player");
 		hand = GameObject.FindWithTag("Hand");

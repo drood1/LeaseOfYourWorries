@@ -27,6 +27,13 @@ public class EnemySpawner : MonoBehaviour {
 	public Wave two = new Wave(2,1,2);
 	public Wave three = new Wave(3,1,3);
 	public Wave four = new Wave(4,1,4);
+
+	public GameObject door1 = null;
+	public GameObject door2 = null;
+	public GameObject door3 = null;
+	public GameObject door4 = null;
+	public GameObject door5 = null;
+
 	
 	
 	// Use this for initialization
@@ -46,6 +53,14 @@ public class EnemySpawner : MonoBehaviour {
 		current_wave = waves[0];
 		spawn_speed = current_wave.spawn_speed;
 		place_in_wave = 0;
+
+		door1 = GameObject.Find("Door1");
+		door2 = GameObject.Find("Door2");
+		door3 = GameObject.Find("Door3");
+		door4 = GameObject.Find("Door4");
+		door5 = GameObject.Find("Door5");
+
+
 		
 	}
 	
@@ -90,6 +105,7 @@ public class EnemySpawner : MonoBehaviour {
 				current_wave = waves[current_wave.wave_name]; 
 				spawn_speed = current_wave.spawn_speed;
 				start_time = Time.time;
+				OpenDoors();
 			}
 		}
 		if(!cooldown && new_wave) {
@@ -97,6 +113,7 @@ public class EnemySpawner : MonoBehaviour {
 			if(Time.time -  start_time > cooldown_timer) {
 				start_time = Time.time;
 				new_wave = false;
+				CloseDoors();
 			}
 		}
 	}
@@ -120,6 +137,14 @@ public class EnemySpawner : MonoBehaviour {
 	
 	void increase_death_count() {
 		death_count++;
+	}
+
+	void OpenDoors() {
+		door1.SendMessage("OpenDoor");
+	}
+
+	void CloseDoors() {
+		door1.SendMessage("CloseDoor");
 	}
 	
 }

@@ -9,8 +9,12 @@ public class HashIDs : MonoBehaviour {
 	public int hatk;
 	public int ratk;
 	public int move;
+	public int Moving;
+	public int NMoving;
 	void Awake(){
 		coneatk = Animator.StringToHash("Upperbody.Hold cone");
+		Moving = Animator.StringToHash("LowerBody.Run");
+		NMoving = Animator.StringToHash("LowerBody.Idle");
 		catk = Animator.StringToHash("Attack");
 		latk = Animator.StringToHash("Attack2");
 		ciratk = Animator.StringToHash("Attack3");

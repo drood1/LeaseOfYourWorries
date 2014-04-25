@@ -32,14 +32,11 @@ public class PlayerMovement : MonoBehaviour {
 		Vector3 inputVec = new Vector3(x, 0, z);
 		inputVec *= runSpeed;
 		float sumvalue = inputVec.x + inputVec.z;
-		//Debug.Log("x:" + inputVec.x);
-		//Debug.Log("x:" + inputVec.z);
+
 
 		controller.Move((inputVec + Vector3.up * -gravity + new Vector3(0, verticalVel, 0)) * Time.deltaTime);
-		if(Mathf.Abs(sumvalue) > 0.1)
-			anim.SetBool(hash.move,true);
-		else
-			anim.SetBool(hash.move,false);
+
+
 		// Rotation
 
 		
@@ -68,6 +65,12 @@ public class PlayerMovement : MonoBehaviour {
 		
 		if ( controller.isGrounded )
 			verticalVel = 0f;// Remove any persistent velocity after landing
+		if(Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.S)||Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.A))
+			anim.SetBool(hash.move,true);
+		else{
+			anim.SetBool(hash.move,false);
+			//anim.Play(hash.NMoving);
+		}
 	}
 }
 

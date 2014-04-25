@@ -57,7 +57,6 @@ function Awake ()
 	else
 		Debug.Log("Please assign a target to the camera that has a ThirdPersonController script attached.");
 
-	
 	Cut(_target, centerOffset);
 }
 

@@ -73,7 +73,7 @@ public class UI : MonoBehaviour {
 			GUI.Label ( new Rect(1010,80,89,112), enemy_count.ToString(), style3);
 
 		if(timeToWave > 0)
-			GUI.Label (new Rect (1150,80, 89, 112), "Time to Next Wave: " + yo.ToString(), style3);
+			GUI.Label (new Rect (Screen.width/2 - 200, 120, 89, 112), "Time to Next Wave: " + yo.ToString(), style3);
 		// gray bar behind Rep meter
 		GUI.DrawTexture(new Rect(532,10,425,77),BarBack);
 		// Increasing bar

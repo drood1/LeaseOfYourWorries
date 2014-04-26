@@ -52,7 +52,7 @@ public class Shooting : MonoBehaviour {
 
 		}
 
-		AnimatorHold(bultype);
+
 		if(Input.GetMouseButtonDown(0) && bultype != 0){
 			if(Time.time >= starttime){
 				
@@ -131,6 +131,7 @@ public class Shooting : MonoBehaviour {
 		maxdis = range;
 		cdtime = timer;
 		melee = type;
+		AnimatorHold(bultype);
 	}
 
 }

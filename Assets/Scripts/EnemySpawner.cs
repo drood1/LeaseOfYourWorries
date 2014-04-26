@@ -30,6 +30,11 @@ public class EnemySpawner : MonoBehaviour {
 	public Wave four = new Wave(4,1,4);
 	public Wave five = new Wave(5,1,4);
 	public Wave six = new Wave(6,1,4);
+	public Wave seven = new Wave(7,1,4);
+	public Wave eight = new Wave(8,1,4);
+	public Wave nine = new Wave(9,1,4);
+	public Wave ten = new Wave(10,1,4);
+	public Wave eleven = new Wave(11,1,4);
 
 	public GameObject door1 = null;
 	public GameObject door2 = null;
@@ -295,6 +300,72 @@ public class Wave {
 	};
 	List<string> six = new List<string>()
 	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2"
+	};
+	List<string> seven = new List<string>()
+	{
+		"Enemy2",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy1",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> eight = new List<string>()
+	{
+		"Enemy2",
+		"Enemy1",
+		"Enemy2",
+		"Enemy1",
+		"Enemy2",
+		"Enemy1",
+		"Enemy3",
+		"Enemy1",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> nine = new List<string>()
+	{
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> ten = new List<string>()
+	{
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> eleven = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
 		"Enemy2",
 		"Enemy2",
 		"Enemy2",
@@ -313,6 +384,12 @@ public class Wave {
 		wave_list.Add (four);
 		wave_list.Add (five);
 		wave_list.Add (six);
+		wave_list.Add (seven);
+		wave_list.Add (eight);
+		wave_list.Add (nine);
+		wave_list.Add (ten);
+		wave_list.Add (eleven);
+
 		
 		wave_name = name;
 		spawn_speed = speed;

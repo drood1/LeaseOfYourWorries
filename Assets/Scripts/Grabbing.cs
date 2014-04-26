@@ -68,6 +68,9 @@ public class Grabbing : MonoBehaviour {
 			if(prewepnum == 14){
 				wep = GameObject.Find("jnt_coatTree");
 			}
+			if(prewepnum == 15){
+				wep = GameObject.Find("jnt_skillet");
+			}
 			wep.SendMessage("unequip",prewepnum);
 			prewepnum = wepnum;
 				//wep.transform.parent = null;

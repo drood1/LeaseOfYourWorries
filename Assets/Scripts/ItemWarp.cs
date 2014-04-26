@@ -16,7 +16,11 @@ public class ItemWarp : MonoBehaviour {
 	public int level = 0;
 	public bool melee = false;
 	public int[] arraystats;
-	private Vector3 ov;
+	private Quaternion lr;
+	private Quaternion ov;
+	private Quaternion ovv;
+	private Transform prev;
+	private Vector3 prevt;
 	public Texture popup;
 	public Texture popups;
 	public Texture popups1;
@@ -26,6 +30,7 @@ public class ItemWarp : MonoBehaviour {
 	public Sprite[] array;
 	public float MAX_RANGE = 40;
 	private bool showme = false;
+	private bool test = false; 
 	Grabbing whatdo;
 	// Use this for initialization
 	void Start () {
@@ -76,10 +81,15 @@ public class ItemWarp : MonoBehaviour {
 		if(wepnum == 14){
 			wep = GameObject.Find("jnt_coatTree");
 		}
+		if(wepnum == 15){
+			wep = GameObject.Find("jnt_skillet");
+		}
 		collider.isTrigger = true;
 		arraystats = new int[2];
 		arraystats[0] = wepdmg;
 		arraystats[1] = wepbul;
+		prev = this.transform.parent;
+		prevt = this.transform.eulerAngles;
 
 	}
 	
@@ -147,10 +157,14 @@ public class ItemWarp : MonoBehaviour {
 			//gameObject.transform.parent = player.transform.Find("Bip001/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 R Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001 R Hand/Bip001 R Hand").transform;
 				wep.transform.parent = hand.transform;
 				wep.transform.localPosition = new Vector3(0,0,0);
-				ov = this.transform.eulerAngles;
-				this.transform.rotation = Quaternion.identity;
-	
-
+				if(test == false){
+					ov = this.transform.rotation;
+					//lr = this.transform.localRotation;
+					//ovv = this.transform.parent.rotation;
+					this.transform.rotation = Quaternion.identity;
+					//test = true;
+				}
+				//this.transform.rotation = ov;
 			//this.transform.localRotation = Quaternion.Euler(0, 0, -50);
 			//gameObject.transform.parent.gameObject;
 			}
@@ -162,8 +176,14 @@ public class ItemWarp : MonoBehaviour {
 		}
 	}
 	public void unequip(int numnum){
-		this.transform.parent = null;
-		this.transform.eulerAngles = ov;
+
+		hand.transform.DetachChildren();
+		//this.transform.rotation = Quaternion.identity;
+		this.transform.parent = prev;
+		//this.transform.parent.rotation = ovv;
+		this.transform.rotation = ov;
+		//this.transform.localRotation = lr;
+		//this.transform.eulerAngles = prevt;
 		this.transform.position = new Vector3(player.transform.position.x, player.transform.position.y-.5f,player.transform.position.z);
 		eq = false;
 	}

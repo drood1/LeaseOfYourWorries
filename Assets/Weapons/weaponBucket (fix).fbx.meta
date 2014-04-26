@@ -1,18 +1,17 @@
 fileFormatVersion: 2
-guid: 05b34a39e922ac448b05224fd1d5ee36
+guid: 3ca1b66d9b136a14eb9348ba3912203c
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: jnt_poker
-    100002: poker
+    100000: bucket
+    100002: jnt_bucket
     100004: //RootNode
-    400000: jnt_poker
-    400002: poker
+    400000: bucket
+    400002: jnt_bucket
     400004: //RootNode
-    4300000: poker
-    7400000: Take 001
+    4300000: bucket
     9500000: //RootNode
-    13700000: poker
+    13700000: bucket
   materials:
     importMaterials: 1
     materialName: 0
@@ -31,7 +30,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: .00999999978
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

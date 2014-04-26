@@ -73,6 +73,9 @@ public class ItemWarp : MonoBehaviour {
 		if(wepnum == 13){
 			wep = GameObject.Find("jnt_rollingPin");
 		}
+		if(wepnum == 14){
+			wep = GameObject.Find("jnt_coatTree");
+		}
 		collider.isTrigger = true;
 		arraystats = new int[2];
 		arraystats[0] = wepdmg;
@@ -161,6 +164,7 @@ public class ItemWarp : MonoBehaviour {
 	public void unequip(int numnum){
 		this.transform.parent = null;
 		this.transform.eulerAngles = ov;
+		this.transform.position = new Vector3(player.transform.position.x, player.transform.position.y-.5f,player.transform.position.z);
 		eq = false;
 	}
 	}

@@ -101,8 +101,8 @@ public class UI : MonoBehaviour {
 		else
 			GUI.Box(new Rect(562,27,393,54), "Maxed out Rep", style2);
 	}
-	void addCandy() {
-		Candies++;
+	void addCandy(int num) {
+		Candies += num;
 	}
 
 	void DisplayEnemyCount(int count) {

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Candy : MonoBehaviour {
 	public GameObject ui = null;
-
+	public int num;
 	// Use this for initialization
 	void Start () {
 		ui = GameObject.Find ("Main Camera");
@@ -16,9 +16,13 @@ public class Candy : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider c){
 		if(c.gameObject.tag == "Player") {
-			ui.SendMessage("addCandy");
+			ui.SendMessage("addCandy", num);
 			Debug.Log("Picked up Candy");
 			GameObject.Destroy(gameObject);
 		}
+	}
+
+	void setVal(int howmuch) {
+		num = howmuch;
 	}
 }

@@ -13,6 +13,8 @@ public class Enemy : MonoBehaviour {
 	public GameObject player = null;
 	public GameObject candy = null;
 	public GameObject standard_candy = null;
+	public GameObject candy2 = null;
+	public GameObject candy3 = null;
 	public GameObject GUIPrefab = null;
 	public GameObject GUIDamage = null;
 	public GameObject spawner = null;
@@ -48,7 +50,7 @@ public class Enemy : MonoBehaviour {
 		}
 
 		if(c.gameObject.tag == "enemy") {
-			Debug.Log("Enemy collides with enemy");
+			//Debug.Log("Enemy collides with enemy");
 		}
 	}
 	
@@ -62,7 +64,7 @@ public class Enemy : MonoBehaviour {
 		}
 		
 		if(health <= 0f) {
-			Debug.Log("Enemy Killed");
+			//Debug.Log("Enemy Killed");
 			int chance = Random.Range(0,100);
 			if(chance < drop_chance) {
 				candy = standard_candy;
@@ -82,6 +84,25 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void getHit(int dmg) {
+		int chance = Random.Range(0,100);
+		if(chance < drop_chance) {
+			chance = Random.Range (1,10);
+			if(chance < 6) {
+				candy = standard_candy;
+				candy = Instantiate(candy, transform.position, transform.rotation) as GameObject;
+				candy.SendMessageUpwards("setVal", 1);
+			}
+			else if(chance > 6 && chance < 10) {
+				candy = candy2;
+				candy = Instantiate(candy, transform.position, transform.rotation) as GameObject;
+				candy.SendMessageUpwards("setVal", 2);
+			}
+			else if(chance == 10) {
+				candy = candy3;
+				candy = Instantiate(candy, transform.position, transform.rotation) as GameObject;
+				candy.SendMessageUpwards("setVal", 3);
+			}
+		}
 		this.rigidbody.constraints = RigidbodyConstraints.FreezePosition;
 		is_hit = true;
 		time_hit = Time.time;

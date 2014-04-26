@@ -16,12 +16,12 @@ public class Door2 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		var ui = GameObject.Find ("Main Camera");
-		UI ui_script = ui.GetComponent<UI>();
+		//UI ui_script = ui.GetComponent<UI>();
 
 		var Boo = GameObject.Find ("playerChar");
-		TalkToBoo talk_script = Boo.GetComponent<TalkToBoo>();
+		//TalkToBoo talk_script = Boo.GetComponent<TalkToBoo>();
 
-		int cur_level = ui_script.getLvl ();
+		//int cur_level = ui_script.getLvl ();
 		
 		/*if(cur_level == 2){
 			if(opened == false)	{

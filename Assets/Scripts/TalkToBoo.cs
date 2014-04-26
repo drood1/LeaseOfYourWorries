@@ -6,7 +6,7 @@ public class TalkToBoo : MonoBehaviour {
 	
 	public bool inRange = false;
 	public int trigger = 0;
-	public Font WashingtonText;
+	public GUIStyle boo_font;
 	public bool DoorsOpen = false;
 	
 	private bool SpokenOpen = true;
@@ -17,36 +17,35 @@ public class TalkToBoo : MonoBehaviour {
 	
 	bool toopoor = false;
 	void OnGUI() {
-		GUI.skin.font = WashingtonText;
 		
 		
 		if(trigger == 1)	{
-			GUI.Box ( new Rect(500, 600, 700, 70), text_box);
-			GUI.Box ( new Rect (500, 600,700,70), "Enough lazing about boy!");
+			GUI.DrawTexture( new Rect(400, 600, 700, 70), text_box);
+			GUI.Label ( new Rect (500, 600,700,70), "Enough lazing about boy!", boo_font);
 		}
 		else if(trigger == 2){
-			GUI.Box ( new Rect(500, 600, 700, 70), text_box);
-			GUI.Box ( new Rect (500, 600,700,70), "Don't you want your candy back?");
+			GUI.DrawTexture ( new Rect(350, 600, 700, 70), text_box);
+			GUI.Label ( new Rect (360, 600,700,70), "Don't you want your candy back?", boo_font);
 		}
 		else if(trigger == 3){
-			GUI.Box ( new Rect(500, 600, 700, 70), text_box);
-			GUI.Box ( new Rect (550, 600,700,70), "Have at them!");
+			GUI.DrawTexture ( new Rect(350, 600, 700, 70), text_box);
+			GUI.Label ( new Rect (550, 600,700,70), "Have at them!", boo_font);
 		}
 		else if(trigger == 12){
-			GUI.Box ( new Rect(300, 600, 900, 70), text_box_2);
-			GUI.Box ( new Rect (300, 600, 900, 70), "Such a kind gesture from a kind young man!");
+			GUI.DrawTexture ( new Rect(150, 600, 900, 70), text_box_2);
+			GUI.Label ( new Rect (300, 600, 900, 70), "Such a kind gesture from a kind young man!", boo_font);
 		}
 		else if(trigger == 13)	{
-			GUI.Box ( new Rect(500, 600, 900, 70), text_box_2);
-			GUI.Box (new Rect (500, 600, 900, 70), "That's not nearly enough to satisfy me!");
+			GUI.DrawTexture ( new Rect(350, 600, 900, 70), text_box_2);
+			GUI.Label (new Rect (500, 600, 900, 70), "That's not nearly enough to satisfy me!", boo_font);
 		}
 		else if(trigger == 15)	{
-			GUI.Box ( new Rect(300, 600, 900, 70), text_box_2);
-			GUI.Box (new Rect (300, 600, 750, 70), "Well done young man! You've earned a brief respite.");
+			GUI.DrawTexture ( new Rect(300, 600, 900, 70), text_box_2);
+			GUI.Label (new Rect (360, 600, 750, 70), "Well done! You've earned a brief respite.", boo_font);
 		}
 		else if(trigger == 16)	{
-			GUI.Box ( new Rect(300, 600, 900, 70), text_box_2);
-			GUI.Box (new Rect (300, 600, 750, 70), "Ready your arms, here they come!");
+			GUI.DrawTexture ( new Rect(250, 600, 900, 70), text_box_2);
+			GUI.Label (new Rect (325, 600, 750, 70), "Ready your arms, here they come!", boo_font);
 		}
 		
 		

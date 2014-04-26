@@ -77,11 +77,13 @@ public class Enemy2 : MonoBehaviour {
 		
 		if(health <= 0f) {
 			//Debug.Log("Enemy Killed");
+			/*
 			int chance = Random.Range(0,100);
 			if(chance < drop_chance) {
 				candy = standard_candy;
 				Instantiate(candy, transform.position, transform.rotation);
 			}
+			*/
 			spawner.SendMessage("increase_death_count");
 			GameObject.Destroy (gameObject);
 		}	

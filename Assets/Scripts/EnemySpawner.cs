@@ -254,6 +254,9 @@ public class Wave {
 		"Enemy1",
 		"Enemy1",
 		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
 
 	};
 	

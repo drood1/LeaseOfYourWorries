@@ -61,10 +61,12 @@ public class Enemy3 : MonoBehaviour {
 		if(health <= 0f) {
 			//Debug.Log("Enemy Killed");
 			int chance = Random.Range(0,100);
+			/*
 			if(chance < drop_chance) {
 				candy = standard_candy;
 				Instantiate(candy, transform.position, transform.rotation);
 			}
+			*/
 			spawner.SendMessage("increase_death_count");
 			GameObject.Destroy (gameObject);
 		}	
@@ -115,17 +117,17 @@ public class Enemy3 : MonoBehaviour {
 				chance = Random.Range (1,10);
 				if(chance < 6) {
 					candy = standard_candy;
-					Instantiate(candy, transform.position, transform.rotation);
+					candy = Instantiate(candy, transform.position, transform.rotation) as GameObject;
 					candy.SendMessage("setVal", 1);
 				}
 				else if(chance > 6 && chance < 10) {
 					candy = candy2;
-					Instantiate(candy, transform.position, transform.rotation);
+					candy = Instantiate(candy, transform.position, transform.rotation) as GameObject;
 					candy.SendMessage("setVal", 2);
 				}
 				else if(chance == 10) {
 					candy = candy3;
-					Instantiate(candy, transform.position, transform.rotation);
+					candy = Instantiate(candy, transform.position, transform.rotation) as GameObject;
 					candy.SendMessage("setVal", 3);
 				}
 			}

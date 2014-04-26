@@ -12,6 +12,7 @@ public class Shooting : MonoBehaviour {
 	public GameObject Rectangles = null;
 	public GameObject bullettype1 = null;
 	public GameObject bullettype2 = null;
+	public GameObject bullettype3 = null;
 	public bool melee = false;
 	public float maxdis = 10f;
 	public Bullet bull;
@@ -23,6 +24,9 @@ public class Shooting : MonoBehaviour {
 	void Start () {
 		//starttime = Time.time;
 		anim.SetBool(hash.ratk,false);
+		Vector3 temp = bullettype3.transform.eulerAngles;
+		temp.y = 180;
+		bullettype3.transform.rotation = Quaternion.Euler(temp);
 	}
 	
 	// Update is called once per frame
@@ -42,6 +46,10 @@ public class Shooting : MonoBehaviour {
 			bullet = bullettype2;//custom bullet for knife
 		}else if(bultype == 5){
 			bullet = bullettype1;//custom bullet for knife
+		}else if(bultype == 6){
+			bullet = bullettype3;//custom bullet for knife
+
+
 		}
 
 		AnimatorHold(bultype);
@@ -67,7 +75,7 @@ public class Shooting : MonoBehaviour {
 			anim.SetBool(hash.ciratk,false);
 			anim.SetBool(hash.catk,false);
 			anim.SetBool(hash.latk,false);
-			anim.SetBool(hash.hatk,false);
+			anim.SetBool(hash.tatk,false);
 		}
 	}
 	void AnimatorHold(int bultype){
@@ -85,6 +93,9 @@ public class Shooting : MonoBehaviour {
 		}
 		if(bultype == 5){
 			anim.Play("Hold cone");
+		}
+		if(bultype == 6){
+			anim.Play("Hold throw");
 		}
 
 	}
@@ -104,10 +115,13 @@ public class Shooting : MonoBehaviour {
 		}
 		if(bultype == 4){
 
-			anim.SetBool(hash.hatk,true);
+			anim.SetBool(hash.tatk,true);
 		}
 		if(bultype == 5){
 			//anim.Play("Hold cone");
+		}
+		if(bultype == 6){
+			anim.SetBool(hash.tatk,true);
 		}
 		//anim.SetBool(hash.ratk,true);
 	}

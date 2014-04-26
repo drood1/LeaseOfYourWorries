@@ -14,7 +14,7 @@ public class ItemWarp : MonoBehaviour {
 	public float wepcd = 0f;
 	public float weprange = 0f;
 	public int level = 0;
-	public bool melee = false;
+	public bool melee = true;
 	public int[] arraystats;
 	private Quaternion lr;
 	private Quaternion ov;
@@ -153,17 +153,23 @@ public class ItemWarp : MonoBehaviour {
 				//Boo.SendMessage("Warp");
 				player.GetComponent<Shooting>().stat(arraystats,wepcd,weprange,melee);
 				//wep.collider.enabled = false;
+				ov = this.transform.rotation;
+				ovv = wep.transform.rotation;
 				//player.gameObject.GetComponent<Grabbing>().holding(true);
 			//gameObject.transform.parent = player.transform.Find("Bip001/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 R Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001 R Hand/Bip001 R Hand").transform;
-				wep.transform.parent = hand.transform;
-				wep.transform.localPosition = new Vector3(0,0,0);
+
+
 				if(test == false){
-					ov = this.transform.rotation;
+
 					//lr = this.transform.localRotation;
 					//ovv = this.transform.parent.rotation;
 					this.transform.rotation = Quaternion.identity;
+
 					//test = true;
 				}
+
+				wep.transform.parent = hand.transform;
+				wep.transform.localPosition = new Vector3(0,0,0);
 				//this.transform.rotation = ov;
 			//this.transform.localRotation = Quaternion.Euler(0, 0, -50);
 			//gameObject.transform.parent.gameObject;
@@ -182,6 +188,7 @@ public class ItemWarp : MonoBehaviour {
 		this.transform.parent = prev;
 		//this.transform.parent.rotation = ovv;
 		this.transform.rotation = ov;
+		wep.transform.rotation = ovv;
 		//this.transform.localRotation = lr;
 		//this.transform.eulerAngles = prevt;
 		this.transform.position = new Vector3(player.transform.position.x, player.transform.position.y-.5f,player.transform.position.z);

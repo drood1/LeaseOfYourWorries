@@ -6,7 +6,7 @@ public class HashIDs : MonoBehaviour {
 	public int catk;
 	public int latk;
 	public int ciratk;
-	public int hatk;
+	public int tatk;
 	public int ratk;
 	public int move;
 	public int Moving;
@@ -18,7 +18,7 @@ public class HashIDs : MonoBehaviour {
 		catk = Animator.StringToHash("Attack");
 		latk = Animator.StringToHash("Attack2");
 		ciratk = Animator.StringToHash("Attack3");
-		hatk = Animator.StringToHash("Attack4");
+		tatk = Animator.StringToHash("Attack4");
 		ratk = Animator.StringToHash("Resetatk");
 		move = Animator.StringToHash("Moving");
 	}

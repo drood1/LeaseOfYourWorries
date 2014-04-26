@@ -15,11 +15,11 @@ Platform assembly: C:\Users\karlolsen\Desktop\Lease\GameFest_Data\Managed\Assemb
 Loading C:\Users\karlolsen\Desktop\Lease\GameFest_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
 Platform assembly: C:\Users\karlolsen\Desktop\Lease\GameFest_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
 Loading C:\Users\karlolsen\Desktop\Lease\GameFest_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
-- Completed reload, in  0.060 seconds
+- Completed reload, in  0.055 seconds
 desktop: 1440x900 60Hz; virtual: 1440x900 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
-UnloadTime: 0.318067 ms
+UnloadTime: 0.345725 ms
 The character you would like to control doesn't have animations. Moving her might look weird.
  
 (Filename: C:/BuildAgent/work/d3d49558e4d408f4/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 53)
@@ -42,8 +42,8 @@ No jump animation found and the character has canJump enabled. Turning off anima
 
 Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
 
-Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 1778.
-Total: 1.272270 ms (FindLiveObjects: 0.079813 ms CreateObjectMapping: 0.028448 ms MarkObjects: 0.314511 ms  DeleteObjects: 0.325969 ms)
+Unloading 15 unused Assets to reduce memory usage. Loaded Objects now: 1784.
+Total: 1.267134 ms (FindLiveObjects: 0.080603 ms CreateObjectMapping: 0.025682 ms MarkObjects: 0.317277 ms  DeleteObjects: 0.329130 ms)
 
 HandleD3DDeviceLost
   HandleD3DDeviceLost: still lost

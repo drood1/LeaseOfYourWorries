@@ -37,7 +37,13 @@ public class EnemySpawner : MonoBehaviour {
 	public GameObject door4 = null;
 	public GameObject door5 = null;
 
-	
+	GameObject Foyer = null;
+	GameObject Dining_Hall = null;
+	GameObject Kitchen = null;
+	GameObject Bathroom = null;
+	GameObject Bedroom = null;
+
+	Vector4 room_bounds;
 	
 	// Use this for initialization
 	void Start () {
@@ -66,8 +72,14 @@ public class EnemySpawner : MonoBehaviour {
 		door4 = GameObject.Find("Door4");
 		door5 = GameObject.Find("Door5");
 
+		Foyer = GameObject.Find("FoyerFloor");
+		Dining_Hall = GameObject.Find ("Dining_Hall");
+		Kitchen = GameObject.Find ("Kitchen");
+		Bathroom = GameObject.Find("Bathroom");
+		Bedroom = GameObject.Find ("Bedroom");
 
-		
+		room_bounds = WhereIsPlayer();
+		player.SendMessage("updateBounds", room_bounds);
 	}
 	
 	// Update is called once per frame
@@ -79,7 +91,7 @@ public class EnemySpawner : MonoBehaviour {
 			if(Time.time - start_time > spawn_speed) {
 				// Spawns an enemy every spawn_speed seconds until enemy container is empty
 				ChangeEnemy();
-				Instantiate(enemy, Make_Spawn_Loc(), transform.rotation);
+				Instantiate(enemy, Make_Spawn_Loc(room_bounds), transform.rotation);
 				//Debug.Log ("Current Wave: " + current_wave.wave_name + " Count: " + place_in_wave);
 				if(current_wave.spawn_list.Count - 1 == place_in_wave) {
 					//Ends All Spawning at end of waves
@@ -124,6 +136,7 @@ public class EnemySpawner : MonoBehaviour {
 			//GUI.Label (new Rect(1110,80,89,112), "Next wave starts in " + timeLeft);
 			// start new wave
 			if(Time.time -  start_time > cooldown_timer) {
+				room_bounds = WhereIsPlayer();
 				start_time = Time.time;
 				new_wave = false;
 				CloseDoors();
@@ -134,13 +147,61 @@ public class EnemySpawner : MonoBehaviour {
 			}
 		}
 	}
-	
-	Vector3 Make_Spawn_Loc() {
-		float x = Random.Range(-10,10) + player.transform.position.x;
+
+	Vector4 WhereIsPlayer() {
+		if(Foyer.renderer.bounds.min.x < player.transform.position.x 
+		   && Foyer.renderer.bounds.max.x > player.transform.position.x
+		   && Foyer.renderer.bounds.min.z < player.transform.position.z
+		   && Foyer.renderer.bounds.max.z > player.transform.position.z) {
+
+			return new Vector4(Foyer.renderer.bounds.min.x, Foyer.renderer.bounds.max.x, Foyer.renderer.bounds.min.z, Foyer.renderer.bounds.max.z);
+		}
+		else if(Dining_Hall.renderer.bounds.min.x < player.transform.position.x 
+		        && Dining_Hall.renderer.bounds.max.x > player.transform.position.x
+		        && Dining_Hall.renderer.bounds.min.z < player.transform.position.z
+		        && Dining_Hall.renderer.bounds.max.z > player.transform.position.z) {
+			
+			return new Vector4(Dining_Hall.renderer.bounds.min.x, Dining_Hall.renderer.bounds.max.x, Dining_Hall.renderer.bounds.min.z, Dining_Hall.renderer.bounds.max.z);
+		}
+		else if(Kitchen.renderer.bounds.min.x < player.transform.position.x 
+		        && Kitchen.renderer.bounds.max.x > player.transform.position.x
+		        && Kitchen.renderer.bounds.min.z < player.transform.position.z
+		        && Kitchen.renderer.bounds.max.z > player.transform.position.z) {
+			
+			return new Vector4(Kitchen.renderer.bounds.min.x, Kitchen.renderer.bounds.max.x, Kitchen.renderer.bounds.min.z, Kitchen.renderer.bounds.max.z);
+		}	
+		else if(Bathroom.renderer.bounds.min.x < player.transform.position.x 
+		        && Bathroom.renderer.bounds.max.x > player.transform.position.x
+		        && Bathroom.renderer.bounds.min.z < player.transform.position.z
+		        && Bathroom.renderer.bounds.max.z > player.transform.position.z) {
+			
+			return new Vector4(Bathroom.renderer.bounds.min.x, Bathroom.renderer.bounds.max.x, Bathroom.renderer.bounds.min.z, Bathroom.renderer.bounds.max.z);
+		}
+		else if(Bedroom.renderer.bounds.min.x < player.transform.position.x 
+		        && Bedroom.renderer.bounds.max.x > player.transform.position.x
+		        && Bedroom.renderer.bounds.min.z < player.transform.position.z
+		        && Bedroom.renderer.bounds.max.z > player.transform.position.z) {
+			
+			return new Vector4(Bedroom.renderer.bounds.min.x, Bedroom.renderer.bounds.max.x, Bedroom.renderer.bounds.min.z, Bedroom.renderer.bounds.max.z);
+		}
+		else {
+			return new Vector4(0,0,0,0);
+		}
+	}
+
+	Vector3 Make_Spawn_Loc(Vector4 bounds) {
+		float x = Random.Range(bounds.x, bounds.y);
 		float y = player.transform.position.y;
-		float z = Random.Range(-10,10) + player.transform.position.z;
+		float z = Random.Range(bounds.z, bounds.w);
 		spawn_loc = new Vector3(x,y,z);
-		return spawn_loc;
+
+		var checkresult = Physics.OverlapSphere(spawn_loc, 1);
+		if(checkresult.Length == 0) {
+			return spawn_loc;
+		}
+		else {
+			return Make_Spawn_Loc(bounds);
+		}
 	}
 	
 	void ChangeEnemy() {
@@ -193,6 +254,10 @@ public class Wave {
 		"Enemy1",
 		"Enemy1",
 		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+
 	};
 	
 	List<string> two = new List<string>()

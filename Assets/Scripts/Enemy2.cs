@@ -13,6 +13,8 @@ public class Enemy2 : MonoBehaviour {
 	public GameObject player = null;
 	public GameObject candy = null;
 	public GameObject standard_candy = null;
+	public GameObject candy2 = null;
+	public GameObject candy3 = null;
 	public GameObject GUIPrefab = null;
 	public GameObject GUIDamage = null;
 	
@@ -29,6 +31,7 @@ public class Enemy2 : MonoBehaviour {
 	public GameObject bullet = null;
 	public GameObject Circle = null;
 	public GameObject spawner = null;
+
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("playerChar");
@@ -45,6 +48,7 @@ public class Enemy2 : MonoBehaviour {
 		
 		bullet = Circle;
 		spawner = GameObject.Find ("Terrain");
+
 	}
 	
 	private void OnCollisionEnter(Collision c) 
@@ -67,27 +71,36 @@ public class Enemy2 : MonoBehaviour {
 		}
 		if(Time.time - last_tp > shot_time && !has_shot) {
 			Shoot();
-			Debug.Log("shot");
+			//Debug.Log("shot");
 			has_shot = true;
 		}
 		
 		if(health <= 0f) {
-			Debug.Log("Enemy Killed");
+			//Debug.Log("Enemy Killed");
+			/*
 			int chance = Random.Range(0,100);
 			if(chance < drop_chance) {
 				candy = standard_candy;
 				Instantiate(candy, transform.position, transform.rotation);
 			}
+			*/
 			spawner.SendMessage("increase_death_count");
 			GameObject.Destroy (gameObject);
 		}	
 	}
 	
 	void Teleport() {
-		float x = Random.Range(-10,10) + player.transform.position.x;
+		float x = Random.Range(-6,6) + player.transform.position.x;
 		float y = player.transform.position.y;
-		float z = Random.Range(-10,10) + player.transform.position.z;
-		this.transform.position = new Vector3(x,y,z);
+		float z = Random.Range(-6,6) + player.transform.position.z;
+		Vector3 newPosition = new Vector3(x,y,z);
+		var checkresult = Physics.OverlapSphere(newPosition, 1);
+		if(checkresult.Length == 0) {
+			this.transform.position = newPosition;
+		}
+		else {
+			Teleport ();
+		}
 	}
 	
 	void Shoot() {
@@ -100,6 +113,25 @@ public class Enemy2 : MonoBehaviour {
 	}
 
 	void getHit(int dmg) {
+		int chance = Random.Range(0,100);
+		if(chance < drop_chance) {
+			chance = Random.Range (1,10);
+			if(chance < 6) {
+				candy = standard_candy;
+				candy = Instantiate(candy, transform.position, transform.rotation) as GameObject;
+				candy.SendMessage("setVal", 1);
+			}
+			else if(chance > 6 && chance < 10) {
+				candy = candy2;
+				candy = Instantiate(candy, transform.position, transform.rotation) as GameObject;
+				candy.SendMessage("setVal", 2);
+			}
+			else if(chance == 10) {
+				candy = candy3;
+				candy = Instantiate(candy, transform.position, transform.rotation) as GameObject;
+				candy.SendMessage("setVal", 3);
+			}
+		}
 		GUIDamage = Instantiate(GUIPrefab,Camera.main.WorldToViewportPoint(gameObject.transform.position), Quaternion.identity) as GameObject;
 		GUIDamage.guiText.text = dmg.ToString();
 		health -= dmg;

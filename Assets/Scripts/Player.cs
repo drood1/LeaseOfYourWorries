@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
 	public Texture health4;
 	public Texture health5;
 	public Texture health6;
+
+	public Vector4 room_bounds;
 	
 	//public GameObject dmg_skin = null;
 	
@@ -76,7 +78,7 @@ public class Player : MonoBehaviour {
 		//Debug.Log("Player Collision");
 		if(invincible == false) {
 			if(c.gameObject.tag == "enemy") {
-				Debug.Log("Player Collision");
+				//Debug.Log("Player Collision");
 				//Debug.Log("YOU GOT HIT");
 				getHit(1);
 				Vector3 target = c.gameObject.transform.position;
@@ -95,7 +97,7 @@ public class Player : MonoBehaviour {
 		//Debug.Log("Player Collision");
 		if(invincible == false) {
 			if(c.gameObject.tag == "enemy") {
-				Debug.Log("Player Collision");
+				//Debug.Log("Player Collision");
 				//Debug.Log("YOU GOT HIT");
 				getHit(1);
 				Vector3 target = c.gameObject.transform.position;
@@ -138,5 +140,9 @@ public class Player : MonoBehaviour {
 			invincible = true;
 			timer = Time.time;
 		}
+	}
+
+	void updateBounds(Vector4 bounds) {
+		room_bounds = bounds;
 	}
 }

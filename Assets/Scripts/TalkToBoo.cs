@@ -2,36 +2,54 @@
 using System.Collections;
 
 public class TalkToBoo : MonoBehaviour {
-
+	
 	
 	public bool inRange = false;
 	public int trigger = 0;
 	public Font WashingtonText;
 	public bool DoorsOpen = false;
-
+	
 	private bool SpokenOpen = true;
 	private bool SpokenClosed = false;
-
+	
+	public Texture2D text_box;
+	public Texture2D text_box_2;
+	
 	bool toopoor = false;
 	void OnGUI() {
 		GUI.skin.font = WashingtonText;
-
-		if(trigger == 1)	
-			GUI.Label ( new Rect (500, 600,700,300), "Enough lazing about boy!");
-		else if(trigger == 2)
-			GUI.Label ( new Rect (500, 600,700,300), "Don't you want your candy back?");
-		else if(trigger == 3)
-			GUI.Label ( new Rect (550, 600,700,300), "Have at them!");
-		else if(trigger == 12)
-			GUI.Label ( new Rect (300, 600, 950, 300), "Such a kind gesture from a kind young man!");
-		else if(trigger == 13)
-			GUI.Label (new Rect (500, 600, 750, 300), "I appreciate the offer young man, but it's not nearly enough to satisfy me!");
-		else if(trigger == 15)
-			GUI.Label (new Rect (500, 600, 750, 300), "Well done young man! You've earned a brief respite.");
-		else if(trigger == 16)
-			GUI.Label (new Rect (500, 600, 750, 300), "Ready your arms, here they come!");
-
-
+		
+		
+		if(trigger == 1)	{
+			GUI.Box ( new Rect(500, 600, 700, 70), text_box);
+			GUI.Box ( new Rect (500, 600,700,70), "Enough lazing about boy!");
+		}
+		else if(trigger == 2){
+			GUI.Box ( new Rect(500, 600, 700, 70), text_box);
+			GUI.Box ( new Rect (500, 600,700,70), "Don't you want your candy back?");
+		}
+		else if(trigger == 3){
+			GUI.Box ( new Rect(500, 600, 700, 70), text_box);
+			GUI.Box ( new Rect (550, 600,700,70), "Have at them!");
+		}
+		else if(trigger == 12){
+			GUI.Box ( new Rect(300, 600, 900, 70), text_box_2);
+			GUI.Box ( new Rect (300, 600, 900, 70), "Such a kind gesture from a kind young man!");
+		}
+		else if(trigger == 13)	{
+			GUI.Box ( new Rect(500, 600, 900, 70), text_box_2);
+			GUI.Box (new Rect (500, 600, 900, 70), "That's not nearly enough to satisfy me!");
+		}
+		else if(trigger == 15)	{
+			GUI.Box ( new Rect(300, 600, 900, 70), text_box_2);
+			GUI.Box (new Rect (300, 600, 750, 70), "Well done young man! You've earned a brief respite.");
+		}
+		else if(trigger == 16)	{
+			GUI.Box ( new Rect(300, 600, 900, 70), text_box_2);
+			GUI.Box (new Rect (300, 600, 750, 70), "Ready your arms, here they come!");
+		}
+		
+		
 		if(DoorsOpen == true && SpokenOpen == false)	{
 			trigger = 15;
 			SpokenOpen = true;
@@ -50,9 +68,9 @@ public class TalkToBoo : MonoBehaviour {
 	void Update () {
 		var ui = GameObject.Find ("Main Camera");
 		UI ui_script = ui.GetComponent<UI>();
-
+		
 		int cur_level = ui_script.getLvl ();
-
+		
 		if(inRange == true){
 			if(Input.GetKeyDown("t")){
 				trigger++;
@@ -62,11 +80,11 @@ public class TalkToBoo : MonoBehaviour {
 		}
 		if(Input.GetKeyDown("t") && trigger > 9)
 			trigger = 0;
-
+		
 		if(Input.GetKeyDown("space")){
 			trigger = 0;
 		}
-
+		
 		//********************trading candy for rep******************
 		if(inRange == true) {
 			if(Input.GetKeyDown ("c")){

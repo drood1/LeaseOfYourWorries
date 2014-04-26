@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 86723a0b59dc88d449159ece72e3688b
+guid: 523b533898820214eb129f88660107b8
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: duster
-    100002: jnt_duster
+    100000: bread
+    100002: jnt_bread
     100004: //RootNode
-    400000: duster
-    400002: jnt_duster
+    400000: bread
+    400002: jnt_bread
     400004: //RootNode
-    4300000: duster
+    4300000: bread
     9500000: //RootNode
-    13700000: duster
+    13700000: bread
   materials:
     importMaterials: 1
     materialName: 0

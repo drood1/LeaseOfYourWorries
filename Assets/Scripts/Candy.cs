@@ -17,13 +17,13 @@ public class Candy : MonoBehaviour {
 	private void OnTriggerEnter(Collider c){
 		if(c.gameObject.tag == "Player") {
 			ui.SendMessage("addCandy", num);
-			Debug.Log("Picked up Candy " + num.ToString());
+			//Debug.Log("Picked up Candy " + num.ToString());
 			GameObject.Destroy(gameObject);
 		}
 	}
 
 	void setVal(int howmuch) {
 		num = howmuch;
-		Debug.Log ("Value set to " + num);
+		//Debug.Log ("Value set to " + num);
 	}
 }

@@ -31,9 +31,12 @@ public class ItemWarp : MonoBehaviour {
 	public float MAX_RANGE = 40;
 	private bool showme = false;
 	private bool test = false; 
+	public float MAX_CD = 1.5f;
+	private float cdnum;
 	Grabbing whatdo;
 	// Use this for initialization
 	void Start () {
+		cdnum = wepcd/10 * MAX_CD;
 		MAX_RANGE = 2.5f;
 		cam = GameObject.FindWithTag("MainCamera");
 		player = GameObject.FindWithTag("Player");
@@ -151,7 +154,7 @@ public class ItemWarp : MonoBehaviour {
 				cam.GetComponent<UI>().setcan(pcandies);
 				player.SendMessage("Equip",wepnum);
 				//Boo.SendMessage("Warp");
-				player.GetComponent<Shooting>().stat(arraystats,wepcd,weprange,melee);
+				player.GetComponent<Shooting>().stat(arraystats,cdnum,weprange,melee);
 				//wep.collider.enabled = false;
 				ov = this.transform.rotation;
 				ovv = wep.transform.rotation;

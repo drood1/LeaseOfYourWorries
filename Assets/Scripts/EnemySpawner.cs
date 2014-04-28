@@ -48,7 +48,7 @@ public class EnemySpawner : MonoBehaviour {
 	GameObject Bathroom = null;
 	GameObject Bedroom = null;
 
-	Vector4 room_bounds;
+	public Vector4 room_bounds;
 	
 	// Use this for initialization
 	void Start () {
@@ -256,9 +256,9 @@ public class Wave {
 	public List<List<string>> wave_list = new List<List<string>>();
 	List<string> one = new List<string>()
 	{
-		"Enemy1",
-		"Enemy1",
-		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
 		"Enemy1",
 		"Enemy1",
 		"Enemy1",

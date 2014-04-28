@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿ using UnityEngine;
 using System.Collections;
 
 public class Enemy2 : MonoBehaviour {
@@ -31,7 +31,6 @@ public class Enemy2 : MonoBehaviour {
 	public GameObject bullet = null;
 	public GameObject Circle = null;
 	public GameObject spawner = null;
-
 	// Use this for initialization
 	void Start () {
 		player = GameObject.Find ("playerChar");
@@ -48,7 +47,6 @@ public class Enemy2 : MonoBehaviour {
 		
 		bullet = Circle;
 		spawner = GameObject.Find ("Terrain");
-
 	}
 	
 	private void OnCollisionEnter(Collision c) 
@@ -90,9 +88,10 @@ public class Enemy2 : MonoBehaviour {
 	}
 	
 	void Teleport() {
-		float x = Random.Range(-6,6) + player.transform.position.x;
+		Vector4 room_bounds = spawner.GetComponent<EnemySpawner>().room_bounds;
+		float x = Random.Range(room_bounds.x, room_bounds.y);
 		float y = player.transform.position.y;
-		float z = Random.Range(-6,6) + player.transform.position.z;
+		float z = Random.Range(room_bounds.z, room_bounds.w);
 		Vector3 newPosition = new Vector3(x,y,z);
 		var checkresult = Physics.OverlapSphere(newPosition, 1);
 		if(checkresult.Length == 0) {

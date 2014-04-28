@@ -57,7 +57,7 @@ public class Shooting : MonoBehaviour {
 			if(Time.time >= starttime){
 				
 				Animatormang(bultype);
-				offsettime = Time.time + .1f;
+				offsettime = Time.time + .01f;
 				starttime = Time.time + cdtime;
 				GameObject shot = Instantiate (bullet, transform.position+transform.forward,transform.rotation) as GameObject;
 				if(melee == true){
@@ -70,6 +70,9 @@ public class Shooting : MonoBehaviour {
 			}
 
 		}
+
+	}
+	void LateUpdate(){
 		if(Time.time >= offsettime){
 			//anim.SetBool(hash.ratk,false);
 			anim.SetBool(hash.ciratk,false);
@@ -78,6 +81,7 @@ public class Shooting : MonoBehaviour {
 			anim.SetBool(hash.tatk,false);
 		}
 	}
+
 	void AnimatorHold(int bultype){
 		if(bultype == 1){
 			anim.Play("Hold circle");

@@ -33,6 +33,7 @@ public class ItemWarp : MonoBehaviour {
 	private bool test = false; 
 	public float MAX_CD = 1.5f;
 	private float cdnum;
+	private bool purchased = false;
 	Grabbing whatdo;
 	// Use this for initialization
 	void Start () {
@@ -136,19 +137,49 @@ public class ItemWarp : MonoBehaviour {
 			int plvl = cam.GetComponent<UI>().getLvl();
 			int temp = plvl - level;
 			int pcandies = cam.GetComponent<UI>().getcan();
-			if(temp >= 0)
-				pcandies -= 5;
-			if(temp == -1)
-				pcandies -= 10;
-			if(temp == -2)
-				pcandies -= 20;
-			if(temp == -3)
-				pcandies -= 35;
-			if(temp <= -4)
-				pcandies -= 75;
-			if(pcandies < 0){
-				//Boo.SendMessage("Warp");
-				player.SendMessage("Poor");
+			if(purchased == false){
+				if(temp >= 0)
+					pcandies -= 5;
+				if(temp == -1)
+					pcandies -= 10;
+				if(temp == -2)
+					pcandies -= 20;
+				if(temp == -3)
+					pcandies -= 35;
+				if(temp <= -4)
+					pcandies -= 75;
+				if(pcandies < 0){
+					//Boo.SendMessage("Warp");
+					player.SendMessage("Poor");
+				}else{
+					eq = true;
+					cam.GetComponent<UI>().setcan(pcandies);
+					player.SendMessage("Equip",wepnum);
+					//Boo.SendMessage("Warp");
+					player.GetComponent<Shooting>().stat(arraystats,cdnum,weprange,melee);
+					//wep.collider.enabled = false;
+					ov = this.transform.rotation;
+					ovv = wep.transform.rotation;
+					//player.gameObject.GetComponent<Grabbing>().holding(true);
+				//gameObject.transform.parent = player.transform.Find("Bip001/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 R Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001 R Hand/Bip001 R Hand").transform;
+
+
+					if(test == false){
+
+						//lr = this.transform.localRotation;
+						//ovv = this.transform.parent.rotation;
+						this.transform.forward = player.transform.forward;
+
+						//test = true;
+					}
+
+					wep.transform.parent = hand.transform;
+					wep.transform.localPosition = new Vector3(0,0,0);
+					purchased = true;
+					//this.transform.rotation = ov;
+				//this.transform.localRotation = Quaternion.Euler(0, 0, -50);
+				//gameObject.transform.parent.gameObject;
+				}
 			}else{
 				eq = true;
 				cam.GetComponent<UI>().setcan(pcandies);
@@ -159,24 +190,23 @@ public class ItemWarp : MonoBehaviour {
 				ov = this.transform.rotation;
 				ovv = wep.transform.rotation;
 				//player.gameObject.GetComponent<Grabbing>().holding(true);
-			//gameObject.transform.parent = player.transform.Find("Bip001/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 R Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001 R Hand/Bip001 R Hand").transform;
-
-
+				//gameObject.transform.parent = player.transform.Find("Bip001/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 R Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001 R Hand/Bip001 R Hand").transform;
+				
+				
 				if(test == false){
-
+					
 					//lr = this.transform.localRotation;
 					//ovv = this.transform.parent.rotation;
-					this.transform.rotation = Quaternion.identity;
-
+					this.transform.forward = player.transform.forward;
+					
 					//test = true;
 				}
-
+				
 				wep.transform.parent = hand.transform;
 				wep.transform.localPosition = new Vector3(0,0,0);
-				//this.transform.rotation = ov;
-			//this.transform.localRotation = Quaternion.Euler(0, 0, -50);
-			//gameObject.transform.parent.gameObject;
+
 			}
+
 		}
 	}
 	void OnTriggerEnter(Collider other) {

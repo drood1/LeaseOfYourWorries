@@ -57,7 +57,7 @@ public class Shooting : MonoBehaviour {
 			if(Time.time >= starttime){
 				
 				Animatormang(bultype);
-				offsettime = Time.time + .01f;
+				offsettime = Time.time + .1f;
 				starttime = Time.time + cdtime;
 				GameObject shot = Instantiate (bullet, transform.position+transform.forward,transform.rotation) as GameObject;
 				if(melee == true){

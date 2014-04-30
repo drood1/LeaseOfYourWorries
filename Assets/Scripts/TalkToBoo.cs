@@ -14,18 +14,16 @@ public class TalkToBoo : MonoBehaviour {
 	
 	public Texture2D text_box;
 	public Texture2D text_box_2;
-	
-	bool toopoor = false;
-	private double timer;
-	private bool isTiming = false;
+
+	private double start_time;
+	private double end_time;
 	
 
-	void beginTimer()	{
-		timer = 0;
-		isTiming = true;
-		while(timer < 3000)	{
-			timer += 0.01;
-		}
+	void runTimer()	{
+		end_time = Time.time;
+		while(end_time - start_time < 3)
+			end_time = Time.time;
+		trigger = 0;
 	}
 
 
@@ -45,26 +43,34 @@ public class TalkToBoo : MonoBehaviour {
 			GUI.Label ( new Rect (650, 600,700,70), "Have at them!", boo_font);
 		}
 		else if(trigger == 12){
-			beginTimer ();
 			GUI.DrawTexture ( new Rect(320, 600, 950, 70), text_box_2);
 			GUI.Label ( new Rect (350, 600, 900, 70), "Such a kind gesture from a kind young man!", boo_font);
 		}
 		else if(trigger == 13)	{
-			beginTimer ();
 			GUI.DrawTexture ( new Rect(370, 600, 900, 70), text_box_2);
 			GUI.Label (new Rect (420, 600, 900, 70), "That's not nearly enough to satisfy me!", boo_font);
 		}
 		else if(trigger == 15)	{
-			beginTimer ();
 			GUI.DrawTexture ( new Rect(370, 600, 900, 70), text_box_2);
 			GUI.Label (new Rect (400, 600, 750, 70), "Well done! You've earned a brief respite.", boo_font);
 		}
 		else if(trigger == 16)	{
-			beginTimer ();
+			start_time = Time.time;
+			//runTimer ();
+
+
+			//objective:
+			//start timer
+			//wait ~3 seconds
+			//after the wait, set trigger to 0
 			GUI.DrawTexture ( new Rect(370, 600, 900, 70), text_box_2);
 			GUI.Label (new Rect (475, 600, 750, 70), "Ready your arms, here they come!", boo_font);
 		}
-		
+		else if(trigger == 17)	{	
+			GUI.DrawTexture ( new Rect(360, 600, 920, 70), text_box_2);
+			GUI.Label (new Rect (375, 600, 750, 70), "I'm afraid that's a bit out of your range boy.", boo_font);
+
+		}
 		
 		if(DoorsOpen == true && SpokenOpen == false)	{
 			trigger = 15;
@@ -77,19 +83,17 @@ public class TalkToBoo : MonoBehaviour {
 			SpokenOpen = false;
 		}
 	}
-	public void Poor(){
-		toopoor = true;
-	}
+
 	// Update is called once per frame
 	void Update () {
 
-		print(timer);
-
-		if(timer >= 3000 && trigger > 10)	{
+		if(end_time - start_time >= 1 && trigger > 10)	{
 			trigger = 0;
-			isTiming = false;
+			print ("timer stopped");
 		}
 
+		print (start_time);
+		
 		var ui = GameObject.Find ("Main Camera");
 		UI ui_script = ui.GetComponent<UI>();
 		

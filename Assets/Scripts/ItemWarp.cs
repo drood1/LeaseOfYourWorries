@@ -149,8 +149,8 @@ public class ItemWarp : MonoBehaviour {
 				if(temp <= -4)
 					pcandies -= 75;
 				if(pcandies < 0){
-					//Boo.SendMessage("Warp");
-					player.SendMessage("Poor");
+					TalkToBoo talk_script = player.GetComponent<TalkToBoo>();
+					talk_script.trigger = 17;
 				}else{
 					eq = true;
 					cam.GetComponent<UI>().setcan(pcandies);

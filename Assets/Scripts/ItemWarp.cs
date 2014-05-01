@@ -43,51 +43,6 @@ public class ItemWarp : MonoBehaviour {
 		player = GameObject.FindWithTag("Player");
 		hand = GameObject.FindWithTag("Hand");
 		Boo = GameObject.FindWithTag("Boo");
-		if(wepnum == 1){
-			wep = GameObject.Find("jnt_poker");
-		}
-		if(wepnum == 2){
-			wep = GameObject.Find("jnt_bucket");
-		}
-		if(wepnum == 3){
-			wep = GameObject.Find("jnt_knife");
-		}
-		if(wepnum == 4){
-			wep = GameObject.Find("jnt_duster");
-		}
-		if(wepnum == 5){
-			wep = GameObject.Find("jnt_bread");
-		}
-		if(wepnum == 6){
-			wep = GameObject.Find("jnt_book");
-		}
-		if(wepnum == 7){
-			wep = GameObject.Find("jnt_rifle");
-		}
-		if(wepnum == 8){
-			wep = GameObject.Find("jnt_sword");
-		}
-		if(wepnum == 9){
-			wep = GameObject.Find("jnt_rapier");
-		}
-		if(wepnum == 10){
-			wep = GameObject.Find("jnt_turkeyLeg");
-		}
-		if(wepnum == 11){
-			wep = GameObject.Find("jnt_rake");
-		}
-		if(wepnum == 12){
-			wep = GameObject.Find("jnt_razor");
-		}
-		if(wepnum == 13){
-			wep = GameObject.Find("jnt_rollingPin");
-		}
-		if(wepnum == 14){
-			wep = GameObject.Find("jnt_coatTree");
-		}
-		if(wepnum == 15){
-			wep = GameObject.Find("jnt_skillet");
-		}
 		collider.isTrigger = true;
 		arraystats = new int[2];
 		arraystats[0] = wepdmg;
@@ -137,75 +92,36 @@ public class ItemWarp : MonoBehaviour {
 			int plvl = cam.GetComponent<UI>().getLvl();
 			int temp = plvl - level;
 			int pcandies = cam.GetComponent<UI>().getcan();
-			if(purchased == false){
-				if(temp >= 0)
-					pcandies -= 5;
-				if(temp == -1)
-					pcandies -= 10;
-				if(temp == -2)
-					pcandies -= 20;
-				if(temp == -3)
-					pcandies -= 35;
-				if(temp <= -4)
-					pcandies -= 75;
-				if(pcandies < 0){
-					TalkToBoo talk_script = player.GetComponent<TalkToBoo>();
-					talk_script.trigger = 17;
-				}else{
-					eq = true;
-					cam.GetComponent<UI>().setcan(pcandies);
-					player.SendMessage("Equip",wepnum);
-					//Boo.SendMessage("Warp");
-					player.GetComponent<Shooting>().stat(arraystats,cdnum,weprange,melee);
-					//wep.collider.enabled = false;
-					ov = this.transform.rotation;
-					ovv = wep.transform.rotation;
-					//player.gameObject.GetComponent<Grabbing>().holding(true);
-				//gameObject.transform.parent = player.transform.Find("Bip001/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 R Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001 R Hand/Bip001 R Hand").transform;
 
-
-					if(test == false){
-
-						//lr = this.transform.localRotation;
-						//ovv = this.transform.parent.rotation;
-						this.transform.forward = player.transform.forward;
-
-						//test = true;
-					}
-
-					wep.transform.parent = hand.transform;
-					wep.transform.localPosition = new Vector3(0,0,0);
-					purchased = true;
-					//this.transform.rotation = ov;
-				//this.transform.localRotation = Quaternion.Euler(0, 0, -50);
-				//gameObject.transform.parent.gameObject;
-				}
-			}else{
+			if(temp >= 0)
+				pcandies -= 5;
+			if(temp == -1)
+				pcandies -= 10;
+			if(temp == -2)
+				pcandies -= 20;
+			if(temp == -3)
+				pcandies -= 35;
+			if(temp <= -4)
+				pcandies -= 75;
+			if(pcandies < 0){
+				TalkToBoo talk_script = player.GetComponent<TalkToBoo>();
+				talk_script.trigger = 17;
+			}
+			if(purchased == true || pcandies >= 0){
 				eq = true;
 				cam.GetComponent<UI>().setcan(pcandies);
 				player.SendMessage("Equip",wepnum);
 				//Boo.SendMessage("Warp");
 				player.GetComponent<Shooting>().stat(arraystats,cdnum,weprange,melee);
 				//wep.collider.enabled = false;
-				ov = this.transform.rotation;
-				ovv = wep.transform.rotation;
-				//player.gameObject.GetComponent<Grabbing>().holding(true);
-				//gameObject.transform.parent = player.transform.Find("Bip001/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 R Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001 R Hand/Bip001 R Hand").transform;
-				
-				
-				if(test == false){
-					
-					//lr = this.transform.localRotation;
-					//ovv = this.transform.parent.rotation;
-					this.transform.forward = player.transform.forward;
-					
-					//test = true;
-				}
-				
-				wep.transform.parent = hand.transform;
-				wep.transform.localPosition = new Vector3(0,0,0);
+				ov = transform.rotation;
 
+				transform.parent = hand.transform;
+				transform.localPosition = new Vector3(0,0,0);
+				transform.localRotation = Quaternion.identity;
+				purchased = true;
 			}
+
 
 		}
 	}
@@ -214,17 +130,18 @@ public class ItemWarp : MonoBehaviour {
 
 		}
 	}
-	public void unequip(int numnum){
+	public void unequip(){
 
 		hand.transform.DetachChildren();
 		//this.transform.rotation = Quaternion.identity;
-		this.transform.parent = prev;
+		transform.parent = prev;
 		//this.transform.parent.rotation = ovv;
-		this.transform.rotation = ov;
-		wep.transform.rotation = ovv;
+		transform.rotation = ov;
 		//this.transform.localRotation = lr;
 		//this.transform.eulerAngles = prevt;
-		this.transform.position = new Vector3(player.transform.position.x, player.transform.position.y-.5f,player.transform.position.z);
+		transform.position = new Vector3(player.transform.position.x, player.transform.position.y-.5f,player.transform.position.z);
+		if(name == "jnt_bucket")
+			transform.position = new Vector3(player.transform.position.x, 2.250953f,player.transform.position.z);
 		eq = false;
 	}
 	}

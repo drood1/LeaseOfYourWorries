@@ -3,11 +3,11 @@ using System.Collections;
 
 public class ItemWarp : MonoBehaviour {
 	private GameObject player = null;
-	public GameObject Boo = null;
-	public GameObject cam = null;
+	private GameObject Boo = null;
+	private GameObject cam = null;
 	GameObject hand;
 	GameObject wep;
-	public bool eq = false;
+	private bool eq = false;
 	public int wepnum = 0;
 	public int wepdmg = 0;
 	public int wepbul = 0;
@@ -21,13 +21,12 @@ public class ItemWarp : MonoBehaviour {
 	private Quaternion ovv;
 	private Transform prev;
 	private Vector3 prevt;
-	public Texture popup;
+	private Texture popup;
 	public Texture popups;
 	public Texture popups1;
 	public Texture popups2;
 	public Texture popups3;
 	public Texture popups4;
-	public Sprite[] array;
 	public float MAX_RANGE = 40;
 	private bool showme = false;
 	private bool test = false; 
@@ -49,7 +48,7 @@ public class ItemWarp : MonoBehaviour {
 		arraystats[1] = wepbul;
 		prev = this.transform.parent;
 		prevt = this.transform.eulerAngles;
-
+		purchased = false;
 	}
 	
 	// Update is called once per frame
@@ -109,16 +108,21 @@ public class ItemWarp : MonoBehaviour {
 			}
 			if(purchased == true || pcandies >= 0){
 				eq = true;
-				cam.GetComponent<UI>().setcan(pcandies);
+				if(purchased == false)
+					cam.GetComponent<UI>().setcan(pcandies);
 				player.SendMessage("Equip",wepnum);
 				//Boo.SendMessage("Warp");
 				player.GetComponent<Shooting>().stat(arraystats,cdnum,weprange,melee);
 				//wep.collider.enabled = false;
 				ov = transform.rotation;
-
 				transform.parent = hand.transform;
 				transform.localPosition = new Vector3(0,0,0);
 				transform.localRotation = Quaternion.identity;
+				if(wepbul == 3){
+					//Debug.Log("Line");
+					transform.localRotation = Quaternion.Euler(90,0,0);
+					
+				}
 				purchased = true;
 			}
 
@@ -142,6 +146,8 @@ public class ItemWarp : MonoBehaviour {
 		transform.position = new Vector3(player.transform.position.x, player.transform.position.y-.5f,player.transform.position.z);
 		if(name == "jnt_bucket")
 			transform.position = new Vector3(player.transform.position.x, 2.250953f,player.transform.position.z);
+		if(name == "jnt_coatTree")
+			transform.position = new Vector3(player.transform.position.x, 2.996954f,player.transform.position.z);
 		eq = false;
 	}
 	}

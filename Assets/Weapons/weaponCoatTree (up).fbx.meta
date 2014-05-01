@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 866b08550d3d1c04a8af904344611971
+guid: b6ed115d295a72d44b44f32a0bd24587
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: jnt_rapier
-    100002: rapier
+    100000: coatTree
+    100002: jnt_coatTree
     100004: //RootNode
-    400000: jnt_rapier
-    400002: rapier
+    400000: coatTree
+    400002: jnt_coatTree
     400004: //RootNode
-    4300000: rapier
+    4300000: coatTree
     9500000: //RootNode
-    13700000: rapier
+    13700000: coatTree
   materials:
     importMaterials: 1
     materialName: 0

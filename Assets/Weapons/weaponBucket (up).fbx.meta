@@ -1,17 +1,19 @@
 fileFormatVersion: 2
-guid: a30bb7e17e0b99b49aee1ea697b3aa44
+guid: 1036aa912792fae448a4baabdb3f1b94
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: jnt_sword
-    100002: sword
-    100004: //RootNode
-    400000: jnt_sword
-    400002: sword
-    400004: //RootNode
-    4300000: sword
+    100000: bucket
+    100002: grpBucket
+    100004: jnt_bucket
+    100006: //RootNode
+    400000: bucket
+    400002: grpBucket
+    400004: jnt_bucket
+    400006: //RootNode
+    4300000: bucket
     9500000: //RootNode
-    13700000: sword
+    13700000: bucket
   materials:
     importMaterials: 1
     materialName: 0

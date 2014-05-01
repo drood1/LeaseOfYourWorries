@@ -92,7 +92,7 @@ public class TalkToBoo : MonoBehaviour {
 			print ("timer stopped");
 		}
 
-		print (start_time);
+		//print (start_time);
 		
 		var ui = GameObject.Find ("Main Camera");
 		UI ui_script = ui.GetComponent<UI>();

@@ -1,17 +1,17 @@
 fileFormatVersion: 2
-guid: 3ca1b66d9b136a14eb9348ba3912203c
+guid: cb52aec0c867c104da13333c46496320
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: bucket
-    100002: jnt_bucket
+    100000: jnt_rapier
+    100002: rapier
     100004: //RootNode
-    400000: bucket
-    400002: jnt_bucket
+    400000: jnt_rapier
+    400002: rapier
     400004: //RootNode
-    4300000: bucket
+    4300000: rapier
     9500000: //RootNode
-    13700000: bucket
+    13700000: rapier
   materials:
     importMaterials: 1
     materialName: 0
@@ -30,7 +30,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00999999978
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

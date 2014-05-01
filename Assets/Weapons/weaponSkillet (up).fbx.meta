@@ -1,17 +1,19 @@
 fileFormatVersion: 2
-guid: 513a543706f395a47ae4d73d078fcee7
+guid: 4bf7a2de1222df242a7f28e159194990
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: jnt_rifle
-    100002: rifle
-    100004: //RootNode
-    400000: jnt_rifle
-    400002: rifle
-    400004: //RootNode
-    4300000: rifle
+    100000: grpSkillet
+    100002: jnt_skillet
+    100004: skillet
+    100006: //RootNode
+    400000: grpSkillet
+    400002: jnt_skillet
+    400004: skillet
+    400006: //RootNode
+    4300000: skillet
     9500000: //RootNode
-    13700000: rifle
+    13700000: skillet
   materials:
     importMaterials: 1
     materialName: 0

@@ -27,6 +27,7 @@ public class ItemWarp : MonoBehaviour {
 	public Texture popups2;
 	public Texture popups3;
 	public Texture popups4;
+	private Texture freez;
 	public float MAX_RANGE = 40;
 	private bool showme = false;
 	private bool test = false; 
@@ -49,6 +50,7 @@ public class ItemWarp : MonoBehaviour {
 		prev = this.transform.parent;
 		prevt = this.transform.eulerAngles;
 		purchased = false;
+		freez = Resources.Load("no cost") as Texture;
 	}
 	
 	// Update is called once per frame
@@ -70,6 +72,8 @@ public class ItemWarp : MonoBehaviour {
 				popup = popups3;
 			if(temp <= -4)
 				popup = popups4;
+			if(purchased == true)
+				popup = freez;
 			if(showme)
 				GUI.DrawTexture(new Rect(Input.mousePosition.x,Screen.height-Input.mousePosition.y,100,100),popup);
 		}
@@ -123,6 +127,10 @@ public class ItemWarp : MonoBehaviour {
 					transform.localRotation = Quaternion.Euler(90,0,0);
 					
 				}
+				if(name == "jnt_rifle"){
+					transform.localRotation = Quaternion.Euler(0,0,-60);
+
+				}
 				purchased = true;
 			}
 
@@ -147,7 +155,7 @@ public class ItemWarp : MonoBehaviour {
 		if(name == "jnt_bucket")
 			transform.position = new Vector3(player.transform.position.x, 2.250953f,player.transform.position.z);
 		if(name == "jnt_coatTree")
-			transform.position = new Vector3(player.transform.position.x, 2.996954f,player.transform.position.z);
+			transform.position = new Vector3(player.transform.position.x, 2.601861f,player.transform.position.z);
 		eq = false;
 	}
 	}

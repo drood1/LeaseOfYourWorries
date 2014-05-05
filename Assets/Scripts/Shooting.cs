@@ -53,7 +53,7 @@ public class Shooting : MonoBehaviour {
 		}
 
 
-		if(Input.GetMouseButtonDown(0) && bultype != 0){
+		if(Input.GetMouseButtonDown(0) && bultype != 0 && Time.time >= offsettime){
 			if(Time.time >= starttime){
 				
 				Animatormang(bultype);

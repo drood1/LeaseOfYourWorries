@@ -15,14 +15,8 @@ public class TalkToBoo : MonoBehaviour {
 	public Texture2D text_box;
 	public Texture2D text_box_2;
 
-	private double start_time;
-	private double end_time;
-	
 
-	void runTimer()	{
-		end_time = Time.time;
-		while(end_time - start_time < 3)
-			end_time = Time.time;
+	void resetTrigger()	{
 		trigger = 0;
 	}
 
@@ -33,6 +27,7 @@ public class TalkToBoo : MonoBehaviour {
 		if(trigger == 1)	{
 			GUI.DrawTexture( new Rect(440, 600, 700, 70), text_box);
 			GUI.Label ( new Rect (525, 600,700,70), "Enough lazing about boy!", boo_font);
+
 		}
 		else if(trigger == 2){
 			GUI.DrawTexture ( new Rect(420, 600, 760, 70), text_box);
@@ -45,31 +40,27 @@ public class TalkToBoo : MonoBehaviour {
 		else if(trigger == 12){
 			GUI.DrawTexture ( new Rect(320, 600, 950, 70), text_box_2);
 			GUI.Label ( new Rect (350, 600, 900, 70), "Such a kind gesture from a kind young man!", boo_font);
+			Invoke ("resetTrigger", 2);
 		}
 		else if(trigger == 13)	{
 			GUI.DrawTexture ( new Rect(370, 600, 900, 70), text_box_2);
 			GUI.Label (new Rect (420, 600, 900, 70), "That's not nearly enough to satisfy me!", boo_font);
+			Invoke ("resetTrigger", 2);
 		}
 		else if(trigger == 15)	{
 			GUI.DrawTexture ( new Rect(370, 600, 900, 70), text_box_2);
 			GUI.Label (new Rect (400, 600, 750, 70), "Well done! You've earned a brief respite.", boo_font);
+			Invoke ("resetTrigger", 2);
 		}
 		else if(trigger == 16)	{
-			start_time = Time.time;
-			//runTimer ();
-
-
-			//objective:
-			//start timer
-			//wait ~3 seconds
-			//after the wait, set trigger to 0
 			GUI.DrawTexture ( new Rect(370, 600, 900, 70), text_box_2);
 			GUI.Label (new Rect (475, 600, 750, 70), "Ready your arms, here they come!", boo_font);
+			Invoke ("resetTrigger", 2);
 		}
 		else if(trigger == 17)	{	
 			GUI.DrawTexture ( new Rect(360, 600, 920, 70), text_box_2);
 			GUI.Label (new Rect (375, 600, 750, 70), "I'm afraid that's a bit out of your range boy.", boo_font);
-
+			Invoke ("resetTrigger", 2);
 		}
 		
 		if(DoorsOpen == true && SpokenOpen == false)	{
@@ -86,14 +77,6 @@ public class TalkToBoo : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
-		if(end_time - start_time >= 1 && trigger > 10)	{
-			trigger = 0;
-			print ("timer stopped");
-		}
-
-		//print (start_time);
-		
 		var ui = GameObject.Find ("Main Camera");
 		UI ui_script = ui.GetComponent<UI>();
 		
@@ -107,10 +90,10 @@ public class TalkToBoo : MonoBehaviour {
 			}
 		}
 		if(Input.GetKeyDown("t") && trigger > 9)
-			trigger = 0;
+			resetTrigger();
 		
 		if(Input.GetKeyDown("space")){
-			trigger = 0;
+			resetTrigger ();
 		}
 		
 		//********************trading candy for rep******************

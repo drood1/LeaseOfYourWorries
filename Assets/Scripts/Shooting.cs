@@ -57,7 +57,7 @@ public class Shooting : MonoBehaviour {
 			if(Time.time >= starttime){
 				
 				Animatormang(bultype);
-				offsettime = Time.time + .1f;
+				offsettime = Time.time + .41f;
 				starttime = Time.time + cdtime;
 				GameObject shot = Instantiate (bullet, transform.position+transform.forward,transform.rotation) as GameObject;
 				if(melee == true){
@@ -70,9 +70,6 @@ public class Shooting : MonoBehaviour {
 			}
 
 		}
-
-	}
-	void LateUpdate(){
 		if(Time.time >= offsettime){
 			//anim.SetBool(hash.ratk,false);
 			anim.SetBool(hash.ciratk,false);
@@ -80,6 +77,10 @@ public class Shooting : MonoBehaviour {
 			anim.SetBool(hash.latk,false);
 			anim.SetBool(hash.tatk,false);
 		}
+
+	}
+	void LateUpdate(){
+
 	}
 
 	void AnimatorHold(int bultype){

@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: ae6b600569820d54ebc02a12656f09ae
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 15
   fileIDToRecycleName:
     100000: basicGhost
     100002: enemyA_be_end01
@@ -20,6 +20,7 @@ ModelImporter:
     4300000: basicGhost
     7400000: Take 001
     9500000: //RootNode
+    11100000: //RootNode
     13700000: basicGhost
   materials:
     importMaterials: 1
@@ -71,6 +72,5 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
-  additionalBone: 0
+  animationType: 1
   userData: 

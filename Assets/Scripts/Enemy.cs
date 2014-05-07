@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour {
 	
 	public int drop_chance = 50;
 	
-	public MeshRenderer mesh_rend = null;
+	public SkinnedMeshRenderer mesh_rend = null;
 	public Material damaged = null;
 	
 	// Use this for initialization
@@ -29,13 +29,14 @@ public class Enemy : MonoBehaviour {
 		player = GameObject.Find ("playerChar");
 		gameObject.tag = "enemy";
 		
-		mesh_rend = GetComponent<MeshRenderer>();
+		mesh_rend = GetComponentInChildren<SkinnedMeshRenderer>();
 		damaged = new Material(Shader.Find("Diffuse"));
 		damaged.color = new Color(1,0,0,.1f);
 		
 		spawner = GameObject.Find ("Terrain");
 		this.rigidbody.constraints = RigidbodyConstraints.FreezePositionY;
 		Physics.IgnoreLayerCollision(8,9);
+		animation.Play();
 	}
 	
 	private void OnCollisionEnter(Collision c) 
@@ -55,6 +56,12 @@ public class Enemy : MonoBehaviour {
 	}
 	
 	void Update () {
+		if(animation.isPlaying)
+			Debug.Log("Animation is Playing");
+		else {
+			Debug.Log ("Animation not playing");
+			animation.Play();
+		}
 		if(!is_hit) {
 			Move();
 		}
@@ -86,6 +93,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void getHit(int dmg) {
+		animation.Play ("Stun");
 		int chance = Random.Range(0,100);
 		if(chance < drop_chance) {
 			chance = Random.Range (1,10);

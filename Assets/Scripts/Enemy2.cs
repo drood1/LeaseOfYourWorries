@@ -20,7 +20,7 @@ public class Enemy2 : MonoBehaviour {
 	
 	public int drop_chance = 50;
 	
-	public MeshRenderer mesh_rend = null;
+	public SkinnedMeshRenderer mesh_rend = null;
 	public Material damaged = null;
 	
 	public float tp_timer;
@@ -36,7 +36,7 @@ public class Enemy2 : MonoBehaviour {
 		player = GameObject.Find ("playerChar");
 		gameObject.tag = "enemy";
 		
-		mesh_rend = GetComponent<MeshRenderer>();
+		mesh_rend = GetComponentInChildren<SkinnedMeshRenderer>();
 		damaged = new Material(Shader.Find("Diffuse"));
 		damaged.color = new Color(1,0,0,.1f);
 		
@@ -61,7 +61,16 @@ public class Enemy2 : MonoBehaviour {
 	}
 	
 	void Update () {
+		if(animation.isPlaying)
+			Debug.Log("Animation is Playing");
+		else {
+			Debug.Log ("Animation not playing");
+			animation.Play();
+		}
 		this.transform.LookAt(target);
+		if(Time.time - last_tp > tp_timer - 2 && !particleSystem.isPlaying) {
+			particleSystem.Play();
+		}
 		if(Time.time - last_tp > tp_timer) {
 			Teleport();
 			last_tp = Time.time;
@@ -96,6 +105,7 @@ public class Enemy2 : MonoBehaviour {
 		var checkresult = Physics.OverlapSphere(newPosition, 1);
 		if(checkresult.Length == 0) {
 			this.transform.position = newPosition;
+			particleSystem.Play();
 		}
 		else {
 			Teleport ();
@@ -112,6 +122,7 @@ public class Enemy2 : MonoBehaviour {
 	}
 
 	void getHit(int dmg) {
+		animation.Play ("Stun");
 		int chance = Random.Range(0,100);
 		if(chance < drop_chance) {
 			chance = Random.Range (1,10);

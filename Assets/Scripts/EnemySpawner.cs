@@ -256,12 +256,12 @@ public class Wave {
 	public List<List<string>> wave_list = new List<List<string>>();
 	List<string> one = new List<string>()
 	{
-		"Enemy2",
-		"Enemy2",
-		"Enemy2",
 		"Enemy1",
 		"Enemy1",
 		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
 
 	};
 	

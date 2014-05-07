@@ -40,7 +40,7 @@ public class KeyEnemy : MonoBehaviour {
 
 		if(Vector3.Distance(this.transform.position, target.transform.position) < 1) {
 			loc++;
-			if(loc > waypoints.Length) {
+			if(loc > waypoints.Length - 1) {
 				loc = 0;
 			}
 		}

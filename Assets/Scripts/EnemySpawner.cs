@@ -264,17 +264,11 @@ public class Wave {
 	{
 		"Enemy1",
 		"Enemy1",
-		"Enemy1",
-		"Enemy2",
-		"Enemy2",
-		"Enemy2",
 
 	};
 	
 	List<string> two = new List<string>()
 	{
-		"Enemy1",
-		"Enemy1",
 		"Enemy2",
 		"Enemy2",
 	};

@@ -28,13 +28,27 @@ public class EnemySpawner : MonoBehaviour {
 	public Wave two = new Wave(2,1,2);
 	public Wave three = new Wave(3,1,3);
 	public Wave four = new Wave(4,1,4);
-	public Wave five = new Wave(5,1,4);
-	public Wave six = new Wave(6,1,4);
-	public Wave seven = new Wave(7,1,4);
-	public Wave eight = new Wave(8,1,4);
-	public Wave nine = new Wave(9,1,4);
-	public Wave ten = new Wave(10,1,4);
-	public Wave eleven = new Wave(11,1,4);
+	public Wave five = new Wave(5,1,5);
+	public Wave six = new Wave(6,1,6);
+	public Wave seven = new Wave(7,1,7);
+	public Wave eight = new Wave(8,1,8);
+	public Wave nine = new Wave(9,1,9);
+	public Wave ten = new Wave(10,1,10);
+	public Wave eleven = new Wave(11,1,11);
+	public Wave twelve = new Wave(12,2,12);
+	public Wave thirteen = new Wave(13,2,13);
+	public Wave fourteen = new Wave(14,2,14);
+	public Wave fifteen = new Wave(15,2,15);
+	public Wave sixteen = new Wave(16,2,16);
+	public Wave seventeen = new Wave(17,2,17);
+	public Wave eighteen = new Wave(18,2,18);
+	public Wave nineteen = new Wave(19,2,19);
+	public Wave twenty = new Wave(20,2,20);
+	public Wave twentyone = new Wave(21,2,21);
+	public Wave twentytwo = new Wave(22,2,22);
+	public Wave twentythree = new Wave(23,2,23);
+	public Wave twentyfour = new Wave(24,2,24);
+	public Wave twentyfive = new Wave(25,2,25);
 
 	public GameObject door1 = null;
 	public GameObject door2 = null;
@@ -66,6 +80,15 @@ public class EnemySpawner : MonoBehaviour {
 		waves.Add (four);
 		waves.Add (five);
 		waves.Add (six);
+		waves.Add (seven);
+		waves.Add (eight);
+		waves.Add (nine);
+		waves.Add (ten);
+		waves.Add (eleven);
+		waves.Add (twelve);
+		waves.Add (thirteen);
+		waves.Add (fourteen);
+		waves.Add (fifteen);
 		current_wave = waves[0];
 		spawn_speed = current_wave.spawn_speed;
 		place_in_wave = 0;
@@ -373,6 +396,216 @@ public class Wave {
 		"Enemy3",
 		"Enemy3"
 	};
+	List<string> twelve = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> thirteen = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> fourteen = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> fifteen = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> sixteen = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> seventeen = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> eighteen = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> nineteen = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> twenty = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> twentyone = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> twentytwo = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> twentythree = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> twentyfour = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
+	List<string> twentyfive = new List<string>()
+	{
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy1",
+		"Enemy2",
+		"Enemy2",
+		"Enemy2",
+		"Enemy3",
+		"Enemy3",
+		"Enemy3"
+	};
 	
 	
 	public Wave(int name, int speed, int num) 
@@ -389,8 +622,21 @@ public class Wave {
 		wave_list.Add (nine);
 		wave_list.Add (ten);
 		wave_list.Add (eleven);
+		wave_list.Add (twelve);
+		wave_list.Add (thirteen);
+		wave_list.Add (fourteen);
+		wave_list.Add (fifteen);
+		wave_list.Add (sixteen);
+		wave_list.Add (seventeen);
+		wave_list.Add (eighteen);
+		wave_list.Add (nineteen);
+		wave_list.Add (twenty);
+		wave_list.Add (twentyone);
+		wave_list.Add (twentytwo);
+		wave_list.Add (twentythree);
+		wave_list.Add (twentyfour);
+		wave_list.Add (twentyfive);
 
-		
 		wave_name = name;
 		spawn_speed = speed;
 		spawn_list = wave_list[num];  

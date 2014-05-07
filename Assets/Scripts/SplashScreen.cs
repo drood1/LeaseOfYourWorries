@@ -6,29 +6,47 @@ public class SplashScreen : MonoBehaviour {
 	public GUISkin customskin = null;
 	public Texture Base = null;
 	public Texture Tut = null;
+	public Texture Tut2 = null;
+	public Texture Tut3 = null;
+	public GUISkin but = null;
+	public GUISkin but2 = null;
+	public GUISkin but3 = null;
 	private bool tut = false;
+	private int screen = 0;
 	public void OnGUI(){
 		if(customskin != null)
 			GUI.skin = customskin;
-		int buttonwidth = 100;
-		int buttonheight = 100;
+		int buttonwidth = 300;
+		int buttonheight = 135;
 		int halfbuttonwidth = buttonwidth/2;
 		int halfscreenwidth = Screen.width/2;
 		if (tut == false){
 			GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Base);
-			if(GUI.Button(new Rect(halfscreenwidth-(buttonwidth/2),500,buttonwidth,buttonheight),"Play")){
+			GUI.skin = but;
+			if(GUI.Button(new Rect(halfscreenwidth-(buttonwidth),Screen.height - buttonheight,buttonwidth,buttonheight),"Play")){
 				Application.LoadLevel("Lease Of Your Worries");
 
 			}
-			if(GUI.Button(new Rect(halfscreenwidth+(buttonwidth/2),500,buttonwidth,buttonheight),"Instructions")){
+			GUI.skin = but2;
+			if(GUI.Button(new Rect(halfscreenwidth,Screen.height - buttonheight,buttonwidth,buttonheight), " ")){
 				tut = true;
 				
 			}
 		}
 		if (tut == true){
-			GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Tut);
-			if(GUI.Button(new Rect(halfscreenwidth-halfbuttonwidth,400,buttonwidth,buttonheight),"Back")){
-				tut = false;
+			if(screen == 0)
+				GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Tut);
+			if(screen == 1)
+				GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Tut2);
+			if(screen == 2)
+				GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Tut3);
+			GUI.skin = but3;
+			if(GUI.Button(new Rect(Screen.width - buttonwidth,Screen.height - buttonheight,buttonwidth,buttonheight),"->")){
+				screen++;
+				if(screen > 2){
+					screen = 0;
+					tut = false;
+				}
 			}
 
 		}

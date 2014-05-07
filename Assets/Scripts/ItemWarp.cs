@@ -50,7 +50,7 @@ public class ItemWarp : MonoBehaviour {
 		prev = this.transform.parent;
 		prevt = this.transform.eulerAngles;
 		purchased = false;
-		freez = Resources.Load("no cost") as Texture;
+		freez = Resources.Load("no cost (new color)") as Texture;
 	}
 	
 	// Update is called once per frame

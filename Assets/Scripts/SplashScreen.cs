@@ -23,12 +23,12 @@ public class SplashScreen : MonoBehaviour {
 		if (tut == false){
 			GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Base);
 			GUI.skin = but;
-			if(GUI.Button(new Rect(halfscreenwidth-(buttonwidth),Screen.height - buttonheight,buttonwidth,buttonheight),"Play")){
+			if(GUI.Button(new Rect(halfscreenwidth-(buttonwidth)-10,Screen.height - buttonheight-10,buttonwidth,buttonheight)," ")){
 				Application.LoadLevel("Lease Of Your Worries");
 
 			}
 			GUI.skin = but2;
-			if(GUI.Button(new Rect(halfscreenwidth,Screen.height - buttonheight,buttonwidth,buttonheight), " ")){
+			if(GUI.Button(new Rect(halfscreenwidth+10,Screen.height - buttonheight-10,buttonwidth,buttonheight), " ")){
 				tut = true;
 				
 			}
@@ -41,7 +41,7 @@ public class SplashScreen : MonoBehaviour {
 			if(screen == 2)
 				GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Tut3);
 			GUI.skin = but3;
-			if(GUI.Button(new Rect(Screen.width - buttonwidth,Screen.height - buttonheight,buttonwidth,buttonheight),"->")){
+			if(GUI.Button(new Rect(Screen.width - 214,Screen.height - 101,206,93)," ")){
 				screen++;
 				if(screen > 2){
 					screen = 0;

@@ -23,7 +23,9 @@ public class EnemySpawner : MonoBehaviour {
 	public int place_in_wave;			// Which enemy will be spawned next
 	public int death_count = 0;			// How many enemies in current wave killed
 	public int wave_number = 1;
-	
+	public GUISkin playagain = null;
+	public Texture winning = null;
+
 	public List<Wave> waves = new List<Wave>();	// Container for Waves
 	public Wave one = new Wave(1,2,1);			
 	public Wave two = new Wave(2,1,2);
@@ -189,6 +191,15 @@ public class EnemySpawner : MonoBehaviour {
 					enemy = enemy4;
 					Instantiate(enemy, Make_Spawn_Loc(room_bounds), transform.rotation);
 				}
+			}
+		}
+		if(wave_number > 25){
+			GameObject a = GameObject.FindGameObjectWithTag("Player");
+			a.GetComponent<PlayerMovement>().enabled = false;
+			GUI.DrawTexture(new Rect(Screen.width/2 - (722/2),200,722,319),winning);
+			GUI.skin = playagain;
+			if(GUI.Button(new Rect(Screen.width/2 - (300/2),400,300,100),"")){
+				Application.LoadLevel("splash");
 			}
 		}
 	}

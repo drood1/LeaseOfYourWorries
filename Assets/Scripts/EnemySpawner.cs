@@ -149,6 +149,12 @@ public class EnemySpawner : MonoBehaviour {
 				var player_object = GameObject.Find ("playerChar");
 				TalkToBoo player_script = player_object.GetComponent<TalkToBoo>();
 				player_script.DoorsOpen = false;
+
+				int chance = Random.Range (0,10);
+				if(chance < 4) {
+					enemy = enemy4;
+					Instantiate(enemy, Make_Spawn_Loc(room_bounds), transform.rotation);
+				}
 			}
 		}
 	}

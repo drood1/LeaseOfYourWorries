@@ -135,10 +135,10 @@ public class Player : MonoBehaviour {
 		}
 		if (health <= 0){
 			GUI.DrawTexture(new Rect(8,10,413,88),health6);
-			GUI.DrawTexture(new Rect(Screen.width/2 - (722/2),400,722,319),gameover);
-			this.enabled = false;
-
-			if(GUI.Button(new Rect(Screen.width/2 - (100/2),1100,100,50),"PLAY AGAIN?")){
+			GUI.DrawTexture(new Rect(Screen.width/2 - (722/2),200,722,319),gameover);
+			GameObject a = GameObject.FindGameObjectWithTag("Player");
+			a.GetComponent<PlayerMovement>().enabled = false;
+			if(GUI.Button(new Rect(Screen.width/2 - (100/2),400,100,50),"PLAY AGAIN?")){
 				Application.LoadLevel("splash");
 			}
 		}

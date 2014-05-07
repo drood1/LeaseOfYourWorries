@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour {
 		//}
 		if(c.gameObject.tag == "Player") {
 			this.rigidbody.constraints = RigidbodyConstraints.FreezePosition;
+			this.rigidbody.constraints = RigidbodyConstraints.FreezeAll;
 			is_hit = true;
 			time_hit = Time.time;
 			

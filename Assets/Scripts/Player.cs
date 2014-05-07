@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
 	public Texture health5;
 	public Texture health6;
 	public Texture gameover;
-
+	public GUISkin playagain = null;
 	public Vector4 room_bounds;
 	
 	//public GameObject dmg_skin = null;
@@ -138,7 +138,8 @@ public class Player : MonoBehaviour {
 			GUI.DrawTexture(new Rect(Screen.width/2 - (722/2),200,722,319),gameover);
 			GameObject a = GameObject.FindGameObjectWithTag("Player");
 			a.GetComponent<PlayerMovement>().enabled = false;
-			if(GUI.Button(new Rect(Screen.width/2 - (100/2),400,100,50),"PLAY AGAIN?")){
+			GUI.skin = playagain;
+			if(GUI.Button(new Rect(Screen.width/2 - (300/2),400,300,100),"")){
 				Application.LoadLevel("splash");
 			}
 		}

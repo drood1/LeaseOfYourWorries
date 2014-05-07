@@ -28,8 +28,6 @@ public class UI : MonoBehaviour {
 	void Start () {
 		repBarLength = (409)*(curRep /(float)maxRep);
 		curRep = 0;
-
-
 	}
 	
 	// Update is called once per frame

@@ -15,7 +15,7 @@ public class UI : MonoBehaviour {
 	public GUIStyle style3 = null;
 	public int Candies = 99;
 	public int curRep = 0;
-	private int maxRep = 99;
+	private int maxRep = 40;
 	private int curLevel = 0;
 	private int maxLevel = 4;
 	private int enemy_count = 0;
@@ -39,7 +39,7 @@ public class UI : MonoBehaviour {
 			if(curRep >= maxRep){
 				curRep = curRep-maxRep;
 				curLevel++;
-				maxRep += (20 *curLevel) + 100;
+				maxRep += (20 *curLevel) + 40;
 				
 			}
 			if(Input.GetKeyDown ("p")){

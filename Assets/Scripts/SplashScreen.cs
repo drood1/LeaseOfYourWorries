@@ -30,7 +30,7 @@ public class SplashScreen : MonoBehaviour {
 			GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), Base);
 			GUI.skin = but;
 			if(GUI.Button(new Rect(halfscreenwidth-(buttonwidth)-10,Screen.height - buttonheight-10,buttonwidth,buttonheight)," ")){
-				Application.LoadLevel("Lease Of Your Worries");
+				Application.LoadLevel("Intro_Scene");
 
 			}
 			GUI.skin = but2;

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour {
 	public Texture health4;
 	public Texture health5;
 	public Texture health6;
+	public Texture gameover;
 
 	public Vector4 room_bounds;
 	
@@ -49,6 +50,9 @@ public class Player : MonoBehaviour {
 		if(invincible) {
 			//Debug.Log("Invincible");
 			flash(temp);
+		}
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			Application.Quit();
 		}
 		
 	}
@@ -131,6 +135,12 @@ public class Player : MonoBehaviour {
 		}
 		if (health <= 0){
 			GUI.DrawTexture(new Rect(8,10,413,88),health6);
+			GUI.DrawTexture(new Rect(Screen.width/2 - (722/2),400,722,319),gameover);
+			this.enabled = false;
+
+			if(GUI.Button(new Rect(Screen.width/2 - (100/2),1100,100,50),"PLAY AGAIN?")){
+				Application.LoadLevel("splash");
+			}
 		}
 	}
 
@@ -141,6 +151,7 @@ public class Player : MonoBehaviour {
 			timer = Time.time;
 		}
 	}
+
 
 	void updateBounds(Vector4 bounds) {
 		room_bounds = bounds;

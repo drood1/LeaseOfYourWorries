@@ -13,6 +13,12 @@ public class SplashScreen : MonoBehaviour {
 	public GUISkin but3 = null;
 	private bool tut = false;
 	private int screen = 0;
+	public void Update(){
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			Application.Quit();
+		}
+
+	}
 	public void OnGUI(){
 		if(customskin != null)
 			GUI.skin = customskin;

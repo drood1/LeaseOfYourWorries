@@ -22,6 +22,7 @@ public class EnemySpawner : MonoBehaviour {
 	public Wave current_wave = null;	// Current Wave the game is on;
 	public int place_in_wave;			// Which enemy will be spawned next
 	public int death_count = 0;			// How many enemies in current wave killed
+	public int wave_number = 1;
 	
 	public List<Wave> waves = new List<Wave>();	// Container for Waves
 	public Wave one = new Wave(1,2,1);			
@@ -89,6 +90,16 @@ public class EnemySpawner : MonoBehaviour {
 		waves.Add (thirteen);
 		waves.Add (fourteen);
 		waves.Add (fifteen);
+		waves.Add (sixteen);
+		waves.Add (seventeen);
+		waves.Add (eighteen);
+		waves.Add (nineteen);
+		waves.Add (twenty);
+		waves.Add (twentyone);
+		waves.Add (twentytwo);
+		waves.Add (twentythree);
+		waves.Add (twentyfour);
+		waves.Add (twentyfive);
 		current_wave = waves[0];
 		spawn_speed = current_wave.spawn_speed;
 		place_in_wave = 0;
@@ -168,7 +179,7 @@ public class EnemySpawner : MonoBehaviour {
 				start_time = Time.time;
 				new_wave = false;
 				CloseDoors();
-
+				wave_number = current_wave.wave_name;
 				var player_object = GameObject.Find ("playerChar");
 				TalkToBoo player_script = player_object.GetComponent<TalkToBoo>();
 				player_script.DoorsOpen = false;

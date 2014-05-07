@@ -27,6 +27,10 @@ public class Bullet : MonoBehaviour {
 			player.SendMessage("getHit", dmg);
 			GameObject.Destroy(gameObject);
 		}
+		if(c.gameObject.layer == 8)
+		{
+			GameObject.Destroy(gameObject);
+		}
 	}
 	void Update () {
 		//Debug.Log((Time.time-starttime)*bspeed);

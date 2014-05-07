@@ -37,7 +37,7 @@ public class ItemWarp : MonoBehaviour {
 	Grabbing whatdo;
 	// Use this for initialization
 	void Start () {
-		cdnum = wepcd/5 * MAX_CD;
+		cdnum = wepcd/8 * MAX_CD;
 		MAX_RANGE = 2.5f;
 		cam = GameObject.FindWithTag("MainCamera");
 		player = GameObject.FindWithTag("Player");

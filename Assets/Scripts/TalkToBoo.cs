@@ -25,41 +25,41 @@ public class TalkToBoo : MonoBehaviour {
 		
 		
 		if(trigger == 1)	{
-			GUI.DrawTexture( new Rect(440, 600, 700, 70), text_box);
-			GUI.Label ( new Rect (525, 600,700,70), "Enough lazing about boy!", boo_font);
+			GUI.DrawTexture( new Rect(290, 600, 700, 70), text_box);
+			GUI.Label ( new Rect (375, 600,700,70), "Enough lazing about boy!", boo_font);
 
 		}
 		else if(trigger == 2){
-			GUI.DrawTexture ( new Rect(420, 600, 760, 70), text_box);
-			GUI.Label ( new Rect (465, 600,700,70), "Don't you want your candy back?", boo_font);
+			GUI.DrawTexture ( new Rect(270, 600, 760, 70), text_box);
+			GUI.Label ( new Rect (315, 600,700,70), "Don't you want your candy back?", boo_font);
 		}
 		else if(trigger == 3){
-			GUI.DrawTexture ( new Rect(600, 600, 400, 70), text_box);
-			GUI.Label ( new Rect (650, 600,700,70), "Have at them!", boo_font);
+			GUI.DrawTexture ( new Rect(450, 600, 400, 70), text_box);
+			GUI.Label ( new Rect (500, 600,700,70), "Have at them!", boo_font);
 		}
 		else if(trigger == 12){
-			GUI.DrawTexture ( new Rect(320, 600, 950, 70), text_box_2);
-			GUI.Label ( new Rect (350, 600, 900, 70), "Such a kind gesture from a kind young man!", boo_font);
+			GUI.DrawTexture ( new Rect(170, 600, 950, 70), text_box_2);
+			GUI.Label ( new Rect (200, 600, 900, 70), "Such a kind gesture from a kind young man!", boo_font);
 			Invoke ("resetTrigger", 2);
 		}
 		else if(trigger == 13)	{
-			GUI.DrawTexture ( new Rect(370, 600, 900, 70), text_box_2);
-			GUI.Label (new Rect (420, 600, 900, 70), "That's not nearly enough to satisfy me!", boo_font);
+			GUI.DrawTexture ( new Rect(220, 600, 900, 70), text_box_2);
+			GUI.Label (new Rect (270, 600, 900, 70), "That's not nearly enough to satisfy me!", boo_font);
 			Invoke ("resetTrigger", 2);
 		}
 		else if(trigger == 15)	{
-			GUI.DrawTexture ( new Rect(370, 600, 900, 70), text_box_2);
-			GUI.Label (new Rect (400, 600, 750, 70), "Well done! You've earned a brief respite.", boo_font);
+			GUI.DrawTexture ( new Rect(220, 600, 900, 70), text_box_2);
+			GUI.Label (new Rect (250, 600, 750, 70), "Well done! You've earned a brief respite.", boo_font);
 			Invoke ("resetTrigger", 2);
 		}
 		else if(trigger == 16)	{
-			GUI.DrawTexture ( new Rect(370, 600, 900, 70), text_box_2);
-			GUI.Label (new Rect (475, 600, 750, 70), "Ready your arms, here they come!", boo_font);
+			GUI.DrawTexture ( new Rect(220, 600, 900, 70), text_box_2);
+			GUI.Label (new Rect (325, 600, 750, 70), "Ready your arms, here they come!", boo_font);
 			Invoke ("resetTrigger", 2);
 		}
 		else if(trigger == 17)	{	
-			GUI.DrawTexture ( new Rect(360, 600, 920, 70), text_box_2);
-			GUI.Label (new Rect (375, 600, 750, 70), "I'm afraid that's a bit out of your range boy.", boo_font);
+			GUI.DrawTexture ( new Rect(210, 600, 920, 70), text_box_2);
+			GUI.Label (new Rect (225, 600, 750, 70), "I'm afraid that's a bit out of your range boy.", boo_font);
 			Invoke ("resetTrigger", 2);
 		}
 		

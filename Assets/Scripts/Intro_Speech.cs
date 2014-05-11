@@ -65,6 +65,6 @@ public class Intro_Speech : MonoBehaviour {
 				trigger = 0;
 			}
 		}
-		print (trigger);
+//		print (trigger);
 	}
 }

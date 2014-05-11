@@ -102,7 +102,8 @@ public class TalkToBoo : MonoBehaviour {
 		//if the player exits Booregard's "range", the trigger will reset to 0
 		if(inRange == true){
 			if(Input.GetKeyDown("t")){
-				trigger++;
+				if(trigger < 10)
+					trigger++;
 				if(trigger == 4)
 					trigger = 0;
 			}

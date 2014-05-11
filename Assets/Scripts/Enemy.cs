@@ -57,12 +57,12 @@ public class Enemy : MonoBehaviour {
 	}
 	
 	void Update () {
-		if(animation.isPlaying)
-			Debug.Log("Animation is Playing");
-		else {
-			Debug.Log ("Animation not playing");
-			animation.Play();
-		}
+		//if(animation.isPlaying)
+			//Debug.Log("Animation is Playing");
+	//	else {
+	//		Debug.Log ("Animation not playing");
+	//		animation.Play();
+	//	}
 		if(!is_hit) {
 			Move();
 		}
